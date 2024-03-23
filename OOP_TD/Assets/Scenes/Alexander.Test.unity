@@ -500,8 +500,13 @@ PrefabInstance:
     - target: {fileID: 3927452535074100414, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: rotationSpeed
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 5242716694905430787, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 135b1b5a9338f5e4bb0d701f43391667, type: 2}
     - target: {fileID: 7279625200969257081, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_Name
