@@ -484,7 +484,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &6717678956253922356
+--- !u!1001 &7646884038364129522
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -492,81 +492,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1315109227092787042, guid: 814f3506b1d7dfc479191f8f9a27ef51,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 135b1b5a9338f5e4bb0d701f43391667, type: 2}
-    - target: {fileID: 3927452535074100414, guid: 814f3506b1d7dfc479191f8f9a27ef51,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5242716694905430787, guid: 814f3506b1d7dfc479191f8f9a27ef51,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 135b1b5a9338f5e4bb0d701f43391667, type: 2}
-    - target: {fileID: 7279625200969257081, guid: 814f3506b1d7dfc479191f8f9a27ef51,
-        type: 3}
-      propertyPath: m_Name
-      value: CPUFan
-      objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.1654215
+      value: 1.5609517
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.03
+      value: 2.04
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.23204517
+      value: -1.722992
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7948215769503976131, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5087342587226049355, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7987707993890247818, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    - target: {fileID: 5607561586591076849, guid: 814f3506b1d7dfc479191f8f9a27ef51,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0db30fb2a4d77e64686859b49df08932, type: 2}
+      propertyPath: m_Name
+      value: CPUFan
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -579,4 +559,4 @@ SceneRoots:
   - {fileID: 46123667}
   - {fileID: 2039692208}
   - {fileID: 2052033407}
-  - {fileID: 6717678956253922356}
+  - {fileID: 7646884038364129522}
