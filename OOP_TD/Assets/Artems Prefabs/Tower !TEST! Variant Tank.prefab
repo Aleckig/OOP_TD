@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8284817639949902764
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596275879855523498, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59a82af665b15294cb21ceb543ec55bf, type: 2}
+    - target: {fileID: 4197643823405404435, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_Name
+      value: Tower !TEST! Variant Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858919422172472615, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: towerName
+      value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858919422172472615, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: tower.name
+      value: Tankish
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858919422172472615, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: towerPrice
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858919422172472615, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: tower.price
+      value: 400
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04e010331015bda4db5df0b3136f15da, type: 3}
