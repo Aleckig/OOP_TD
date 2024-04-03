@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text UIMoneyText;
     [SerializeField] private int moneyValue = 200;
+    public int GetMoneyValue => moneyValue;
 
     private void Awake()
     {
