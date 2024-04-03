@@ -159,8 +159,8 @@ namespace Michsky.UI.Heat
             else if (titleObj != null) { titleObj.gameObject.SetActive(false); }
 
             if (enableDescription && descriptionObj != null) { descriptionObj.gameObject.SetActive(true); descriptionObj.text = buttonDescription; }
-            else if (descriptionObj != null) 
-            { 
+            else if (descriptionObj != null)
+            {
                 descriptionObj.gameObject.SetActive(false);
                 if (Application.isPlaying && enableTitle && titleObj != null) { titleObj.transform.parent.gameObject.name = titleObj.gameObject.name + "_D"; }
             }
@@ -219,9 +219,9 @@ namespace Michsky.UI.Heat
             }
         }
 
-        public void InvokeOnClick() 
-        { 
-            onClick.Invoke(); 
+        public void InvokeOnClick()
+        {
+            onClick.Invoke();
         }
 
         void TriggerAnimation(string triggername)
@@ -287,7 +287,7 @@ namespace Michsky.UI.Heat
             if (!isInteractable) { return; }
             if (useSounds) { UIManagerAudio.instance.audioSource.PlayOneShot(UIManagerAudio.instance.UIManagerAsset.hoverSound); }
 
-            TriggerAnimation("Highlighted");
+            // TriggerAnimation("Highlighted");
             onSelect.Invoke();
         }
 
@@ -296,7 +296,7 @@ namespace Michsky.UI.Heat
             if (!isInteractable)
                 return;
 
-            TriggerAnimation("Normal");
+            // TriggerAnimation("Normal");
             onDeselect.Invoke();
         }
 
@@ -323,7 +323,7 @@ namespace Michsky.UI.Heat
             if (selectOnDown != null) { nav.selectOnDown = selectOnDown.GetComponent<Selectable>(); }
             if (selectOnLeft != null) { nav.selectOnLeft = selectOnLeft.GetComponent<Selectable>(); }
             if (selectOnRight != null) { nav.selectOnRight = selectOnRight.GetComponent<Selectable>(); }
-           
+
             targetButton.navigation = nav;
         }
 

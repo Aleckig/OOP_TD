@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1813769988295039228}
-  - component: {fileID: 8858919422172472615}
+  - component: {fileID: 2111776942360350404}
   m_Layer: 0
   m_Name: Tower !TEST!
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 1604760505878965217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8858919422172472615
+--- !u!114 &2111776942360350404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower:
-    towerPrefab: {fileID: 4197643823405404435}
-    name: Basic
-    price: 100
+    towerPrefab: {fileID: 0}
+    name: 
+    price: 0
 --- !u!1 &7121030699818702705
 GameObject:
   m_ObjectHideFlags: 0
