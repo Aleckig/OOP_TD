@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 570645843479376071}
   - component: {fileID: 2987237151635204362}
   - component: {fileID: 2205655063921600132}
+  - component: {fileID: -9104012655801223041}
   m_Layer: 0
   m_Name: EnemyTest 3
   m_TagString: Untagged
@@ -113,9 +114,32 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5590894476916518346}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0afe09d95a16ee94ebddb92048aece71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  target: {fileID: 0}
+  isAttacking: 0
+  targetAttackPoints: {fileID: 0}
+  reachedEnd: 0
+  baseObject: {fileID: 0}
+  timeBetweenAttacks: 0
+--- !u!114 &-9104012655801223041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590894476916518346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e1262ef42605b4db6499fc3ec305eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0
+  speed: 2
+  isAttacking: 0
+  target: {fileID: 0}
+  baseObject: {fileID: 0}
