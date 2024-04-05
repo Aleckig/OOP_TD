@@ -53,7 +53,7 @@ Material:
     m_Floats:
     - _GlitchSpeed: 3
     - _InsideGlowSpread: 0.76
-    - _NoiseScale: 85.2
+    - _NoiseScale: 85
     - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
