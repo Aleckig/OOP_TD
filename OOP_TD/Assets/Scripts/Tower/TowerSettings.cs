@@ -8,7 +8,7 @@ public class TowerSettings : MonoBehaviour
     {
         tower = _tower;
     }
-    public Tower TransferClass()
+    public Tower GetTower()
     {
         return tower;
     }
