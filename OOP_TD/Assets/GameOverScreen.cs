@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] private string SceneName = "";
     public void ShowGameOverScreen()
     {
         this.gameObject.SetActive(true);
@@ -13,6 +14,6 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("KimiScene");
+        SceneManager.LoadScene(SceneName);
     }
 }

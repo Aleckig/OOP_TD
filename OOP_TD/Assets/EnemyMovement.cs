@@ -55,7 +55,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-        if (isAttacking == true) {
+        if (isAttacking == true)
+        {
             if (timeBetweenAttacks <= 0)
             {
                 StartCoroutine(Attack());
@@ -88,7 +89,7 @@ public class EnemyMovement : MonoBehaviour
                     reachedEnd = true;
                     break;
                 }
-                if (i >= targetAttackPoints.transform.childCount-1)
+                if (i >= targetAttackPoints.transform.childCount - 1)
                 {
                     //TODO: Do something with enemies that cannot fit around the base
                     Destroy(gameObject);
