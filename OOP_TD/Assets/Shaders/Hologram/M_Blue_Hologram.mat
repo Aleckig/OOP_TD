@@ -60,9 +60,9 @@ Material:
     - _Power: 2.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleDistance: 0.5
-    - _WobbleFrequency: 1.45
-    - _WobbleSpeed: 5
+    - _WobbleDistance: 0.04
+    - _WobbleFrequency: 0.27
+    - _WobbleSpeed: 0.74
     m_Colors:
     - _Color: {r: 0.02402986, g: 0.6778952, b: 1.698113, a: 0.3921569}
     - _HologramTilling: {r: 2, g: 3, b: 0, a: 0}
