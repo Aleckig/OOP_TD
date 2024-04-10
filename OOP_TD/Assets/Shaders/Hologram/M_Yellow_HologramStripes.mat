@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Green_HologramStripes
+  m_Name: M_Yellow_HologramStripes
   m_Shader: {fileID: -6465566751694194690, guid: f7bf887fdd7af3e468325d8115cca822,
     type: 3}
   m_Parent: {fileID: 0}
@@ -64,9 +64,9 @@ Material:
     - _WobbleFrequency: 1.45
     - _WobbleSpeed: 5
     m_Colors:
-    - _Color: {r: 0.0755279, g: 1.698113, b: 0.026671883, a: 0.3921569}
+    - _Color: {r: 1.698113, g: 1.6965559, b: 0.026671883, a: 0.3921569}
     - _HologramTilling: {r: 2, g: 3, b: 0, a: 0}
-    - _InsideColour: {r: 0.4797969, g: 1.4467609, b: 0, a: 0.39215687}
+    - _InsideColour: {r: 1.4467609, g: 0.5899599, b: 0, a: 0.39215687}
     - _InsidePosition: {r: 0, g: 0, b: 0, a: 0}
     - _Lerp: {r: 0.2, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

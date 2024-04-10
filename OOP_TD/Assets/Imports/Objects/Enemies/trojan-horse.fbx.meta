@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: d6ab65e556ebfce4889cda051dbe8e3f
+guid: 8ba378bc8add95b499cbb59c8497ddc5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: usb_metal_casing
-    second: {fileID: 2100000, guid: 23153035a985c7f44b919f749105a0f5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: usb_metal_pins
-    second: {fileID: 2100000, guid: 970db443628a95041b1809a75a8291a5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: usb_plastic
-    second: {fileID: 2100000, guid: e1239727ac0ed234e805f0fc5b7bdba7, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.3
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -105,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.003
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

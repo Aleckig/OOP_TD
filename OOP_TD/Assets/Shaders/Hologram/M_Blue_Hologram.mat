@@ -56,7 +56,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _HologramSpeed: 0.3
-    - _InsideGlowSpread: 0.82
+    - _InsideGlowSpread: 1.1
     - _Power: 2.1
     - _QueueControl: 0
     - _QueueOffset: 0

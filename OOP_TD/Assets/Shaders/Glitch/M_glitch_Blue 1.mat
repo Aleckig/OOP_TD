@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7600946061617583844
+--- !u!114 &-1734449134028517172
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Blue_HologramStripes
+  m_Name: M_glitch_Blue 1
   m_Shader: {fileID: -6465566751694194690, guid: b4bd73e29b65e22468f3bb243bc2e671,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: 38c940bf19d45354698ccaa4490156bf, type: 2}
-  m_ModifiedSerializedProperties: 2
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -36,13 +36,29 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _InsideGlowSpread: 1.4
-    - _NoiseScale: 69.6
-    - _Power: 0.76
+    - _GlitchSpeed: 0.64
+    - _InsideGlowSpread: 1
+    - _NoiseScale: 85
+    - _Power: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.02402986, g: 0.6778952, b: 1.698113, a: 0.3921569}
-    - _InsideColor: {r: 0.4670151, g: 1.245374, b: 7.433325, a: 0.4117647}
+    - _Color: {r: 0.7490196, g: 0.011764685, b: 0.018843155, a: 0.4039216}
+    - _InsideColor: {r: 9.643201, g: 0.25244036, b: 0.25243974, a: 0.40392157}
+    - _InsidePosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
