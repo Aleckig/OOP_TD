@@ -270,6 +270,7 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 0.2
   towerTop: {fileID: 7772750413549281627}
+  towerCore: {fileID: 672318942384147527}
   towerTopBulletPlace: {fileID: 4545849061051836657}
   enemyList: []
   activeTarget: {fileID: 0}
@@ -528,6 +529,12 @@ PrefabInstance:
       addedObject: {fileID: 5221390158927929927}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6294788aca5138740b32f64b6d40f1f4, type: 3}
+--- !u!1 &672318942384147527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4342243973800783458, guid: 6294788aca5138740b32f64b6d40f1f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3825299253206131237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3646939444391855566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6294788aca5138740b32f64b6d40f1f4,

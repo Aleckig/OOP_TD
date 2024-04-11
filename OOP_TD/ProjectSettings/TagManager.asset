@@ -8,6 +8,8 @@ TagManager:
   - Base
   - FlyingAttackPoints
   - Enemy
+  - Target
+  - Ground
   layers:
   - Default
   - TransparentFX
