@@ -5,15 +5,29 @@ using UnityEngine;
 public class ProjectileFlying : MonoBehaviour
 {
     public float speed;
-    // Update is called once per frame
+    public GameObject target;
+    public TowerDealDamage tower;
+
     void FixedUpdate()
     {
         transform.position += transform.forward * speed;
+        if (target != null)
+        {
+            transform.LookAt(target.transform);
+        }
         // transform.Translate(transform.forward*speed, Space.Self);
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.gameObject.CompareTag("Target"))
+        {
+            tower.GetComponent<TowerDealDamage>().DamageEnemyHealth();
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

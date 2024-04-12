@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    [SerializeField] private string SceneName = "";
+    private string currentSceneName;
+    //[SerializeField] private string SceneName = "";
+
+    void Start()
+    {
+        currentSceneName = SceneManager.GetActiveScene().name;
+    }
+
     public void ShowGameOverScreen()
     {
         this.gameObject.SetActive(true);
@@ -14,6 +21,6 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene(currentSceneName);
     }
 }

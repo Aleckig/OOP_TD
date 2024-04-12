@@ -15,7 +15,8 @@ public class EnemyMovement : MonoBehaviour
     public GameObject baseObject;
     public float timeBetweenAttacks = 0f;
     private int damage = 1;
-    public int health = 40;
+    public int health = 100;
+    public HealthBar enemyHealthBar;
 
 
     void Start()
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         target = TurningPoints.points[0];
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
+        enemyHealthBar.SetMaxHealth(health);
 
     }
 
@@ -57,6 +59,9 @@ public class EnemyMovement : MonoBehaviour
 
         if (isAttacking == true)
         {
+            this.transform.GetChild(0).GetComponent<Animator>().Rebind();
+            this.transform.GetChild(0).GetComponent<Animator>().enabled = false;
+            //TODO: Play attack animation
             if (timeBetweenAttacks <= 0)
             {
                 StartCoroutine(Attack());
