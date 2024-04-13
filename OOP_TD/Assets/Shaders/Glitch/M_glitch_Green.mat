@@ -52,13 +52,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _GlitchSpeed: 0.64
-    - _InsideGlowSpread: 1
+    - _InsideGlowSpread: 0.7
     - _NoiseScale: 85
     - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.7490196, g: 0.011764685, b: 0.018843155, a: 0.4039216}
-    - _InsideColor: {r: 9.643201, g: 0.25244036, b: 0.25243974, a: 0.40392157}
+    - _Color: {r: 0.0993303, g: 0.7490196, b: 0.011764685, a: 0.4039216}
+    - _InsideColor: {r: 1.2103958, g: 9.643201, b: 0.25243974, a: 0.40392157}
     - _InsidePosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

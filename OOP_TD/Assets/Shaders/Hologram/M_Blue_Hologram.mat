@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _HologramTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 047e3b66512838648b17af30fa67fdd5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -60,9 +60,9 @@ Material:
     - _Power: 2.1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleDistance: 0.04
+    - _WobbleDistance: 0
     - _WobbleFrequency: 0.27
-    - _WobbleSpeed: 0.74
+    - _WobbleSpeed: 0.1
     m_Colors:
     - _Color: {r: 0.02402986, g: 0.6778952, b: 1.698113, a: 0.3921569}
     - _HologramTilling: {r: 2, g: 3, b: 0, a: 0}

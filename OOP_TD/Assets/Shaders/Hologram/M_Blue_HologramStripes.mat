@@ -39,7 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _InsideGlowSpread: 1.4
+    - _InsideGlowSpread: 0.81
     - _NoiseScale: 69.6
     - _Power: 0.76
     m_Colors:
