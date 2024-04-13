@@ -58,22 +58,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ba378bc8add95b499cbb59c8497ddc5,
         type: 3}
@@ -147,7 +147,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: -623603649343465320, guid: 8ba378bc8add95b499cbb59c8497ddc5,
     type: 3}
-  m_Animations: []
+  m_Animations:
+  - {fileID: -623603649343465320, guid: 8ba378bc8add95b499cbb59c8497ddc5, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
