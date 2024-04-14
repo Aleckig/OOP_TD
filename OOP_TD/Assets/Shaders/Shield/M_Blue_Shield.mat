@@ -65,6 +65,6 @@ Material:
     - _RippleSpeed: 1
     - _TextureSpeed: 0.2
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.006019284, b: 0.62352943, a: 0}
-    - _EmissionColor: {r: 0, g: 1.0272789, b: 3.26022, a: 0}
+    - _BaseColor: {r: 0, g: 0.046516176, b: 0.62352943, a: 0}
+    - _EmissionColor: {r: 0, g: 2.7543466, b: 3.26022, a: 0}
   m_BuildTextureStacks: []
