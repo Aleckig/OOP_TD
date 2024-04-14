@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff48eb39dfe84ea42b5b41f11cef2fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1307372891399782196, guid: 476bd15b9ade397469af6c39a74107ac,
+  projectilePrefab: {fileID: 1307372891399782196, guid: bca1dd7529e33bc40b30335c9cf7b29b,
     type: 3}
   projectileSpeed: 0.2
   towerTop: {fileID: 7772750413549281627}
@@ -274,6 +274,7 @@ MonoBehaviour:
   towerTopBulletPlace: {fileID: 4545849061051836657}
   enemyList: []
   activeTarget: {fileID: 0}
+  currentTarget: {fileID: 0}
 --- !u!135 &2781798751936145900
 SphereCollider:
   m_ObjectHideFlags: 0
