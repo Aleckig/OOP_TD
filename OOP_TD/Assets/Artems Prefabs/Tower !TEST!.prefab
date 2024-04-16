@@ -266,13 +266,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff48eb39dfe84ea42b5b41f11cef2fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1307372891399782196, guid: bca1dd7529e33bc40b30335c9cf7b29b,
+  projectilePrefab: {fileID: 1307372891399782196, guid: fdf2059b3a79ebe46b66136d4012a9c3,
     type: 3}
   projectileSpeed: 0.2
   towerTop: {fileID: 7772750413549281627}
   towerCore: {fileID: 672318942384147527}
   towerTopBulletPlace: {fileID: 4545849061051836657}
   enemyList: []
+  particleEffectPrefab: {fileID: 7250548435930761953, guid: a99a42b35f949164fa9b4c8cf4fb6678,
+    type: 3}
   activeTarget: {fileID: 0}
   currentTarget: {fileID: 0}
 --- !u!135 &2781798751936145900

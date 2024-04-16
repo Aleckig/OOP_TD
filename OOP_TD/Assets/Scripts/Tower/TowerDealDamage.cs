@@ -11,6 +11,7 @@ public class TowerDealDamage : MonoBehaviour
     [SerializeField] private GameObject towerCore;
     [SerializeField] private GameObject towerTopBulletPlace;
     [SerializeField] private List<GameObject> enemyList;
+    [SerializeField] private GameObject particleEffectPrefab;
     private TowerSettings towerSettings;
     //[SerializeField] private GameObject activeTarget = null;
     public GameObject activeTarget = null;
@@ -64,6 +65,9 @@ public class TowerDealDamage : MonoBehaviour
         projectileObj.GetComponent<ProjectileFlying>().target = currentTarget;
         projectileObj.GetComponent<ProjectileFlying>().speed = projectileSpeed;
         projectileObj.GetComponent<ProjectileFlying>().tower = this;
+
+        // Instantiate the particle effect at the bullet point position
+    Instantiate(particleEffectPrefab, towerTopBulletPlace.transform.position, Quaternion.identity);
     }
     private IEnumerator DealDamageToEnemy()
     {

@@ -246,6 +246,8 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   health: 80
   enemyHealthBar: {fileID: 5892278017915124469}
+  particleEffectPrefab: {fileID: 2461838983342703774, guid: 7f18dd46f015315418a3189c28a3fa77,
+    type: 3}
 --- !u!1 &5920798233098482546
 GameObject:
   m_ObjectHideFlags: 0
