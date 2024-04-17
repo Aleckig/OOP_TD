@@ -12,6 +12,9 @@ public class BaseManager : MonoBehaviour
     public Material healthyMaterial;
     public Material mediumMaterial;
     public Material criticalMaterial;
+    public GameObject baseShield;
+    public Material shieldEffect;
+    public float shieldValue = -0.30f;
 
     private Renderer targetRenderer; // Renderer of the target GameObject
 
@@ -54,5 +57,23 @@ public class BaseManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    public void SpawnShield()
+    {
+        baseShield.gameObject.SetActive(true);
+        shieldEffect.SetFloat("_Fill", shieldValue);
+        StartCoroutine(ShieldAppear());
+    }
+
+    IEnumerator ShieldAppear()
+    {
+        while (shieldEffect.GetFloat("_Fill") < 0f)
+        {
+            shieldValue += 0.02f;
+            shieldEffect.SetFloat("_Fill", shieldValue);
+            yield return new WaitForSeconds(0.02f);
+        }
+        yield return null;
     }
 }
