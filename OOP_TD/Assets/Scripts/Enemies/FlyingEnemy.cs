@@ -55,7 +55,7 @@ public class FlyingEnemy : MonoBehaviour
             }
             timeBetweenAttacks -= Time.deltaTime;
         }
-        if (Vector3.Distance(transform.position, flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1).position) <= 1f && isAttacking == false)
+        if (Vector3.Distance(transform.position, flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1).position) <= 1f && reachedDestination == false)
         {
             for (int i = 0; i < flyingTargetAttackPoints.transform.childCount; i++)
             {
@@ -67,11 +67,15 @@ public class FlyingEnemy : MonoBehaviour
             }
             target.gameObject.SetActive(false);
             reachedDestination = true;
-            if (target != flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1))
-            {
-                isAttacking = true;
-            }
+            //if (target != flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1))
+            //{
+            //    isAttacking = true;
+            //}
             return;
+        }
+        if (Vector3.Distance(transform.position, target.position) <= 0.1f)
+        {
+            isAttacking = true;
         }
         
         if (health <= 0)
