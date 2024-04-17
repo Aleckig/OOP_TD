@@ -7,4 +7,5 @@ public class Wave
 {
     public GameObject[] enemies;
     public int count;
+    public List<int> paths;
 }

@@ -14,7 +14,7 @@ public class BaseManager : MonoBehaviour
     public Material criticalMaterial;
     public GameObject baseShield;
     public Material shieldEffect;
-    public float shieldValue = -0.30f;
+    public float shieldValue = -0.4f;
     public HealthBar shieldHealthBar;
     private bool isBaseShielded = false;
     private int baseHealthSave = 100;
@@ -88,7 +88,7 @@ public class BaseManager : MonoBehaviour
     {
         while (shieldEffect.GetFloat("_Fill") < 0f)
         {
-            shieldValue += 0.01f;
+            shieldValue += 0.02f;
             shieldEffect.SetFloat("_Fill", shieldValue);
             yield return new WaitForSeconds(0.01f);
         }
@@ -99,9 +99,9 @@ public class BaseManager : MonoBehaviour
     {
         shieldHealthBar.gameObject.SetActive(false);
         isBaseShielded = false;
-        while (shieldEffect.GetFloat("_Fill") > -0.3f)
+        while (shieldEffect.GetFloat("_Fill") > -0.4f)
         {
-            shieldValue -= 0.01f;
+            shieldValue -= 0.02f;
             shieldEffect.SetFloat("_Fill", shieldValue);
             yield return new WaitForSeconds(0.01f);
         }
