@@ -256,6 +256,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4812773}
   m_CullTransparentMesh: 1
+--- !u!1 &8095046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8012941276687071277, guid: 814f3506b1d7dfc479191f8f9a27ef51,
+    type: 3}
+  m_PrefabInstance: {fileID: 1413081457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &47093609
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +787,10 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1871829360}
   gameOverScreen: {fileID: 169581494}
+  targetObject: {fileID: 8095046}
+  healthyMaterial: {fileID: 2100000, guid: 424ae516755d4ea44b0d686b56861cab, type: 2}
+  mediumMaterial: {fileID: 2100000, guid: 19388e2a4df7e034ebe80ce7e397de94, type: 2}
+  criticalMaterial: {fileID: 2100000, guid: 2a6520a90b8e8c7449c18b756c26ffdc, type: 2}
 --- !u!1 &362358126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,7 +2709,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CPUFan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1080310850762161160, guid: 814f3506b1d7dfc479191f8f9a27ef51, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
