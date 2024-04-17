@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7600946061617583844
+--- !u!114 &-3136794743394783529
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Yellow_HologramStripes
-  m_Shader: {fileID: -6465566751694194690, guid: f7bf887fdd7af3e468325d8115cca822,
+  m_Name: M_Trail_Fire
+  m_Shader: {fileID: -6465566751694194690, guid: 9f98f76f68f2b42408f6af7190e01d71,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -37,8 +37,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _HologramTexture:
-        m_Texture: {fileID: 2800000, guid: 047e3b66512838648b17af30fa67fdd5, type: 3}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: acf172c0cd7573f45a20a878d3bd11da, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,18 +55,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _HologramSpeed: 0.1
-    - _InsideGlowSpread: 1.4
-    - _Power: 0.76
+    - _FadeScale: 35
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WobbleDistance: 0.005
-    - _WobbleFrequency: 1
-    - _WobbleSpeed: 1
     m_Colors:
-    - _Color: {r: 1.698113, g: 1.6965559, b: 0.026671883, a: 0.3921569}
-    - _HologramTilling: {r: 2, g: 3, b: 0, a: 0}
-    - _InsideColour: {r: 1.4467609, g: 0.5899599, b: 0, a: 0.39215687}
-    - _InsidePosition: {r: 0, g: 0, b: 0, a: 0}
-    - _Lerp: {r: 0.2, g: 0, b: 0, a: 0}
+    - _Color01: {r: 39.39662, g: 9.804125, b: 0, a: 1}
+    - _Color02: {r: 0.6509804, g: 0.37739798, b: 0, a: 1}
+    - _FadeSpeed: {r: 1, g: 0, b: 0, a: 0}
+    - _MainTextureSpeed: {r: -0.1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

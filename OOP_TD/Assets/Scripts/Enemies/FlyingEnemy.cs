@@ -13,6 +13,7 @@ public class FlyingEnemy : MonoBehaviour
     public Transform target;
     public GameObject baseObject;
     public GameObject flyingTargetAttackPoints;
+    [SerializeField] private GameObject particleEffectPrefab;
     private bool reachedDestination = false;
 
     void Start()
@@ -47,6 +48,9 @@ public class FlyingEnemy : MonoBehaviour
             {
                 StartCoroutine(Attack());
                 timeBetweenAttacks = 3f;
+
+                // Spawn particle effect at the position of the object
+                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
                 return;
             }
             timeBetweenAttacks -= Time.deltaTime;

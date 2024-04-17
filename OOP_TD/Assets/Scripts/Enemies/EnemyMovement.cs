@@ -17,6 +17,7 @@ public class EnemyMovement : MonoBehaviour
     private int damage = 1;
     public int health = 100;
     public HealthBar enemyHealthBar;
+    [SerializeField] private GameObject particleEffectPrefab;
 
 
     void Start()
@@ -66,6 +67,9 @@ public class EnemyMovement : MonoBehaviour
             {
                 StartCoroutine(Attack());
                 timeBetweenAttacks = 2f;
+
+                // Spawn particle effect at the position of the object
+                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
                 return;
             }
             timeBetweenAttacks -= Time.deltaTime;

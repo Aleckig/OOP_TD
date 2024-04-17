@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 598717429888934709, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1307372891399782196, guid: bca1dd7529e33bc40b30335c9cf7b29b,
+        type: 3}
+    - target: {fileID: 598717429888934709, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: particleEffectPrefab
+      value: 
+      objectReference: {fileID: 7250548435930761953, guid: 50ceeeaa0852de947bedd6beb7e67999,
+        type: 3}
     - target: {fileID: 1813769988295039228, guid: 04e010331015bda4db5df0b3136f15da,
         type: 3}
       propertyPath: m_LocalPosition.x

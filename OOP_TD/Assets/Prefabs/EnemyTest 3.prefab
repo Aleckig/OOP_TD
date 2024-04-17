@@ -119,7 +119,6 @@ GameObject:
   - component: {fileID: 7537087552679321302}
   - component: {fileID: 570645843479376071}
   - component: {fileID: 2987237151635204362}
-  - component: {fileID: 2205655063921600132}
   - component: {fileID: -9104012655801223041}
   m_Layer: 0
   m_Name: EnemyTest 3
@@ -216,27 +215,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2205655063921600132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5590894476916518346}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0afe09d95a16ee94ebddb92048aece71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  target: {fileID: 0}
-  isAttacking: 0
-  targetAttackPoints: {fileID: 0}
-  reachedEnd: 0
-  baseObject: {fileID: 0}
-  timeBetweenAttacks: 0
-  health: 40
-  enemyHealthBar: {fileID: 0}
 --- !u!114 &-9104012655801223041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +234,8 @@ MonoBehaviour:
   target: {fileID: 0}
   baseObject: {fileID: 0}
   flyingTargetAttackPoints: {fileID: 0}
+  particleEffectPrefab: {fileID: 2461838983342703774, guid: 7f18dd46f015315418a3189c28a3fa77,
+    type: 3}
 --- !u!1001 &3459431311984669170
 PrefabInstance:
   m_ObjectHideFlags: 0
