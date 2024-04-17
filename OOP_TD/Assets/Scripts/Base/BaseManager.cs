@@ -15,6 +15,10 @@ public class BaseManager : MonoBehaviour
     public GameObject baseShield;
     public Material shieldEffect;
     public float shieldValue = -0.30f;
+    public HealthBar shieldHealthBar;
+    private bool isBaseShielded = false;
+    private int baseHealthSave = 100;
+    public HealthBar originalHealthBar;
 
     private Renderer targetRenderer; // Renderer of the target GameObject
 
@@ -35,19 +39,26 @@ public class BaseManager : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0)
+        if (isBaseShielded == true && currentHealth <= 0f)
+        {
+            healthBar = originalHealthBar;
+            StartCoroutine(ShieldDestroyed());
+            currentHealth = baseHealthSave;
+        }
+
+        if (currentHealth <= 0 && isBaseShielded == false)
         {
             gameOverScreen.ShowGameOverScreen();
         }
-        else if (currentHealth <= 30)
+        else if (currentHealth <= 30 && isBaseShielded == false)
         {
             targetRenderer.material = criticalMaterial;
         }
-        else if (currentHealth <= 60)
+        else if (currentHealth <= 60 && isBaseShielded == false)
         {
             targetRenderer.material = mediumMaterial;
         }
-        else
+        else if (isBaseShielded == false)
         {
             targetRenderer.material = healthyMaterial;
         }
@@ -62,6 +73,13 @@ public class BaseManager : MonoBehaviour
     public void SpawnShield()
     {
         baseShield.gameObject.SetActive(true);
+        shieldHealthBar.gameObject.SetActive(true);
+        baseHealthSave = currentHealth;
+        originalHealthBar = healthBar;
+        healthBar = shieldHealthBar;
+        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
+        isBaseShielded = true;
         shieldEffect.SetFloat("_Fill", shieldValue);
         StartCoroutine(ShieldAppear());
     }
@@ -70,10 +88,24 @@ public class BaseManager : MonoBehaviour
     {
         while (shieldEffect.GetFloat("_Fill") < 0f)
         {
-            shieldValue += 0.02f;
+            shieldValue += 0.01f;
             shieldEffect.SetFloat("_Fill", shieldValue);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
+        yield return null;
+    }
+
+    IEnumerator ShieldDestroyed()
+    {
+        shieldHealthBar.gameObject.SetActive(false);
+        isBaseShielded = false;
+        while (shieldEffect.GetFloat("_Fill") > -0.3f)
+        {
+            shieldValue -= 0.01f;
+            shieldEffect.SetFloat("_Fill", shieldValue);
+            yield return new WaitForSeconds(0.01f);
+        }
+        baseShield.gameObject.SetActive(false);
         yield return null;
     }
 }
