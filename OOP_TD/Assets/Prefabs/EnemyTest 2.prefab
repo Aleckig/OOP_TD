@@ -1567,6 +1567,7 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 2790893541447786027}
   particleEffectPrefab: {fileID: 2461838983342703774, guid: 7f18dd46f015315418a3189c28a3fa77,
     type: 3}
+  turningPoints: {fileID: 0}
 --- !u!1 &7865479453198467160
 GameObject:
   m_ObjectHideFlags: 0

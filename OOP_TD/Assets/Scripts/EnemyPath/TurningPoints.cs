@@ -5,14 +5,23 @@ using UnityEngine;
 public class TurningPoints : MonoBehaviour
 {
 
-    public static Transform[] points;
+    //public Transform[] points;
+    //public int pathNumber = 0;
+    public GameObject[] paths;
+    public GameObject decalProjector;
 
-    void Awake()
+    //void Awake()
+    //{
+    //    points = new Transform[transform.GetChild(pathNumber).childCount];
+    //    for (int i=0; i < points.Length; i++)
+    //    {
+    //        points[i] = transform.GetChild(pathNumber).GetChild(i);
+    //    }
+    //}
+
+    public void BlockPath()
     {
-        points = new Transform[transform.childCount];
-        for (int i=0; i < points.Length; i++)
-        {
-            points[i] = transform.GetChild(i);
-        }
+        transform.GetChild(0).gameObject.SetActive(false);
+        decalProjector.gameObject.SetActive(false);
     }
 }
