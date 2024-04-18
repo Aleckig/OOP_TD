@@ -7,6 +7,7 @@ public class ProjectileFlying : MonoBehaviour
     public float speed;
     public GameObject target;
     public TowerDealDamage tower;
+    [SerializeField] private GameObject particleEffectPrefab;
 
     void FixedUpdate()
     {
@@ -23,6 +24,7 @@ public class ProjectileFlying : MonoBehaviour
         if (other.gameObject.CompareTag("Target"))
         {
             tower.GetComponent<TowerDealDamage>().DamageEnemyHealth();
+            Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("Ground"))

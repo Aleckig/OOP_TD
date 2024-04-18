@@ -1565,9 +1565,11 @@ MonoBehaviour:
   timeBetweenAttacks: 0
   health: 100
   enemyHealthBar: {fileID: 2790893541447786027}
-  particleEffectPrefab: {fileID: 2461838983342703774, guid: 7f18dd46f015315418a3189c28a3fa77,
+  particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
   turningPoints: {fileID: 0}
+  pathnumber: 0
+  waveSpawner: {fileID: 0}
 --- !u!1 &7865479453198467160
 GameObject:
   m_ObjectHideFlags: 0

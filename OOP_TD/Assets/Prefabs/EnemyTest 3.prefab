@@ -234,7 +234,7 @@ MonoBehaviour:
   target: {fileID: 0}
   baseObject: {fileID: 0}
   flyingTargetAttackPoints: {fileID: 0}
-  particleEffectPrefab: {fileID: 2461838983342703774, guid: 7f18dd46f015315418a3189c28a3fa77,
+  particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
 --- !u!1001 &3459431311984669170
 PrefabInstance:

@@ -50,6 +50,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   target: {fileID: 0}
+  tower: {fileID: 0}
+  particleEffectPrefab: {fileID: 5300091272550219903, guid: 3051573e70bbc434caa9b996c1d15760,
+    type: 3}
 --- !u!54 &8979182434374724647
 Rigidbody:
   m_ObjectHideFlags: 0
