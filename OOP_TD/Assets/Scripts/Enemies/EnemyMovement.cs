@@ -18,15 +18,24 @@ public class EnemyMovement : MonoBehaviour
     public int health = 100;
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
+    public GameObject turningPoints;
+    public int pathnumber;
+    public GameObject waveSpawner;
 
 
     void Start()
     {
-        target = TurningPoints.points[0];
+        waveSpawner = GameObject.FindWithTag("WaveSpawner");
+        pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
+        turningPoints = GameObject.FindWithTag("TurningPoints");
+        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+        {
+            target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[0];
+        }
+        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0];
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
         enemyHealthBar.SetMaxHealth(health);
-
     }
 
     void Update()
@@ -88,7 +97,7 @@ public class EnemyMovement : MonoBehaviour
 
     void GetNextTurningPoint()
     {
-        if (TurningPointIndex >= TurningPoints.points.Length - 1)
+        if (TurningPointIndex >= turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points.Length - 1)
         {
             for (int i = 0; i < targetAttackPoints.transform.childCount; i++)
             {
@@ -110,7 +119,11 @@ public class EnemyMovement : MonoBehaviour
         if (reachedEnd == false)
         {
             TurningPointIndex++;
-            target = TurningPoints.points[TurningPointIndex];
+            if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+            {
+                target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[TurningPointIndex];
+            }
+            else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
         }
     }
 

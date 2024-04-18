@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Target
   - Ground
+  - TurningPoints
+  - WaveSpawner
   layers:
   - Default
   - TransparentFX
