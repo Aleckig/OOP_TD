@@ -67,12 +67,12 @@ public class TowerDealDamage : MonoBehaviour
         projectileObj.GetComponent<ProjectileFlying>().tower = this;
 
         // Instantiate the particle effect at the bullet point position
-    Instantiate(particleEffectPrefab, towerTopBulletPlace.transform.position, Quaternion.identity);
+        Instantiate(particleEffectPrefab, towerTopBulletPlace.transform.position, Quaternion.identity);
     }
     private IEnumerator DealDamageToEnemy()
     {
         if (attackInProgress) yield break;
-        int damageAmount = towerSettings.GetTower().damageAmount;
+        int damage = towerSettings.GetTower().damage;
 
         attackInProgress = true;
         yield return new WaitForSeconds(0.3f);
@@ -80,16 +80,16 @@ public class TowerDealDamage : MonoBehaviour
         ThrowProjectile();
         //if (activeTarget.TryGetComponent<FlyingEnemy>(out FlyingEnemy flyingEnemy))
         //{
-        //    flyingEnemy.health -= damageAmount;
+        //    flyingEnemy.health -= damage;
         //}
         //else if (activeTarget.TryGetComponent<EnemyMovement>(out EnemyMovement enemyMovement))
         //{
-        //    enemyMovement.health -= damageAmount;
+        //    enemyMovement.health -= damage;
         //}
 
         //enemyList.Remove(activeTarget);
         //activeTarget = activeTarget == null ? enemyList[0] : null;
-        yield return new WaitForSeconds(towerSettings.GetTower().cooldown);
+        yield return new WaitForSeconds(towerSettings.GetTower().attackCooldown);
 
         attackInProgress = false;
         yield break;
@@ -119,14 +119,14 @@ public class TowerDealDamage : MonoBehaviour
     }
     public void DamageEnemyHealth()
     {
-        int damageAmount = towerSettings.GetTower().damageAmount;
-        if (currentTarget.TryGetComponent<FlyingEnemy>(out FlyingEnemy flyingEnemy))
+        int damage = towerSettings.GetTower().damage;
+        if (currentTarget.TryGetComponent<FlyingEnemy>(out var flyingEnemy))
         {
-            flyingEnemy.health -= damageAmount;
+            flyingEnemy.health -= damage;
         }
-        else if (currentTarget.TryGetComponent<EnemyMovement>(out EnemyMovement enemyMovement))
+        else if (currentTarget.TryGetComponent<EnemyMovement>(out var enemyMovement))
         {
-            enemyMovement.health -= damageAmount;
+            enemyMovement.health -= damage;
             enemyMovement.GetComponent<EnemyMovement>().enemyHealthBar.SetHealth(enemyMovement.health);
         }
     }
