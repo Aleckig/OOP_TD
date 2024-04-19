@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class Levelmanager : MonoBehaviour
 {
     [SerializeField] private TMP_Text UIMoneyText;
     [SerializeField] private int moneyValue = 200;

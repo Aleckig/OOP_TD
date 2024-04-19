@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Towers Related Scenes/DamageEnemyScene.unity
-    guid: 73151c3502f390e4786df197879f2ead
+    path: Assets/Scenes/UI Related Scenes/Main Scene.unity
+    guid: 9cbed4b2623780049a6162af36b9e748
+  - enabled: 1
+    path: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+    guid: b99ddac96881fef48b3edfe8c303b51f
   m_configObjects: {}
