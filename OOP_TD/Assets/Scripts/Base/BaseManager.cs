@@ -12,6 +12,8 @@ public class BaseManager : MonoBehaviour
     public Material healthyMaterial;
     public Material mediumMaterial;
     public Material criticalMaterial;
+    public GameObject SmokeEffect01;
+    public GameObject SmokeEffect02;
     public GameObject baseShield;
     public Material shieldEffect;
     public float shieldValue = -0.4f;
@@ -52,10 +54,12 @@ public class BaseManager : MonoBehaviour
         }
         else if (currentHealth <= 30 && isBaseShielded == false)
         {
+            SmokeEffect02.SetActive(true);
             targetRenderer.material = criticalMaterial;
         }
         else if (currentHealth <= 60 && isBaseShielded == false)
         {
+            SmokeEffect01.SetActive(true);
             targetRenderer.material = mediumMaterial;
         }
         else if (isBaseShielded == false)
