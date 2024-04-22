@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
-  public Levelmanager gameManager;
+  public LevelManager gameManager;
   [SerializeField] private GameObject UIButtonContainer;
   [SerializeField] private List<Tower> towerList;
 
