@@ -8,7 +8,7 @@ public class ControllBuyButton : MonoBehaviour, IPointerClickHandler
 {
     public GameObject disableFilter;
     public Tower towerData; //parameter for calling of the buying tower event
-    public Levelmanager gameManager;
+    public LevelManager gameManager;
     public ShopManager shopManager;
     private BoxButtonManager boxButtonManager;
     private void Awake()
