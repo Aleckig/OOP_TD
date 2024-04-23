@@ -1362,7 +1362,7 @@ MonoBehaviour:
   waves:
   - enemies:
     - {fileID: 357091786651366475, guid: 19aee67cdc1689f4788ea34bda88072a, type: 3}
-    - {fileID: 6154443806944382432, guid: 9edef14770a1122429972c1234d8085c, type: 3}
+    - {fileID: 4325693081399207317, guid: 1ee8bfa2d58da2145810f66b8bfab2a3, type: 3}
     count: 2
     paths: 0100000002000000
   - enemies:
