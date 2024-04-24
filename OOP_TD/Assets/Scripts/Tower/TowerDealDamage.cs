@@ -97,7 +97,7 @@ public class TowerDealDamage : MonoBehaviour
     }
     public void DamageEnemyHealth()
     {
-        int damage = towerSettings.GetTower().damage;
+        float damage = towerSettings.GetTower().damage;
         if (currentTarget.TryGetComponent<FlyingEnemy>(out var flyingEnemy))
         {
             flyingEnemy.health -= damage;

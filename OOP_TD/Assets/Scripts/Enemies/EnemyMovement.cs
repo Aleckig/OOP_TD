@@ -14,8 +14,8 @@ public class EnemyMovement : MonoBehaviour
     public bool reachedEnd = false;
     public GameObject baseObject;
     public float timeBetweenAttacks = 0f;
-    private int damage = 1;
-    public int health = 100;
+    private float damage = 1f;
+    public float health = 100f;
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
     public GameObject turningPoints;

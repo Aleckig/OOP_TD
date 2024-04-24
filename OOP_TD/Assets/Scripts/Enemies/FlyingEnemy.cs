@@ -5,9 +5,9 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour
 {
     public float timeBetweenAttacks = 0f;
-    private int damage = 4;
+    private float damage = 4f;
     public float speed = 6f;
-    public int health = 40;
+    public float health = 40f;
     private float rotationSpeed = 10.0f;
     public bool isAttacking = false;
     public Transform target;
@@ -48,7 +48,7 @@ public class FlyingEnemy : MonoBehaviour
             isAttacking = true;
         }
         
-        if (health <= 0)
+        if (health <= 0f)
         {
             if (isAttacking == true)
             {
