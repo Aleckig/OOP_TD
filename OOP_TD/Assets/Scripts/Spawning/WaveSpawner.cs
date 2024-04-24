@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-
-    //public Transform enemyPrefab;
     public Wave[] waves;
     public Transform spawnLocation;
     public float timeBetweenWaves = 0f;
     private int waveIndex = 0;
     public int pathnumb;
 
-    void Update()
+    void FixedUpdate()
     {
      if (timeBetweenWaves <= 0f)
         {
@@ -29,8 +27,6 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemies[i], wave.paths[i]);
-            //Debug.Log(wave.paths[i]);
-            //turningPoints.GetComponent<TurningPoints>().pathnumber = i;
             yield return new WaitForSeconds(0.5f);
         }
         waveIndex++;
@@ -40,18 +36,12 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("Final Wave!");
             this.enabled = false;
         }
-        //yield return null;
     }
 
     void SpawnEnemy(GameObject enemy, int path)
     {
         pathnumb = path;
         Instantiate(enemy, spawnLocation.position, spawnLocation.rotation);
-        //if (enemy.TryGetComponent(out EnemyMovement turningPoints))
-        //{
-        //    enemy.GetComponent<EnemyMovement>().pathnumber = path;
-        //}
-
     }
     public void SpawnButton()
     {

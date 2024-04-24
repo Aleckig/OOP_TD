@@ -13,9 +13,8 @@ public class TowerDealDamage : MonoBehaviour
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private GameObject particleEffectPrefab;
     private TowerSettings towerSettings;
-    //[SerializeField] private GameObject activeTarget = null;
-    public GameObject activeTarget = null;
-    public GameObject currentTarget = null;
+    public GameObject activeTarget = null; //The target that the tower is aiming at
+    public GameObject currentTarget = null; //The target that the projectile is flying at
     private bool attackInProgress = false;
     private float turningSpeed = 20f;
 
@@ -26,9 +25,8 @@ public class TowerDealDamage : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (!activeTarget) return;
-        enemyList.RemoveAll(s => s == null);
-        TargetEnemy();
+        enemyList.RemoveAll(s => s == null); //Keeps the enemy list clean from null enemy objects (for example enemies that died)
+        TargetEnemy(); //Chooses the first enemy from the enemy list and aims at it
         if (activeTarget == null)
         {
             StopCoroutine(DealDamageToEnemy());
@@ -40,11 +38,9 @@ public class TowerDealDamage : MonoBehaviour
     private void TargetEnemy()
     {
 
-        //towerTop.transform.LookAt(activeTarget.transform);
         if (enemyList.Count != 0)
         {
             activeTarget = enemyList[0];
-            //activeTarget.tag = "Target";
             Vector3 aimAt = new Vector3(activeTarget.transform.position.x, towerCore.transform.position.y, activeTarget.transform.position.z);
             float distToTarget = Vector3.Distance(aimAt, towerTop.transform.position);
             Vector3 relativeTargetPosition = towerTop.transform.position + (activeTarget.transform.position - towerTop.transform.position).normalized * distToTarget;
@@ -73,24 +69,11 @@ public class TowerDealDamage : MonoBehaviour
     {
         if (attackInProgress) yield break;
         int damage = towerSettings.GetTower().damage;
-
         attackInProgress = true;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.3f); //Waits for 0.3 seconds so that the tower has time to aim at the enemy before shooting
         currentTarget = activeTarget;
-        ThrowProjectile();
-        //if (activeTarget.TryGetComponent<FlyingEnemy>(out FlyingEnemy flyingEnemy))
-        //{
-        //    flyingEnemy.health -= damage;
-        //}
-        //else if (activeTarget.TryGetComponent<EnemyMovement>(out EnemyMovement enemyMovement))
-        //{
-        //    enemyMovement.health -= damage;
-        //}
-
-        //enemyList.Remove(activeTarget);
-        //activeTarget = activeTarget == null ? enemyList[0] : null;
+        ThrowProjectile(); //Instantiates a projectile that flies towards current target (and also changes current target's tag to "Target", which is used in ProjectileFlying script)
         yield return new WaitForSeconds(towerSettings.GetTower().attackCooldown);
-
         attackInProgress = false;
         yield break;
     }
@@ -100,7 +83,6 @@ public class TowerDealDamage : MonoBehaviour
         if (other.CompareTag("Enemy") || other.CompareTag("Target"))
         {
             enemyList.Add(other.gameObject);
-            //activeTarget = activeTarget == null ? enemyList[0] : activeTarget;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -110,10 +92,6 @@ public class TowerDealDamage : MonoBehaviour
             if (enemyList.Contains(other.gameObject))
             {
                 enemyList.Remove(other.gameObject);
-                //if (!enemyList.Contains(activeTarget))
-                //{
-                //    activeTarget = enemyList.Count > 0 ? enemyList[0] : null;
-                //}
             }
         }
     }

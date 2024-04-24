@@ -38,34 +38,9 @@ public class EnemyMovement : MonoBehaviour
         enemyHealthBar.SetMaxHealth(health);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (isAttacking == false)
-        {
-            Vector3 direction = target.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            transform.rotation = rot;
-        }
-        if (isAttacking == true)
-        {
-            Vector3 direction = targetAttackPoints.transform.position - transform.position;
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            transform.rotation = rot;
-        }
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.1f && isAttacking == false)
-        {
-            if (target.transform.parent == targetAttackPoints.transform)
-            {
-                isAttacking = true;
-                return;
-            }
-            if (isAttacking == false)
-            {
-                GetNextTurningPoint();
-            }
-        }
+        Move();
 
         if (isAttacking == true)
         {
@@ -124,6 +99,36 @@ public class EnemyMovement : MonoBehaviour
                 target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[TurningPointIndex];
             }
             else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
+        }
+    }
+
+    private void Move()
+    {
+        if (isAttacking == false)
+        {
+            Vector3 direction = target.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            transform.rotation = rot;
+        }
+        if (isAttacking == true)
+        {
+            Vector3 direction = targetAttackPoints.transform.position - transform.position;
+            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            transform.rotation = rot;
+        }
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.1f && isAttacking == false)
+        {
+            if (target.transform.parent == targetAttackPoints.transform)
+            {
+                isAttacking = true;
+                return;
+            }
+            if (isAttacking == false)
+            {
+                GetNextTurningPoint();
+            }
         }
     }
 

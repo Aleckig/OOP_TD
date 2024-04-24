@@ -5,19 +5,8 @@ using UnityEngine;
 public class TurningPoints : MonoBehaviour
 {
 
-    //public Transform[] points;
-    //public int pathNumber = 0;
     public GameObject[] paths;
     public GameObject decalProjector;
-
-    //void Awake()
-    //{
-    //    points = new Transform[transform.GetChild(pathNumber).childCount];
-    //    for (int i=0; i < points.Length; i++)
-    //    {
-    //        points[i] = transform.GetChild(pathNumber).GetChild(i);
-    //    }
-    //}
 
     public void BlockPath()
     {

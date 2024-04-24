@@ -16,12 +16,11 @@ public class ProjectileFlying : MonoBehaviour
         {
             transform.LookAt(target.transform);
         }
-        // transform.Translate(transform.forward*speed, Space.Self);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Target"))
+        if (other.gameObject.CompareTag("Target")) //Checks if collision is with an enemy with "Target" tag, and only then damages the enemy and destroys the projectile
         {
             tower.GetComponent<TowerDealDamage>().DamageEnemyHealth();
             Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
