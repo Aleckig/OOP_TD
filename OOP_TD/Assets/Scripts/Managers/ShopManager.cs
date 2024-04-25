@@ -4,13 +4,14 @@ public class ShopManager : MonoBehaviour
 {
   public LevelManager gameManager;
   [SerializeField] private GameObject UIButtonContainer;
-  [SerializeField] private List<Tower> towerList;
-
+  [SerializeField] private GameData gameData;
+  private List<Tower> towerList;
   private TowerPlacement towerPlacement;
   public bool IsPlaced => towerPlacement.IsPlaced;
 
   private void Awake()
   {
+    List<Tower> towerList = gameData.towersList;
     GetComponent<SetBuyButton>().SetButtons(towerList);
   }
 
