@@ -801,6 +801,7 @@ MonoBehaviour:
   shieldHealthBar: {fileID: 448213620}
   originalHealthBar: {fileID: 0}
   damageMultiplier: 1
+  shieldButton: {fileID: 781452164}
 --- !u!1 &291552393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1290,9 @@ GameObject:
   m_Component:
   - component: {fileID: 398396212}
   - component: {fileID: 398396211}
-  m_Layer: 0
+  - component: {fileID: 398396214}
+  - component: {fileID: 398396213}
+  m_Layer: 5
   m_Name: Decal Projector (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,6 +1338,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 535807028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &398396213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398396210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 5}
+--- !u!114 &398396214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398396210}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decalProjector: {fileID: 398396210}
+  pathToBlock: {fileID: 3689979477967729051}
+  turningPoints: {fileID: 0}
 --- !u!1 &448213618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1518,9 @@ GameObject:
   m_Component:
   - component: {fileID: 490345912}
   - component: {fileID: 490345911}
-  m_Layer: 0
+  - component: {fileID: 490345913}
+  - component: {fileID: 490345914}
+  m_Layer: 5
   m_Name: Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,6 +1566,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 535807028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &490345913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490345910}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decalProjector: {fileID: 490345910}
+  pathToBlock: {fileID: 4184478121996755349}
+  turningPoints: {fileID: 0}
+--- !u!65 &490345914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490345910}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!1001 &516685611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2945,7 +3022,9 @@ GameObject:
   m_Component:
   - component: {fileID: 825045240}
   - component: {fileID: 825045239}
-  m_Layer: 0
+  - component: {fileID: 825045242}
+  - component: {fileID: 825045241}
+  m_Layer: 5
   m_Name: Decal Projector (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2991,6 +3070,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 535807028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &825045241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825045238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 10}
+  m_Center: {x: 0, y: 0, z: 5}
+--- !u!114 &825045242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825045238}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decalProjector: {fileID: 825045238}
+  pathToBlock: {fileID: 3689979477967729051}
+  turningPoints: {fileID: 0}
 --- !u!1 &837246106
 GameObject:
   m_ObjectHideFlags: 0
@@ -7015,6 +7130,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Hit_02
       objectReference: {fileID: 0}
+    - target: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5411507688101460762, guid: e7748aafbbfb8284399a8973fcc8acfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7097,10 +7217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a472e08228f99040994e13701af15fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paths:
-  - {fileID: 0}
-  - {fileID: 0}
-  decalProjector: {fileID: 490345910}
+  allDisablePaths:
+  - {fileID: 490345910}
+  - {fileID: 825045238}
+  - {fileID: 398396210}
+  button: {fileID: 720202439}
 --- !u!4 &5897407518049532352
 Transform:
   m_ObjectHideFlags: 0

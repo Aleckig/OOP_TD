@@ -28,11 +28,11 @@ public class EnemyMovement : MonoBehaviour
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
-        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true) //Checks if the enemy's path has been disabled with the Path Block ability
         {
             target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[0];
         }
-        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0];
+        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0]; //If the path is blocked, it chooses a one next to it
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
         enemyHealthBar.SetMaxHealth(health);
@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
         if (isAttacking == true)
         {
             this.transform.GetChild(0).GetComponent<Animator>().Rebind();
-            this.transform.GetChild(0).GetComponent<Animator>().enabled = false;
+            this.transform.GetChild(0).GetComponent<Animator>().enabled = false; //Stops the animation when attacking begins. TODO: Edit animations with Unity's animation states
             //TODO: Play attack animation
             if (timeBetweenAttacks <= 0)
             {
@@ -63,14 +63,14 @@ public class EnemyMovement : MonoBehaviour
         {
             if (isAttacking == true)
             {
-                target.gameObject.SetActive(true);
+                target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
             }
             Destroy(gameObject);
         }
 
     }
 
-    void GetNextTurningPoint()
+    void GetNextTurningPoint() //Gets the next point from the path
     {
         if (TurningPointIndex >= turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points.Length - 1)
         {
@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 if (i >= targetAttackPoints.transform.childCount - 1)
                 {
-                    //TODO: Do something with enemies that cannot fit around the base
+                    //TODO: Do something with enemies that cannot fit around the base instead of destroying them
                     Destroy(gameObject);
                 }
             }

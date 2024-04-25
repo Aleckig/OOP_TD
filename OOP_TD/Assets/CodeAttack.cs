@@ -28,6 +28,6 @@ public class CodeAttack : MonoBehaviour
     }
     public void IncreaseBaseDamage()
     {
-        baseManager.GetComponent<BaseManager>().damageMultiplier += 0.1f;
+        baseManager.GetComponent<BaseManager>().damageMultiplier += 0.1f; //Increases all of the damage taken by the base by 10% of the original damage amount
     }
 }

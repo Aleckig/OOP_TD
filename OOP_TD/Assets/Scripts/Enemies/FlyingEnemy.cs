@@ -78,7 +78,7 @@ public class FlyingEnemy : MonoBehaviour
         }
     }
 
-    private void ChooseAttackPoint() //Choose the first available attack point around the base and then disable it
+    private void ChooseAttackPoint() //Choose the first available attack point around the base and occupy it by disabling the attackpoint object
     {
         if (Vector3.Distance(transform.position, flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1).position) <= 1f && reachedDestination == false)
         {

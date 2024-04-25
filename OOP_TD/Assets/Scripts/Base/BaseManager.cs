@@ -22,6 +22,7 @@ public class BaseManager : MonoBehaviour
     private float baseHealthSave = 100f;
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
+    public GameObject shieldButton;
 
     private Renderer targetRenderer; // Renderer of the target GameObject
 
@@ -87,9 +88,10 @@ public class BaseManager : MonoBehaviour
         isBaseShielded = true;
         shieldEffect.SetFloat("_Fill", shieldValue);
         StartCoroutine(ShieldAppear());
+        shieldButton.gameObject.SetActive(false);
     }
 
-    IEnumerator ShieldAppear()
+    IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it
     {
         while (shieldEffect.GetFloat("_Fill") < 0f)
         {
@@ -100,7 +102,7 @@ public class BaseManager : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator ShieldDestroyed()
+    IEnumerator ShieldDestroyed() //Destroys the shield health bar and gradually makes the shield effect disappear
     {
         shieldHealthBar.gameObject.SetActive(false);
         isBaseShielded = false;
