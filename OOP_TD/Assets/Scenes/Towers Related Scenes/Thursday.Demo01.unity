@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decalProjector: {fileID: 398396210}
-  pathToBlock: {fileID: 3689979477967729051}
+  pathToBlock: {fileID: 291552393}
   turningPoints: {fileID: 0}
 --- !u!1 &448213618
 GameObject:
