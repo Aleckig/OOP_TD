@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class TurningPoints : MonoBehaviour
 {
+    public GameObject[] allDisablePaths;
+    public GameObject button;
 
-    //public Transform[] points;
-    //public int pathNumber = 0;
-    public GameObject[] paths;
-    public GameObject decalProjector;
-
-    //void Awake()
-    //{
-    //    points = new Transform[transform.GetChild(pathNumber).childCount];
-    //    for (int i=0; i < points.Length; i++)
-    //    {
-    //        points[i] = transform.GetChild(pathNumber).GetChild(i);
-    //    }
-    //}
-
-    public void BlockPath()
+    public void BlockPath() //Enables the PathBlocker script on decal projectors, so that player can click which path to disable
     {
-        transform.GetChild(0).gameObject.SetActive(false);
-        decalProjector.gameObject.SetActive(false);
+        for (int i = 0; i < allDisablePaths.Length; i++)
+        {
+            allDisablePaths[i].GetComponent<PathBlocker>().enabled = true;
+            button.gameObject.SetActive(false);
+        }
+    }
+
+    public void DisableBlocking() //Disables the PathBlocker scripts so that the path disabling ability cannot be used more than once
+    {
+        for (int i = 0; i < allDisablePaths.Length; i++)
+        {
+            allDisablePaths[i].GetComponent<PathBlocker>().enabled = false;
+        }
     }
 }

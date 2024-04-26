@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     private string currentSceneName;
-    //[SerializeField] private string SceneName = "";
 
     void Start()
     {
