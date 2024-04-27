@@ -12,6 +12,8 @@ public class TowerDealDamage : MonoBehaviour
     [SerializeField] private GameObject towerTopBulletPlace;
     [SerializeField] private List<GameObject> enemyList;
     [SerializeField] private GameObject particleEffectPrefab;
+    [SerializeField] private AudioClip projectileSound;
+    private AudioSource audioSource;
     private TowerSettings towerSettings;
     public GameObject activeTarget = null; //The target that the tower is aiming at
     public GameObject currentTarget = null; //The target that the projectile is flying at
@@ -21,6 +23,15 @@ public class TowerDealDamage : MonoBehaviour
     private void Awake()
     {
         towerSettings = GetComponent<TowerSettings>();
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void FixedUpdate()
@@ -64,6 +75,8 @@ public class TowerDealDamage : MonoBehaviour
 
         // Instantiate the particle effect at the bullet point position
         Instantiate(particleEffectPrefab, towerTopBulletPlace.transform.position, Quaternion.identity);
+        // Play the projectile sound
+        audioSource.PlayOneShot(projectileSound);
     }
     private IEnumerator DealDamageToEnemy()
     {
