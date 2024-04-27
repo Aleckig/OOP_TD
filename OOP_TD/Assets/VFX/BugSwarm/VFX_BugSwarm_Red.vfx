@@ -131,7 +131,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.2661896049976349,"g":2.611651659011841,"b":0.06836782395839691,"a":0.38823530077934267}'
+      m_SerializableObject: '{"r":0.061450619250535968,"g":1.0856274366378785,"b":2.6116514205932619,"a":0.38823530077934267}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -145,7 +145,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.44282081723213198,"g":6.0,"b":0.37696340680122378,"a":0.38823530077934267}'
+      m_SerializableObject: '{"r":0.36000001430511477,"g":1.0180007219314576,"b":6.0,"a":0.38823530077934267}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -9161,7 +9161,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -9219,7 +9219,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.2661896049976349,"g":2.611651659011841,"b":0.06836782395839691,"a":0.38823530077934267}'
+      m_SerializableObject: '{"r":0.061450619250535968,"g":1.0856274366378785,"b":2.6116514205932619,"a":0.38823530077934267}'
     m_Space: 2147483647
   m_Property:
     name: o
@@ -9435,7 +9435,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":0.44282081723213198,"g":6.0,"b":0.37696340680122378,"a":0.38823530077934267}'
+      m_SerializableObject: '{"r":0.36000001430511477,"g":1.0180007219314576,"b":6.0,"a":0.38823530077934267}'
     m_Space: 2147483647
   m_Property:
     name: o

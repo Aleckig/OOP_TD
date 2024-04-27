@@ -227,14 +227,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afe09d95a16ee94ebddb92048aece71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   target: {fileID: 0}
   isAttacking: 0
   targetAttackPoints: {fileID: 0}
   reachedEnd: 0
   baseObject: {fileID: 0}
-  timeBetweenAttacks: 1
-  health: 80
+  timeBetweenAttacks: 2
+  health: 100
   enemyHealthBar: {fileID: 7856551008683239402}
   particleEffectPrefab: {fileID: 5293279921407630151, guid: 64b80d56f78809444a2e3697d3acfd26,
     type: 3}
@@ -635,7 +635,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 43e024d09bf5a264c9bf3dd7db14929d, type: 2}
+      objectReference: {fileID: 2100000, guid: 8cefd07f9bdbfcc44b82a9d54cf4ced6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

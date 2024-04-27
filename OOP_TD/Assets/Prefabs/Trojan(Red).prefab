@@ -240,12 +240,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876447066203035172}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.86, y: 1.86, z: 1.86}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 568335132913334681}
+  m_Father: {fileID: 7421813212279103036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6946858120424350392
 MeshFilter:
@@ -275,7 +275,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b2127f4f5287bed42ad5ecf91beb4cde, type: 2}
+  - {fileID: 2100000, guid: 8fabeda40b5facb4e82758f012fd6b35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 3087452100049816108}
   - component: {fileID: 3551392232919758550}
   m_Layer: 0
-  m_Name: Trojan(Norm)
+  m_Name: Trojan(Red)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +854,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7421813212279103036}
-  - {fileID: 3189009977423352328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3087452100049816108
@@ -876,7 +875,7 @@ MonoBehaviour:
   reachedEnd: 0
   baseObject: {fileID: 0}
   timeBetweenAttacks: 4
-  health: 60
+  health: 80
   enemyHealthBar: {fileID: 8113013704937763783}
   particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
@@ -1374,6 +1373,7 @@ Transform:
   m_Children:
   - {fileID: 1638217087216869707}
   - {fileID: 5778848040653292366}
+  - {fileID: 3189009977423352328}
   m_Father: {fileID: 568335132913334681}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!33 &8803002795159295178

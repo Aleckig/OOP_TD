@@ -44,8 +44,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (isAttacking == true)
         {
-            this.transform.GetChild(0).GetComponent<Animator>().Rebind();
-            this.transform.GetChild(0).GetComponent<Animator>().enabled = false; //Stops the animation when attacking begins. TODO: Edit animations with Unity's animation states
+            //this.transform.GetChild(0).GetComponent<Animator>().Rebind();
+            //this.transform.GetChild(0).GetComponent<Animator>().enabled = false; //Stops the animation when attacking begins. TODO: Edit animations with Unity's animation states
             //TODO: Play attack animation
             if (timeBetweenAttacks <= 0)
             {
