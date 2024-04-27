@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - {fileID: 357091786651366475, guid: 19aee67cdc1689f4788ea34bda88072a, type: 3}
+    - {fileID: 6839141510497295515, guid: dec0bf0e352ef7d45ac4868565d22517, type: 3}
     - {fileID: 4325693081399207317, guid: 1ee8bfa2d58da2145810f66b8bfab2a3, type: 3}
     count: 2
     paths: 0100000002000000
@@ -5042,10 +5042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a472e08228f99040994e13701af15fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paths:
-  - {fileID: 0}
-  - {fileID: 0}
-  decalProjector: {fileID: 490345910}
+  allDisablePaths: []
+  button: {fileID: 0}
 --- !u!4 &5897407518049532352
 Transform:
   m_ObjectHideFlags: 0

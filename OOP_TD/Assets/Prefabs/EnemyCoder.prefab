@@ -233,10 +233,10 @@ MonoBehaviour:
   targetAttackPoints: {fileID: 0}
   reachedEnd: 0
   baseObject: {fileID: 0}
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 1
   health: 80
   enemyHealthBar: {fileID: 7856551008683239402}
-  particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
+  particleEffectPrefab: {fileID: 5293279921407630151, guid: 64b80d56f78809444a2e3697d3acfd26,
     type: 3}
   turningPoints: {fileID: 0}
   pathnumber: 0
