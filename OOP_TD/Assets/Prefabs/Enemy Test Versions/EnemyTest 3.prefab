@@ -128,6 +128,7 @@ MonoBehaviour:
   flyingTargetAttackPoints: {fileID: 0}
   particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
+  attackSound: {fileID: 0}
 --- !u!1001 &3459431311984669170
 PrefabInstance:
   m_ObjectHideFlags: 0
