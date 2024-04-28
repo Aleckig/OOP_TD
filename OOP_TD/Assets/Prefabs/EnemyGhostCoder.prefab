@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 6890888280928819604}
   - component: {fileID: 2030402096349552392}
   m_Layer: 0
-  m_Name: EnemyCoder
+  m_Name: EnemyGhostCoder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -733,12 +733,34 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8cefd07f9bdbfcc44b82a9d54cf4ced6, type: 2}
+      objectReference: {fileID: 2100000, guid: e7f4be8cfde9ac04e9e00f08489c0bb5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8665926034662000603, guid: b2fe8beeda233e14e82a5c33a1c502ca,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5689496199985464799}
   m_SourcePrefab: {fileID: 100100000, guid: b2fe8beeda233e14e82a5c33a1c502ca, type: 3}
+--- !u!1 &4528030361880754393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665926034662000603, guid: b2fe8beeda233e14e82a5c33a1c502ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 5086048659934772994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5689496199985464799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4528030361880754393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3811d6466a02c0d45a436238dc3e42d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7802320270751629552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3085580086204202994, guid: b2fe8beeda233e14e82a5c33a1c502ca,

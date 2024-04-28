@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     public float health = 100f;
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
+    [SerializeField] private AudioClip attackSound;
+    private AudioSource audioSource;
     public GameObject turningPoints;
     public int pathnumber;
     public GameObject waveSpawner;
@@ -25,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
@@ -51,6 +54,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 StartCoroutine(Attack());
                 timeBetweenAttacks = 2f;
+
+                audioSource.PlayOneShot(attackSound); // Play attack sound
 
                 // Spawn particle effect at the position of the object
                 Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);

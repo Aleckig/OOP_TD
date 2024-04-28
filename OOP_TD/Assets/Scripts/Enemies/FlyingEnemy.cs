@@ -14,10 +14,13 @@ public class FlyingEnemy : MonoBehaviour
     public GameObject baseObject;
     public GameObject flyingTargetAttackPoints;
     [SerializeField] private GameObject particleEffectPrefab;
+    [SerializeField] private AudioClip attackSound;
+    private AudioSource audioSource;
     private bool reachedDestination = false;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         baseObject = GameObject.FindWithTag("Base");
         flyingTargetAttackPoints = GameObject.FindWithTag("FlyingAttackPoints");
         target = flyingTargetAttackPoints.transform.GetChild(0);
@@ -33,6 +36,8 @@ public class FlyingEnemy : MonoBehaviour
             {
                 StartCoroutine(Attack());
                 timeBetweenAttacks = 3f;
+
+                audioSource.PlayOneShot(attackSound); // Play attack sound
 
                 // Spawn particle effect at the position of the object
                 Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);

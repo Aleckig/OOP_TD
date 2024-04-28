@@ -7,6 +7,7 @@ public class CodeAttack : MonoBehaviour
     public GameObject baseManager;
     public float timeBetweenCodeAttacks = 0f;
     public EnemyMovement enemyMovement;
+    
 
     void Start()
     {
