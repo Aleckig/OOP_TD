@@ -14,10 +14,12 @@ public class EnemyMovement : MonoBehaviour
     public bool reachedEnd = false;
     public GameObject baseObject;
     public float timeBetweenAttacks = 0f;
-    private int damage = 1;
-    public int health = 100;
+    private float damage = 1f;
+    public float health = 100f;
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
+    [SerializeField] private AudioClip attackSound;
+    private AudioSource audioSource;
     public GameObject turningPoints;
     public int pathnumber;
     public GameObject waveSpawner;
@@ -25,20 +27,87 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
-        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true) //Checks if the enemy's path has been disabled with the Path Block ability
         {
             target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[0];
         }
-        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0];
+        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0]; //If the path is blocked, it chooses a one next to it
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
         enemyHealthBar.SetMaxHealth(health);
     }
 
-    void Update()
+    void FixedUpdate()
+    {
+        Move();
+
+        if (isAttacking == true)
+        {
+            //this.transform.GetChild(0).GetComponent<Animator>().Rebind();
+            //this.transform.GetChild(0).GetComponent<Animator>().enabled = false; //Stops the animation when attacking begins. TODO: Edit animations with Unity's animation states
+            //TODO: Play attack animation
+            if (timeBetweenAttacks <= 0)
+            {
+                StartCoroutine(Attack());
+                timeBetweenAttacks = 2f;
+
+                audioSource.PlayOneShot(attackSound); // Play attack sound
+
+                // Spawn particle effect at the position of the object
+                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+                return;
+            }
+            timeBetweenAttacks -= Time.deltaTime;
+        }
+
+        if (health <= 0)
+        {
+            if (isAttacking == true)
+            {
+                target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
+            }
+            Destroy(gameObject);
+        }
+
+    }
+
+    void GetNextTurningPoint() //Gets the next point from the path
+    {
+        if (TurningPointIndex >= turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points.Length - 1)
+        {
+            for (int i = 0; i < targetAttackPoints.transform.childCount; i++)
+            {
+                if (targetAttackPoints.transform.GetChild(i).gameObject.activeSelf == true)
+                {
+                    target = targetAttackPoints.transform.GetChild(i);
+                    reachedEnd = true;
+                    break;
+                }
+                if (i >= targetAttackPoints.transform.childCount - 1)
+                {
+                    //TODO: Do something with enemies that cannot fit around the base instead of destroying them
+                    Destroy(gameObject);
+                }
+            }
+            target.gameObject.SetActive(false);
+            return;
+        }
+        if (reachedEnd == false)
+        {
+            TurningPointIndex++;
+            if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+            {
+                target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[TurningPointIndex];
+            }
+            else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
+        }
+    }
+
+    private void Move()
     {
         if (isAttacking == false)
         {
@@ -65,65 +134,6 @@ public class EnemyMovement : MonoBehaviour
             {
                 GetNextTurningPoint();
             }
-        }
-
-        if (isAttacking == true)
-        {
-            this.transform.GetChild(0).GetComponent<Animator>().Rebind();
-            this.transform.GetChild(0).GetComponent<Animator>().enabled = false;
-            //TODO: Play attack animation
-            if (timeBetweenAttacks <= 0)
-            {
-                StartCoroutine(Attack());
-                timeBetweenAttacks = 2f;
-
-                // Spawn particle effect at the position of the object
-                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
-                return;
-            }
-            timeBetweenAttacks -= Time.deltaTime;
-        }
-
-        if (health <= 0)
-        {
-            if (isAttacking == true)
-            {
-                target.gameObject.SetActive(true);
-            }
-            Destroy(gameObject);
-        }
-
-    }
-
-    void GetNextTurningPoint()
-    {
-        if (TurningPointIndex >= turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points.Length - 1)
-        {
-            for (int i = 0; i < targetAttackPoints.transform.childCount; i++)
-            {
-                if (targetAttackPoints.transform.GetChild(i).gameObject.activeSelf == true)
-                {
-                    target = targetAttackPoints.transform.GetChild(i);
-                    reachedEnd = true;
-                    break;
-                }
-                if (i >= targetAttackPoints.transform.childCount - 1)
-                {
-                    //TODO: Do something with enemies that cannot fit around the base
-                    Destroy(gameObject);
-                }
-            }
-            target.gameObject.SetActive(false);
-            return;
-        }
-        if (reachedEnd == false)
-        {
-            TurningPointIndex++;
-            if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
-            {
-                target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[TurningPointIndex];
-            }
-            else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
         }
     }
 

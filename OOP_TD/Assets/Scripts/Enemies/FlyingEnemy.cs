@@ -5,42 +5,30 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour
 {
     public float timeBetweenAttacks = 0f;
-    private int damage = 4;
+    private float damage = 4f;
     public float speed = 6f;
-    public int health = 40;
+    public float health = 40f;
     private float rotationSpeed = 10.0f;
     public bool isAttacking = false;
     public Transform target;
     public GameObject baseObject;
     public GameObject flyingTargetAttackPoints;
     [SerializeField] private GameObject particleEffectPrefab;
+    [SerializeField] private AudioClip attackSound;
+    private AudioSource audioSource;
     private bool reachedDestination = false;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         baseObject = GameObject.FindWithTag("Base");
         flyingTargetAttackPoints = GameObject.FindWithTag("FlyingAttackPoints");
         target = flyingTargetAttackPoints.transform.GetChild(0);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (isAttacking == false && reachedDestination == false)
-        {
-            Vector3 direction = target.position - transform.position;
-            direction = direction + new Vector3(0, Mathf.Cos(Time.time * 3), 0);
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            transform.rotation = rot;
-        }
-        if (reachedDestination == true)
-        {
-            Vector3 direction = target.position - transform.position;
-            Vector3 lookDirection = flyingTargetAttackPoints.transform.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), rotationSpeed * Time.deltaTime);
-            transform.rotation = rot;
-        }
+        Move();
 
         if (isAttacking == true)
         {
@@ -49,12 +37,54 @@ public class FlyingEnemy : MonoBehaviour
                 StartCoroutine(Attack());
                 timeBetweenAttacks = 3f;
 
+                audioSource.PlayOneShot(attackSound); // Play attack sound
+
                 // Spawn particle effect at the position of the object
                 Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
                 return;
             }
             timeBetweenAttacks -= Time.deltaTime;
         }
+
+        ChooseAttackPoint();
+
+        if (Vector3.Distance(transform.position, target.position) <= 0.1f) //Start attacking when attack point is reached
+        {
+            isAttacking = true;
+        }
+        
+        if (health <= 0f)
+        {
+            if (isAttacking == true)
+            {
+                target.gameObject.SetActive(true); //Re-enable attack point for next enemy to take the spot
+            }
+            Destroy(gameObject); //Kill the enemy
+        }
+    }
+    
+    private void Move()
+    {
+        if (isAttacking == false && reachedDestination == false) //Moves straight towards FlyingDestination, which is the point where enemies will turn towards the first available attack point around the base
+        {
+            Vector3 direction = target.position - transform.position;
+            direction = direction + new Vector3(0, Mathf.Cos(Time.time * 3), 0);
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            transform.rotation = rot;
+        }
+        if (isAttacking == false && reachedDestination == true) //Moves towards the first available spot around the base
+        {
+            Vector3 direction = target.position - transform.position;
+            Vector3 lookDirection = flyingTargetAttackPoints.transform.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), rotationSpeed * Time.deltaTime);
+            transform.rotation = rot;
+        }
+    }
+
+    private void ChooseAttackPoint() //Choose the first available attack point around the base and occupy it by disabling the attackpoint object
+    {
         if (Vector3.Distance(transform.position, flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1).position) <= 1f && reachedDestination == false)
         {
             for (int i = 0; i < flyingTargetAttackPoints.transform.childCount; i++)
@@ -67,27 +97,9 @@ public class FlyingEnemy : MonoBehaviour
             }
             target.gameObject.SetActive(false);
             reachedDestination = true;
-            //if (target != flyingTargetAttackPoints.transform.GetChild(flyingTargetAttackPoints.transform.childCount - 1))
-            //{
-            //    isAttacking = true;
-            //}
             return;
         }
-        if (Vector3.Distance(transform.position, target.position) <= 0.1f)
-        {
-            isAttacking = true;
-        }
-        
-        if (health <= 0)
-        {
-            if (isAttacking == true)
-            {
-                target.gameObject.SetActive(true);
-            }
-            Destroy(gameObject);
-        }
     }
-    
 
     IEnumerator Attack()
     {

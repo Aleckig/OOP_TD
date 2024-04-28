@@ -55,16 +55,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Density: 10.07
-    - _Fill: -0.40000007
+    - _Density: 10
+    - _Fill: 0.01
     - _FresnelPower: 3
     - _Offset: 0.6
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RipplePower: 4
-    - _RippleSpeed: 3.81
-    - _TextureSpeed: 1.59
+    - _RippleSpeed: 1
+    - _TextureSpeed: 0.2
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.046516176, b: 0.62352943, a: 0}
-    - _EmissionColor: {r: 0, g: 2.7543466, b: 3.26022, a: 0}
+    - _BaseColor: {r: 0.026832122, g: 0, b: 0.62352943, a: 0}
+    - _EmissionColor: {r: 0, g: 0.6776087, b: 3.26022, a: 0}
   m_BuildTextureStacks: []

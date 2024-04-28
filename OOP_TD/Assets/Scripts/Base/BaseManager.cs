@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BaseManager : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100f;
+    public float currentHealth;
     public HealthBar healthBar;
     public GameOverScreen gameOverScreen;
     public GameObject targetObject; // Reference to the target GameObject
@@ -19,8 +19,10 @@ public class BaseManager : MonoBehaviour
     public float shieldValue = -0.4f;
     public HealthBar shieldHealthBar;
     private bool isBaseShielded = false;
-    private int baseHealthSave = 100;
+    private float baseHealthSave = 100f;
     public HealthBar originalHealthBar;
+    public float damageMultiplier = 1f;
+    public GameObject shieldButton;
 
     private Renderer targetRenderer; // Renderer of the target GameObject
 
@@ -48,16 +50,16 @@ public class BaseManager : MonoBehaviour
             currentHealth = baseHealthSave;
         }
 
-        if (currentHealth <= 0 && isBaseShielded == false)
+        if (currentHealth <= 0f && isBaseShielded == false)
         {
             gameOverScreen.ShowGameOverScreen();
         }
-        else if (currentHealth <= 30 && isBaseShielded == false)
+        else if (currentHealth <= 30f && isBaseShielded == false)
         {
             SmokeEffect02.SetActive(true);
             targetRenderer.material = criticalMaterial;
         }
-        else if (currentHealth <= 60 && isBaseShielded == false)
+        else if (currentHealth <= 60f && isBaseShielded == false)
         {
             SmokeEffect01.SetActive(true);
             targetRenderer.material = mediumMaterial;
@@ -68,9 +70,9 @@ public class BaseManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= damage * damageMultiplier;
         healthBar.SetHealth(currentHealth);
     }
 
@@ -86,9 +88,10 @@ public class BaseManager : MonoBehaviour
         isBaseShielded = true;
         shieldEffect.SetFloat("_Fill", shieldValue);
         StartCoroutine(ShieldAppear());
+        shieldButton.gameObject.SetActive(false);
     }
 
-    IEnumerator ShieldAppear()
+    IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it
     {
         while (shieldEffect.GetFloat("_Fill") < 0f)
         {
@@ -99,7 +102,7 @@ public class BaseManager : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator ShieldDestroyed()
+    IEnumerator ShieldDestroyed() //Destroys the shield health bar and gradually makes the shield effect disappear
     {
         shieldHealthBar.gameObject.SetActive(false);
         isBaseShielded = false;
