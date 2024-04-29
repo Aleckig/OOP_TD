@@ -239,7 +239,7 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 7856551008683239402}
   particleEffectPrefab: {fileID: 5293279921407630151, guid: 64b80d56f78809444a2e3697d3acfd26,
     type: 3}
-  attackSound: {fileID: 8300000, guid: aa6e165342c843f43828738145ab5688, type: 3}
+  attackSound: {fileID: 8300000, guid: c851a21911a0dea4a89acac697bd9f40, type: 3}
   turningPoints: {fileID: 0}
   pathnumber: 0
   waveSpawner: {fileID: 0}
