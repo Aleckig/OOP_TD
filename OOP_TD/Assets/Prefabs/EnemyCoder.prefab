@@ -237,7 +237,7 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   health: 100
   enemyHealthBar: {fileID: 7856551008683239402}
-  particleEffectPrefab: {fileID: 5293279921407630151, guid: 64b80d56f78809444a2e3697d3acfd26,
+  particleEffectPrefab: {fileID: 5293279921407630151, guid: 98499d69282c4284781613d68c4dbfcd,
     type: 3}
   attackSound: {fileID: 8300000, guid: c851a21911a0dea4a89acac697bd9f40, type: 3}
   turningPoints: {fileID: 0}
