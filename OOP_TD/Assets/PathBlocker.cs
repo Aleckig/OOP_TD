@@ -6,9 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject decalProjector;
     public GameObject pathToBlock;
-    public GameObject turningPoints;
+    private GameObject turningPoints;
 
     void Start()
     {
@@ -29,11 +28,11 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerEnter(PointerEventData eventData) //While using the ability, hovering mouse over certain path makes it visually transparent to indicate that it can be disabled
     {
-        decalProjector.GetComponent<DecalProjector>().fadeFactor = 0.2f;
+        this.GetComponent<DecalProjector>().fadeFactor = 0.2f;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        decalProjector.GetComponent<DecalProjector>().fadeFactor = 1f;
+        this.GetComponent<DecalProjector>().fadeFactor = 1f;
     }
 }

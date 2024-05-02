@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - TurningPoints
   - WaveSpawner
+  - TunnelExit
   layers:
   - Default
   - TransparentFX
