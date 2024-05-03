@@ -56,7 +56,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Density: 10.07
-    - _Fill: -0.40000007
+    - _Fill: 0.01999997
     - _FresnelPower: 3
     - _Offset: 0.6
     - _QueueControl: 0
