@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject turningPoints;
     public int pathnumber;
     public GameObject waveSpawner;
+    public bool isTeleporting = false;
 
 
     void Start()
@@ -43,7 +44,10 @@ public class EnemyMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (isTeleporting == false)
+        {
+            Move();
+        }
 
         if (isAttacking == true)
         {
@@ -125,6 +129,10 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) <= 0.1f && isAttacking == false)
         {
+            //if (target.tag == "TunnelEntrance" && isTeleporting == false)
+            //{
+            //    StartCoroutine(Teleport());
+            //}
             if (target.transform.parent == targetAttackPoints.transform)
             {
                 isAttacking = true;
@@ -135,11 +143,27 @@ public class EnemyMovement : MonoBehaviour
                 GetNextTurningPoint();
             }
         }
+        if (target.tag == "TunnelExit")// && isTeleporting == false)
+        {
+            StartCoroutine(Teleport());
+        }
     }
 
     IEnumerator Attack()
     {
         baseObject.GetComponent<BaseManager>().TakeDamage(damage);
+        yield return null;
+    }
+
+    IEnumerator Teleport()
+    {
+        isTeleporting = true;
+        //Play teleport animation
+        yield return new WaitForSeconds(1f);
+        transform.position = target.position;
+        //Play teleport animation
+        yield return new WaitForSeconds(1f);
+        isTeleporting = false;
         yield return null;
     }
 }

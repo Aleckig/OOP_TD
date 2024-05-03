@@ -17,6 +17,7 @@ public class FlyingEnemy : MonoBehaviour
     [SerializeField] private AudioClip attackSound;
     private AudioSource audioSource;
     private bool reachedDestination = false;
+    public HealthBar enemyHealthBar;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class FlyingEnemy : MonoBehaviour
         baseObject = GameObject.FindWithTag("Base");
         flyingTargetAttackPoints = GameObject.FindWithTag("FlyingAttackPoints");
         target = flyingTargetAttackPoints.transform.GetChild(0);
+        enemyHealthBar.SetMaxHealth(health);
     }
 
     void FixedUpdate()
