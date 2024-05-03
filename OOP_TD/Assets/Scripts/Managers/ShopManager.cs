@@ -3,7 +3,7 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
   public LevelManager gameManager;
-  [SerializeField] private GameObject UIButtonContainer;
+  [SerializeField] private GameObject UIBuyTowerButtonsContainer;
   [SerializeField] private GameData gameData;
   private List<Tower> towerList;
   private TowerPlacement towerPlacement;
@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
   {
     List<Tower> towerList = gameData.towersList;
     GetComponent<SetBuyButton>().SetButtons(towerList);
+    UIBuyTowerButtonsContainer.SetActive(false);
   }
 
   public void SetActiveTowerPlacement(TowerPlacement activeTowerPlacement)
@@ -34,6 +35,6 @@ public class ShopManager : MonoBehaviour
 
   public void DisplayUIButtonContainer(bool value)
   {
-    UIButtonContainer.SetActive(value);
+    UIBuyTowerButtonsContainer.SetActive(value);
   }
 }

@@ -1,9 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
-using Alchemy.Inspector;
 using Michsky.UI.Heat;
-using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public class TowerDeckBuilder : MonoBehaviour
 {
@@ -25,13 +25,13 @@ public class TowerDeckBuilder : MonoBehaviour
     // --> Default values for towers fields
     [Title("Settings")]
     public int pointsPerTower = 10;
+    public int specialPointsPerTower = 1;
 
     // This is starting values for all towers
     [BoxGroup("Default values for towers fields")]
-    public int priceDefVal,
-    damageDefVal;
-    [BoxGroup("Default values for towers fields")]
-    public float damageRangeDefVal,
+    public float priceDefVal,
+    damageDefVal,
+    damageRangeDefVal,
     attackCooldownDefVal;
     // <--
 
@@ -46,6 +46,7 @@ public class TowerDeckBuilder : MonoBehaviour
 
     // --> Script variables
     private int activeCardId;
+    [ShowInInspector]
     public int ActiveCardId => activeCardId;
     // <--
 
@@ -71,8 +72,7 @@ public class TowerDeckBuilder : MonoBehaviour
 
             BoxButtonManager btnManager = button.GetComponent<BoxButtonManager>();
             btnManager.buttonTitle = towerCard.towerCardName;
-            btnManager.onClick.AddListener(() => SetActiveCard(towerCard.TowerCardId));
-            btnManager.onClick.AddListener(() => { towerDeckList.SetActive(false); towerDeckCardBlock.SetActive(true); });
+            btnManager.onClick.AddListener(() => { SetActiveCard(towerCard.TowerCardId); towerDeckList.SetActive(false); towerDeckCardBlock.SetActive(true); });
             btnManager.UpdateUI();
         }
     }
@@ -86,27 +86,36 @@ public class TowerDeckBuilder : MonoBehaviour
         int _price = 0, _damage = 0;
         float _damageRange = 0, _attackCooldown = 0;
 
+        gameData.towersList.Clear();
+
         for (int i = 0; i < 4; i++)
         {
-            _price = gameData.towerCardsList[i].priceDefVal + (gameData.towerCardsList[i].pricePoints * pricePointsCoef);
-            _damage = gameData.towerCardsList[i].damageDefVal + (gameData.towerCardsList[i].damagePoints * damagePointsCoef);
+            _price = (int)gameData.towerCardsList[i].priceDefVal + (gameData.towerCardsList[i].pricePoints * pricePointsCoef);
+            _damage = (int)gameData.towerCardsList[i].damageDefVal + (gameData.towerCardsList[i].damagePoints * damagePointsCoef);
             _damageRange = gameData.towerCardsList[i].damageRangeDefVal + (gameData.towerCardsList[i].damageRangePoints * damageRangePointsCoef);
             _attackCooldown = gameData.towerCardsList[i].attackCooldownDefVal + (gameData.towerCardsList[i].attackCooldownPoints * attackCooldownPointsCoef);
 
-            if (gameData.towersList.Count < 4)
-            {
-                for (int k = 0; k < 4; k++)
-                {
-                    gameData.towersList.Add(new Tower(towersPrefabsList[i], gameData.towerCardsList[i].towerCardName, _price, _damage, _damageRange, _attackCooldown));
-                }
-                return;
-            }
+            gameData.towersList.Add(new Tower(towersPrefabsList[i], gameData.towerCardsList[i].towerCardName, _price, _damage, _damageRange, _attackCooldown, gameData.towerCardsList[i].specialMethods));
+        }
+    }
 
-            for (int k = 0; k < 4; k++)
-            {
-                gameData.towersList[i] = new Tower(towersPrefabsList[i], gameData.towerCardsList[i].towerCardName, _price, _damage, _damageRange, _attackCooldown);
-            }
+    public float GetFieldValueFloat(string fieldName)
+    {
+        FieldInfo field = GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (field != null)
+        {
+            return Convert.ToSingle(field.GetValue(this));
         }
 
+        throw new ArgumentException("Field not found - " + fieldName);
+    }
+
+    public void AddPoints(int pointsAmount)
+    {
+        pointsPerTower += Math.Abs(pointsAmount);
+    }
+    public void AddSpecialPoints(int pointsAmount)
+    {
+        specialPointsPerTower += Math.Abs(pointsAmount);
     }
 }

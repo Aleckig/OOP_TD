@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.annulusgames.alchemy": "https://github.com/AnnulusGames/Alchemy.git?path=/Alchemy/Assets/Alchemy",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.formats.fbx": "4.2.1",
     "com.unity.ide.rider": "3.0.27",

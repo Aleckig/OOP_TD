@@ -1,19 +1,5 @@
 {
   "dependencies": {
-    "com.annulusgames.alchemy": {
-      "version": "https://github.com/AnnulusGames/Alchemy.git?path=/Alchemy/Assets/Alchemy",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "93a56757a82ffb193c494345560cc197e4cac1da"
-    },
-    "com.autodesk.fbx": {
-      "version": "4.2.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.burst": {
       "version": "1.8.12",
       "depth": 1,
@@ -36,16 +22,6 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.formats.fbx": {
-      "version": "4.2.1",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.timeline": "1.7.1",
-        "com.autodesk.fbx": "4.2.1"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
