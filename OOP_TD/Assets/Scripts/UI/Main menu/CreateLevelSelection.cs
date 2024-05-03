@@ -17,7 +17,7 @@ public class CreateLevelSelection : MonoBehaviour
 
     GameObject levelSelection = Instantiate(LevelSelectionPrefab, LevelList.transform.parent);
 
-    levelSelection.GetComponent<LevelSelection>().SetData(levelName, LevelList, easyLevelScene, hardLevelScene);
+    levelSelection.GetComponent<LevelSelectionController>().SetData(levelName, LevelList, easyLevelScene, hardLevelScene);
   }
 
   private void OnDisable()

@@ -1,11 +1,11 @@
-using Alchemy.Inspector;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class TowerSettings : MonoBehaviour
 {
     [SerializeField] private Tower tower;
     private SphereCollider sphereCollider;
-    private void Start()
+    private void Awake()
     {
         sphereCollider = GetComponent<SphereCollider>();
     }

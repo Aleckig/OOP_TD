@@ -56,17 +56,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _HologramSpeed: 0.1
-    - _InsideGlowSpread: 1.4
-    - _Power: 0.76
+    - _InsideGlowSpread: 6.29
+    - _Power: 2.08
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WobbleDistance: 0.005
     - _WobbleFrequency: 1
     - _WobbleSpeed: 1
     m_Colors:
-    - _Color: {r: 1.698113, g: 1.6965559, b: 0.026671883, a: 0.3921569}
+    - _Color: {r: 7.906698, g: 7.8994484, b: 0.12418875, a: 1}
     - _HologramTilling: {r: 2, g: 3, b: 0, a: 0}
-    - _InsideColour: {r: 1.4467609, g: 0.5899599, b: 0, a: 0.39215687}
+    - _InsideColour: {r: 1.2167859, g: 0.49618077, b: 0, a: 1}
     - _InsidePosition: {r: 0, g: 0, b: 0, a: 0}
     - _Lerp: {r: 0.2, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
