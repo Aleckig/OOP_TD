@@ -80,6 +80,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower !TEST! Variant Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 7684251875415370940, guid: 04e010331015bda4db5df0b3136f15da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f22bdbf8fe7c05245b94d24359c4b524, type: 2}
     - target: {fileID: 8858919422172472615, guid: 04e010331015bda4db5df0b3136f15da,
         type: 3}
       propertyPath: towerName
