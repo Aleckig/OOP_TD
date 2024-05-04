@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private AudioClip attackSound;
+    [SerializeField] private bool isCoder = false;
     private AudioSource audioSource;
     public GameObject turningPoints;
     public int pathnumber;
@@ -62,7 +63,22 @@ public class EnemyMovement : MonoBehaviour
                 audioSource.PlayOneShot(attackSound); // Play attack sound
 
                 // Spawn particle effect at the position of the object
-                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+                if (isCoder == true)
+                {
+                    // Calculate the position slightly above the character
+                    Vector3 spawnPosition = transform.position + Vector3.up * 0.5f; // Adjust the value to fit your needs
+
+                    // Calculate the rotation to point downwards
+                    Quaternion spawnRotation = Quaternion.LookRotation(Vector3.down, Vector3.forward);
+
+                    // Instantiate the particle effect at the calculated position with the calculated rotation
+                    Instantiate(particleEffectPrefab, spawnPosition, spawnRotation);
+                }
+                else
+                {
+                    Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
+                }
+                
                 return;
             }
             timeBetweenAttacks -= Time.deltaTime;

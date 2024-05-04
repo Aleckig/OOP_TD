@@ -240,9 +240,11 @@ MonoBehaviour:
   particleEffectPrefab: {fileID: 5293279921407630151, guid: 64b80d56f78809444a2e3697d3acfd26,
     type: 3}
   attackSound: {fileID: 8300000, guid: c851a21911a0dea4a89acac697bd9f40, type: 3}
+  isCoder: 1
   turningPoints: {fileID: 0}
   pathnumber: 0
   waveSpawner: {fileID: 0}
+  isTeleporting: 0
 --- !u!65 &5349833739807062625
 BoxCollider:
   m_ObjectHideFlags: 0
