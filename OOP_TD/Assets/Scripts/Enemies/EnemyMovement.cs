@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public bool reachedEnd = false;
     public GameObject baseObject;
     public float timeBetweenAttacks = 0f;
-    private float damage = 1f;
+    [SerializeField] private float damage = 1f;
     public float health = 100f;
     public HealthBar enemyHealthBar;
     [SerializeField] private GameObject particleEffectPrefab;
@@ -90,6 +90,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
             }
+            
             Destroy(gameObject);
         }
 
