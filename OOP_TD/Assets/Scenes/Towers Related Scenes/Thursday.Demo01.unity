@@ -4949,7 +4949,7 @@ PrefabInstance:
     - target: {fileID: 3253539434980646891, guid: 1a746d7a633133541ba82cbe78c42eff,
         type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6715522053969822670, guid: 1a746d7a633133541ba82cbe78c42eff,
         type: 3}
@@ -5259,6 +5259,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7306517649304855628, guid: 5c95ce0972002234594946aaade0f273,
+        type: 3}
+      propertyPath: shieldSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e72141a0c11a174f978a6702791b634, type: 3}
     - target: {fileID: 7306517649304855628, guid: 5c95ce0972002234594946aaade0f273,
         type: 3}
       propertyPath: gameOverScreen
