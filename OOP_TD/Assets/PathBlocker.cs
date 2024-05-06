@@ -8,6 +8,7 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 {
     public GameObject[] pathToBlock;
     private GameObject turningPoints;
+    public GameObject blockedVFX;
 
     void Start()
     {
@@ -25,17 +26,18 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         {
             paths.gameObject.SetActive(false);
         }
+        blockedVFX.SetActive(true);
         turningPoints.GetComponent<TurningPoints>().DisableBlocking();
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData) //While using the ability, hovering mouse over certain path makes it visually transparent to indicate that it can be disabled
     {
-        this.GetComponent<DecalProjector>().fadeFactor = 0.2f;
+        //this.GetComponent<DecalProjector>().fadeFactor = 0.2f;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        this.GetComponent<DecalProjector>().fadeFactor = 1f;
+        //this.GetComponent<DecalProjector>().fadeFactor = 1f;
     }
 }

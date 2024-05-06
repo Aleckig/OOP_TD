@@ -965,6 +965,7 @@ MonoBehaviour:
   originalHealthBar: {fileID: 0}
   damageMultiplier: 1
   shieldButton: {fileID: 0}
+  shieldSound: {fileID: 0}
 --- !u!1001 &347885810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2590,6 +2591,11 @@ PrefabInstance:
     - target: {fileID: 7143040242647558294, guid: b29b95f291d57d745b5055f23aac5c93,
         type: 3}
       propertyPath: UIButtonContainer
+      value: 
+      objectReference: {fileID: 76588567}
+    - target: {fileID: 7143040242647558294, guid: b29b95f291d57d745b5055f23aac5c93,
+        type: 3}
+      propertyPath: UIBuyTowerButtonsContainer
       value: 
       objectReference: {fileID: 76588567}
     - target: {fileID: 7143040242647558294, guid: b29b95f291d57d745b5055f23aac5c93,
@@ -5826,6 +5832,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611151687722482712, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 2235011726881386718, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
