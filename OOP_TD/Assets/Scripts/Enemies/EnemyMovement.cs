@@ -33,11 +33,22 @@ public class EnemyMovement : MonoBehaviour
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
-        if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true) //Checks if the enemy's path has been disabled with the Path Block ability
+        for (int i = 0; i < turningPoints.transform.childCount; i++)
         {
-            target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[0];
+            if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
+            {
+                target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[0];
+                break;
+            }
+            else
+            {
+                pathnumber++;
+                if (pathnumber > turningPoints.transform.childCount)
+                {
+                    pathnumber = pathnumber - turningPoints.transform.childCount;
+                }
+            }
         }
-        else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[0]; //If the path is blocked, it chooses a one next to it
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
         enemyHealthBar.SetMaxHealth(health);
@@ -124,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 target = turningPoints.transform.GetChild(pathnumber - 1).GetComponent<Path>().points[TurningPointIndex];
             }
-            else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
+            //else target = turningPoints.transform.GetChild(Mathf.Abs(pathnumber - 2)).GetComponent<Path>().points[TurningPointIndex];
         }
     }
 
@@ -146,10 +157,6 @@ public class EnemyMovement : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) <= 0.1f && isAttacking == false)
         {
-            //if (target.tag == "TunnelEntrance" && isTeleporting == false)
-            //{
-            //    StartCoroutine(Teleport());
-            //}
             if (target.transform.parent == targetAttackPoints.transform)
             {
                 isAttacking = true;
@@ -160,7 +167,7 @@ public class EnemyMovement : MonoBehaviour
                 GetNextTurningPoint();
             }
         }
-        if (target.tag == "TunnelExit")// && isTeleporting == false)
+        if (target.tag == "TunnelExit")
         {
             StartCoroutine(Teleport());
         }
