@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIMoneyText: {fileID: 0}
-  moneyValue: 300
+  moneyValue: 1000

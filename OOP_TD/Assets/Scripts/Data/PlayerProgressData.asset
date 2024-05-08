@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: PlayerProgressData
   m_EditorClassIdentifier: 
   specialMethodsList:
-  - unlockedStatus: 1
+  - unlockedStatus: 0
     methodNameCode: TargetEnemy
     methodNameDisplay: Target Enemy
     paramListDisplay: enemy type
     methodPointsPrice: 1
-  - unlockedStatus: 1
+  - unlockedStatus: 0
     methodNameCode: AllPriceReturn
     methodNameDisplay: 100% Price return
     paramListDisplay: 
     methodPointsPrice: 2
-  - unlockedStatus: 1
+  - unlockedStatus: 0
     methodNameCode: TestName
     methodNameDisplay: Test name
     paramListDisplay: value

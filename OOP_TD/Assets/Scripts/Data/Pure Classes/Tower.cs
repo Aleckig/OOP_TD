@@ -26,9 +26,12 @@ public class Tower
 
   // --> Fields for Polymorphism
   [BoxGroup("Polymorphism")]
-  public string towerType;
+  static public List<string> towerDamageTypeAvailable = new() { "Electro", "Fire", "Frost" };
+  [BoxGroup("Polymorphism")]
+  public List<string> towerDamageTypeAdded = new() { "Electro" };
   [BoxGroup("Polymorphism")]
   public List<string> specialMethods = new();
+  public string targetEnemyName;
   // <--
 
   public Tower(GameObject _towerPrefab, string _name, int _price, int _damage, float _damageRange, float _attackCooldown, List<string> _specialMethods)

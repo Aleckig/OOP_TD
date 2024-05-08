@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Michsky.UI.Heat;
 using UnityEngine;
 
 public class BaseManager : MonoBehaviour
@@ -22,8 +23,7 @@ public class BaseManager : MonoBehaviour
     private float baseHealthSave = 100f;
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
-    public GameObject shieldButton;
-
+    public ButtonManager shieldButton;
     private Renderer targetRenderer; // Renderer of the target GameObject
 
     void Start()
@@ -88,7 +88,7 @@ public class BaseManager : MonoBehaviour
         isBaseShielded = true;
         shieldEffect.SetFloat("_Fill", shieldValue);
         StartCoroutine(ShieldAppear());
-        shieldButton.gameObject.SetActive(false);
+        shieldButton.enabled = false;
     }
 
     IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it

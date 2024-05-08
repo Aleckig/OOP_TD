@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Michsky.UI.Heat;
 using UnityEngine;
 
 public class TurningPoints : MonoBehaviour
 {
     public GameObject[] allDisablePaths;
-    public GameObject button;
+    public ButtonManager button;
 
     public void BlockPath() //Enables the PathBlocker script on decal projectors, so that player can click which path to disable
     {
         for (int i = 0; i < allDisablePaths.Length; i++)
         {
             allDisablePaths[i].GetComponent<PathBlocker>().enabled = true;
-            button.gameObject.SetActive(false);
+            button.enabled = false;
         }
     }
 
