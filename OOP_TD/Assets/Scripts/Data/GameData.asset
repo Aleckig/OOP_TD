@@ -78,10 +78,11 @@ MonoBehaviour:
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerType: 
+    towerDamageTypeAdded: []
     specialMethods:
     - TestName
     - TargetEnemy
+    targetEnemyName: 
   - towerPrefab: {fileID: 4940548799210332013, guid: 2ff8de8d516b723429fb64cf3d5443f0,
       type: 3}
     name: Tower 2
@@ -89,8 +90,9 @@ MonoBehaviour:
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerType: 
+    towerDamageTypeAdded: []
     specialMethods: []
+    targetEnemyName: 
   - towerPrefab: {fileID: 6298782840030658673, guid: c8ea6be4d411fc94895ad54f6067b3ab,
       type: 3}
     name: Tower 3
@@ -98,10 +100,11 @@ MonoBehaviour:
     damage: 75
     damageRange: 5
     attackCooldown: 10
-    towerType: 
+    towerDamageTypeAdded: []
     specialMethods:
     - TargetEnemy
     - TestName
+    targetEnemyName: 
   - towerPrefab: {fileID: 5240100269545206463, guid: 8105b78269499ee4e887e423e461e5d2,
       type: 3}
     name: Tower 4
@@ -109,6 +112,9 @@ MonoBehaviour:
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerType: 
+    towerDamageTypeAdded: []
     specialMethods: []
-  EnemyPrefabsList: []
+    targetEnemyName: 
+  EnemyNamesList:
+  - Enemy Coder
+  - Resisting Enemy

@@ -13,5 +13,5 @@ public class GameData : ScriptableObject
   public List<TowerCard> towerCardsList;
   public List<Tower> towersList;
   [Title("Enemies Data")]
-  public List<GameObject> EnemyPrefabsList;
+  public List<string> EnemyNamesList;
 }

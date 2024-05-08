@@ -1,36 +1,54 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
-  public LevelManager gameManager;
-  [SerializeField] private GameObject UIBuyTowerButtonsContainer;
   [SerializeField] private GameData gameData;
-  private List<Tower> towerList;
-  private TowerPlacement towerPlacement;
-  public bool IsPlaced => towerPlacement.IsPlaced;
+  [SerializeField] private LevelManager levelManager;
+  [SerializeField] private GameObject UIBuyTowerButtonsContainer;
+  private TowerPlacement selectedTowerPlacement;
+  [SerializeField] private string returnMoneyMethodName;
+  [SerializeField] private float returnMoneyCoef;
+
+  public bool IsPlaced => selectedTowerPlacement.IsPlaced;
+  public Tower GetSelectedTower => selectedTowerPlacement.towerObj.GetComponent<TowerSettings>().GetTower();
 
   private void Awake()
   {
-    List<Tower> towerList = gameData.towersList;
-    GetComponent<SetBuyButton>().SetButtons(towerList);
     UIBuyTowerButtonsContainer.SetActive(false);
   }
-
   public void SetActiveTowerPlacement(TowerPlacement activeTowerPlacement)
   {
-    towerPlacement = activeTowerPlacement;
+    selectedTowerPlacement = activeTowerPlacement;
   }
 
   public void BuyTower(Tower towerData)
   {
     GameObject tower;
-    if (gameManager.ChangeMoneyValue(-1 * towerData.price))
+    if (levelManager.ChangeMoneyValue(-1 * towerData.price))
     {
-      tower = Instantiate(towerData.towerPrefab, towerPlacement.transform);
+      tower = Instantiate(towerData.towerPrefab, selectedTowerPlacement.transform);
       tower.GetComponent<TowerSettings>().SetTower(towerData);
-      towerPlacement.IsPlaced = true;
+      selectedTowerPlacement.IsPlaced = true;
+      selectedTowerPlacement.towerObj = tower;
     }
+  }
 
+  public void DestroyTower()
+  {
+    if (selectedTowerPlacement.towerObj == null) return;
+
+    TowerSettings towerSettings = selectedTowerPlacement.towerObj.GetComponent<TowerSettings>();
+    Tower towerData = towerSettings.GetTower();
+
+    if (towerSettings.GetMethodStatus(returnMoneyMethodName))
+      levelManager.ChangeMoneyValue(towerData.price);
+    else levelManager.ChangeMoneyValue((int)(towerData.price * returnMoneyCoef));
+
+    selectedTowerPlacement.IsPlaced = false;
+    Destroy(selectedTowerPlacement.towerObj);
   }
 
   public void DisplayUIButtonContainer(bool value)

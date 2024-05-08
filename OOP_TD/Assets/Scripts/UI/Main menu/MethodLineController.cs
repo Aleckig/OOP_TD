@@ -34,6 +34,10 @@ public class MethodLineController : MonoBehaviour
         methodPointsPrice.text = "" + item.methodPointsPrice + " special point(s)";
 
         unlockFilter.SetActive(!item.unlockedStatus);
+
+        addMethodBtn.enabled = item.unlockedStatus;
+        removeMethodBtn.enabled = item.unlockedStatus;
+
         MethodIsAdded(towerCard);
     }
 

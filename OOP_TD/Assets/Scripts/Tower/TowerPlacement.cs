@@ -3,13 +3,15 @@ using UnityEngine.EventSystems;
 
 public class TowerPlacement : MonoBehaviour, IPointerClickHandler
 {
+
+    private ShopManager shopManager;
+    public GameObject towerObj;
     private bool isPlaced = false;
     public bool IsPlaced
     {
         get => isPlaced;
         set => isPlaced = value;
     }
-    private ShopManager shopManager;
 
     private void Awake()
     {

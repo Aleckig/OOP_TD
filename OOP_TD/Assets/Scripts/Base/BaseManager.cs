@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Michsky.UI.Heat;
 using UnityEngine;
 
 public class BaseManager : MonoBehaviour
@@ -22,15 +23,11 @@ public class BaseManager : MonoBehaviour
     private float baseHealthSave = 100f;
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
-    public GameObject shieldButton;
-    [SerializeField] private AudioClip shieldSound;
-    private AudioSource audioSource;
-
+    public ButtonManager shieldButton;
     private Renderer targetRenderer; // Renderer of the target GameObject
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         if (targetObject != null)
         {
             targetRenderer = targetObject.GetComponent<Renderer>(); // Get the Renderer component of the target GameObject
@@ -81,7 +78,6 @@ public class BaseManager : MonoBehaviour
 
     public void SpawnShield()
     {
-        audioSource.PlayOneShot(shieldSound);
         baseShield.gameObject.SetActive(true);
         shieldHealthBar.gameObject.SetActive(true);
         baseHealthSave = currentHealth;
@@ -92,7 +88,7 @@ public class BaseManager : MonoBehaviour
         isBaseShielded = true;
         shieldEffect.SetFloat("_Fill", shieldValue);
         StartCoroutine(ShieldAppear());
-        shieldButton.gameObject.SetActive(false);
+        shieldButton.enabled = false;
     }
 
     IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it

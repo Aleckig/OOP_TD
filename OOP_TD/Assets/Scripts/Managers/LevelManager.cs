@@ -27,5 +27,7 @@ public class LevelManager : MonoBehaviour
     }
 
     private void UpdateMoneyUI()
-    { UIMoneyText.text = "Money: " + moneyValue; }
+    {
+        UIMoneyText.text = moneyValue.ToString();
+    }
 }
