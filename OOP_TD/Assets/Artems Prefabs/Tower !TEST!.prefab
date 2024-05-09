@@ -265,7 +265,9 @@ MonoBehaviour:
     damage: 0
     damageRange: 0
     attackCooldown: 0
+    towerDamageTypeAdded: []
     specialMethods: []
+    targetEnemyName: 
 --- !u!114 &598717429888934709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +289,7 @@ MonoBehaviour:
   enemyList: []
   particleEffectPrefab: {fileID: 7250548435930761953, guid: a99a42b35f949164fa9b4c8cf4fb6678,
     type: 3}
+  projectileSound: {fileID: 8300000, guid: e957ad5ee30926c47af731925f7567fb, type: 3}
   activeTarget: {fileID: 0}
   currentTarget: {fileID: 0}
 --- !u!135 &2781798751936145900
