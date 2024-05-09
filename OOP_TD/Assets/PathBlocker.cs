@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject[] pathToBlock;
+    public GameObject[] additionalObjectsToBlock; // Add the chosen game objects here
     private GameObject turningPoints;
     public GameObject blockedVFX;
 
@@ -22,10 +23,16 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerClick(PointerEventData eventData) //Disables the path, the decal and the ability to disable any more paths
     {
-        foreach (GameObject paths in pathToBlock)
+        foreach (GameObject path in pathToBlock)
         {
-            paths.gameObject.SetActive(false);
+            path.SetActive(false);
         }
+
+        foreach (GameObject obj in additionalObjectsToBlock)
+        {
+            obj.SetActive(false); // Disable the chosen game objects
+        }
+
         blockedVFX.SetActive(true);
         turningPoints.GetComponent<TurningPoints>().DisableBlocking();
         //this.gameObject.SetActive(false);
