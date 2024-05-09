@@ -24,10 +24,13 @@ public class BaseManager : MonoBehaviour
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
     public ButtonManager shieldButton;
+    [SerializeField] private AudioClip shieldSound;
+    private AudioSource audioSource;
     private Renderer targetRenderer; // Renderer of the target GameObject
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         if (targetObject != null)
         {
             targetRenderer = targetObject.GetComponent<Renderer>(); // Get the Renderer component of the target GameObject
@@ -78,6 +81,8 @@ public class BaseManager : MonoBehaviour
 
     public void SpawnShield()
     {
+        Debug.Log("Shield sound played!");
+        audioSource.PlayOneShot(shieldSound);
         baseShield.gameObject.SetActive(true);
         shieldHealthBar.gameObject.SetActive(true);
         baseHealthSave = currentHealth;
