@@ -15,7 +15,7 @@ public class WaveSpawner : MonoBehaviour
      if (timeBetweenWaves <= 0f)
         {
             StartCoroutine(SpawnWave());
-            timeBetweenWaves = 8f;
+            timeBetweenWaves = 10f;
             return;
         }
         timeBetweenWaves -= Time.deltaTime;
@@ -27,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++) //Spawns all the enemies in current wave with 0.5 second interval
         {
             SpawnEnemy(wave.enemies[i], wave.paths[i]); //Enemy prefabs and their path numbers will be chosen from lists in Wave class
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
         }
         waveIndex++;
         Debug.Log("Wave spawned");
@@ -45,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
     }
     public void SpawnButton()
     {
-        timeBetweenWaves = 8f;
+        timeBetweenWaves = 30f;
         if (waveIndex < waves.Length)
         {
             StartCoroutine(SpawnWave());

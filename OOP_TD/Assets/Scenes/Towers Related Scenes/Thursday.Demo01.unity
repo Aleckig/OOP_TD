@@ -493,6 +493,7 @@ MonoBehaviour:
   originalHealthBar: {fileID: 0}
   damageMultiplier: 1
   shieldButton: {fileID: 1434918474}
+  shieldSound: {fileID: 0}
 --- !u!1 &291552393
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,9 +795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalProjector: {fileID: 398396210}
-  pathToBlock: {fileID: 291552393}
-  turningPoints: {fileID: 0}
+  pathToBlock:
+  - {fileID: 0}
+  additionalObjectsToBlock: []
+  blockedVFX: {fileID: 0}
 --- !u!1 &448213618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,9 +1003,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalProjector: {fileID: 490345910}
-  pathToBlock: {fileID: 4184478121996755349}
-  turningPoints: {fileID: 0}
+  pathToBlock:
+  - {fileID: 0}
+  additionalObjectsToBlock: []
+  blockedVFX: {fileID: 0}
 --- !u!65 &490345914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1559,9 +1562,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c10af56af4b4f4aa4f61c2f81d0683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalProjector: {fileID: 825045238}
-  pathToBlock: {fileID: 3689979477967729051}
-  turningPoints: {fileID: 0}
+  pathToBlock:
+  - {fileID: 0}
+  additionalObjectsToBlock: []
+  blockedVFX: {fileID: 0}
 --- !u!1 &837246106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,7 +4933,7 @@ PrefabInstance:
     - target: {fileID: 3300456810719075930, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 433.475
       objectReference: {fileID: 0}
     - target: {fileID: 3300456810719075930, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
