@@ -6,27 +6,28 @@ public class WaveSpawner : MonoBehaviour
 {
     public Wave[] waves;
     public Transform spawnLocation;
-    public float timeBetweenWaves = 0f;
     private int waveIndex = 0;
     public int pathnumb;
 
     void FixedUpdate()
     {
-     if (timeBetweenWaves <= 0f)
-        {
-            StartCoroutine(SpawnWave());
-            timeBetweenWaves = 10f;
-            return;
-        }
-        timeBetweenWaves -= Time.deltaTime;
+        // Remove the auto-spawning logic from FixedUpdate()
+        // Auto spawning will be controlled by the SpawnButton method
+
+        // You can remove this line as well
+        // if (timeBetweenWaves <= 0f)
+
+        // Remove the Coroutine invocation from here
+        // StartCoroutine(SpawnWave());
+        // timeBetweenWaves = 10f;
     }
 
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
-        for (int i = 0; i < wave.count; i++) //Spawns all the enemies in current wave with 0.5 second interval
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy(wave.enemies[i], wave.paths[i]); //Enemy prefabs and their path numbers will be chosen from lists in Wave class
+            SpawnEnemy(wave.enemies[i], wave.paths[i]);
             yield return new WaitForSeconds(1f);
         }
         waveIndex++;
@@ -40,12 +41,13 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy, int path)
     {
-        pathnumb = path; //Enemies will get this value in the Start method in EnemyMovement
+        pathnumb = path;
         Instantiate(enemy, spawnLocation.position, spawnLocation.rotation);
     }
+
     public void SpawnButton()
     {
-        timeBetweenWaves = 30f;
+        // Call SpawnWave only if there are waves left to spawn
         if (waveIndex < waves.Length)
         {
             StartCoroutine(SpawnWave());
