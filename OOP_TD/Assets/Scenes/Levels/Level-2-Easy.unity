@@ -510,7 +510,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -553,7 +553,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1437,7 +1437,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingAttackPoint 4
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1802,7 +1802,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingAttackPoint 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4255,7 +4255,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingAttackPoint 3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4478,7 +4478,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingAttackPoint 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4868,14 +4868,14 @@ MonoBehaviour:
     - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
     - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
     - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
-    - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
+    - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
     - {fileID: 4325693081399207317, guid: 1ee8bfa2d58da2145810f66b8bfab2a3, type: 3}
     - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
     - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
+    - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
     - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
-    - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
-    - {fileID: 656498534876729743, guid: 04d27eb76ce53b34aaf539efc0acf2b3, type: 3}
-    - {fileID: 4325693081399207317, guid: 1ee8bfa2d58da2145810f66b8bfab2a3, type: 3}
+    - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
+    - {fileID: 357091786651366475, guid: 725616129a10c18499bd0a7674bd7f15, type: 3}
     - {fileID: 4325693081399207317, guid: 1ee8bfa2d58da2145810f66b8bfab2a3, type: 3}
     count: 15
     paths: 010000000200000002000000020000000100000004000000040000000400000001000000010000000300000003000000030000000300000003000000
@@ -4893,7 +4893,6 @@ MonoBehaviour:
     count: 10
     paths: 02000000020000000100000001000000020000000200000001000000010000000400000004000000
   spawnLocation: {fileID: 1836480890}
-  timeBetweenWaves: 30
   pathnumb: 0
 --- !u!4 &665467718
 Transform:
@@ -5619,7 +5618,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 6
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5814,7 +5813,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 5
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5827,7 +5826,7 @@ Transform:
   m_GameObject: {fileID: 837047215}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.783, y: -0, z: -0.676}
+  m_LocalPosition: {x: -0.237, y: 0, z: -0.744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6498,7 +6497,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 2
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -7733,7 +7732,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackPoint 3
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8635,7 +8634,7 @@ Transform:
   m_GameObject: {fileID: 1709388274}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0.459, y: 0.737, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8842,7 +8841,7 @@ GameObject:
   m_Layer: 0
   m_Name: FlyingDestination
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
