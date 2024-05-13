@@ -16,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     public TMP_Text countDown;
     public GameWinScreen gameWinScreen;
     public bool betweenWaves;
+    [SerializeField] private float timeBetweenEnemies = 1.2f;
 
     void Start()
     {
@@ -62,7 +63,7 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++) //Spawns all the enemies in current wave with 0.8 second interval
         {
             SpawnEnemy(wave.enemies[i], wave.paths[i]); //Enemy prefabs and their path numbers will be chosen from lists in Wave class
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(timeBetweenEnemies);
         }
         waveIndex++;
         Debug.Log("Wave spawned");
