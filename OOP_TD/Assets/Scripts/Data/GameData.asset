@@ -73,7 +73,7 @@ MonoBehaviour:
   towersList:
   - towerPrefab: {fileID: 4197643823405404435, guid: 04e010331015bda4db5df0b3136f15da,
       type: 3}
-    name: Tower 1
+    towerName: 
     price: 100
     damage: 25
     damageRange: 5
@@ -85,7 +85,7 @@ MonoBehaviour:
     targetEnemyName: 
   - towerPrefab: {fileID: 4940548799210332013, guid: 2ff8de8d516b723429fb64cf3d5443f0,
       type: 3}
-    name: Tower 2
+    towerName: 
     price: 100
     damage: 25
     damageRange: 5
@@ -95,7 +95,7 @@ MonoBehaviour:
     targetEnemyName: 
   - towerPrefab: {fileID: 6298782840030658673, guid: c8ea6be4d411fc94895ad54f6067b3ab,
       type: 3}
-    name: Tower 3
+    towerName: 
     price: 100
     damage: 75
     damageRange: 5
@@ -107,7 +107,7 @@ MonoBehaviour:
     targetEnemyName: 
   - towerPrefab: {fileID: 5240100269545206463, guid: 8105b78269499ee4e887e423e461e5d2,
       type: 3}
-    name: Tower 4
+    towerName: 
     price: 0
     damage: 25
     damageRange: 5
@@ -118,3 +118,29 @@ MonoBehaviour:
   EnemyNamesList:
   - Enemy Coder
   - Resisting Enemy
+  activeLevelId: 3
+  levelsDataList:
+  - levelId: 1
+    levelImage: {fileID: 21300000, guid: da72769ae28c7724895d4961a05d24e1, type: 3}
+    easyLevelScene:
+      sceneAsset: {fileID: 102900000, guid: 07d2d68d2a6182644a34bbafab1a0dca, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-1-Easy.unity
+    hardLevelScene:
+      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
+      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+  - levelId: 2
+    levelImage: {fileID: 21300000, guid: 786ba3b0b4fa9994695b5696114d94fc, type: 3}
+    easyLevelScene:
+      sceneAsset: {fileID: 102900000, guid: 5098a9b0c1c14e94da63ffcf1459bc92, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-2-Easy.unity
+    hardLevelScene:
+      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
+      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+  - levelId: 3
+    levelImage: {fileID: 21300000, guid: d6785846ab0688745a766312f5e8284a, type: 3}
+    easyLevelScene:
+      sceneAsset: {fileID: 102900000, guid: 0d5381a6ca96d8a499aecc7a79df5312, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-3-Easy.unity
+    hardLevelScene:
+      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
+      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity

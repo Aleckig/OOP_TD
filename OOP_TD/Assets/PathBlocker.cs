@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering.Universal;
 
 public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -18,7 +15,7 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     void Update()
     {
-        
+
     }
 
     public void OnPointerClick(PointerEventData eventData) //Disables the path, the decal and the ability to disable any more paths

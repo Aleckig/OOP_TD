@@ -8,10 +8,21 @@ using Sirenix.OdinInspector;
 public class PlayerProgressData : ScriptableObject
 {
   public List<SpecialMethodItem> specialMethodsList;
+  // [HideInInspector]
+  public LevelDataSaveManager levelDataSaveManager = new();
+
+  public void UnlockSpecialMethod(string methodNameCode)
+  {
+    for (int i = 0; i < specialMethodsList.Count; i++)
+    {
+      if (specialMethodsList[i].methodNameCode == methodNameCode)
+        specialMethodsList[i].unlockedStatus = true;
+    }
+  }
 }
 
 [Serializable]
-public struct SpecialMethodItem
+public class SpecialMethodItem
 {
   //If plaeyr able to use this method
   [BoxGroup]

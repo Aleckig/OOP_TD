@@ -10,7 +10,7 @@ public class Tower
   [BoxGroup("Basic")]
   public GameObject towerPrefab;
   [BoxGroup("Basic")]
-  public string name;
+  public string towerName;
   // <--
 
   // --> Fields for Inheritance
@@ -31,13 +31,14 @@ public class Tower
   public List<string> towerDamageTypeAdded = new() { "Electro" };
   [BoxGroup("Polymorphism")]
   public List<string> specialMethods = new();
+  [BoxGroup("Polymorphism")]
   public string targetEnemyName;
   // <--
 
   public Tower(GameObject _towerPrefab, string _name, int _price, int _damage, float _damageRange, float _attackCooldown, List<string> _specialMethods)
   {
     this.towerPrefab = _towerPrefab;
-    this.name = _name;
+    this.towerName = _name;
     this.price = _price;
     this.damage = _damage;
     this.damageRange = _damageRange;
@@ -52,7 +53,7 @@ public class Tower
   public Tower(Tower tower)
   {
     this.towerPrefab = tower.towerPrefab;
-    this.name = tower.name;
+    this.towerName = tower.towerName;
     this.price = tower.price;
     this.damage = tower.damage;
     this.damageRange = tower.damageRange;

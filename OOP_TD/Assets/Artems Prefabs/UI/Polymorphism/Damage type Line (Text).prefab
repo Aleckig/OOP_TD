@@ -212,6 +212,8 @@ MonoBehaviour:
   textPlaceholder: {fileID: 8156352431866621438}
   EnabledDropdown: 0
   dropdown: {fileID: 0}
+  EnabledButton: 0
+  buttonManager: {fileID: 0}
 --- !u!114 &3799397862189345858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +251,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
