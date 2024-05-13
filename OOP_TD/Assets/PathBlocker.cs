@@ -34,7 +34,7 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         }
 
         blockedVFX.SetActive(true);
-        turningPoints.GetComponent<TurningPoints>().DisableBlocking();
+        //turningPoints.GetComponent<TurningPoints>().DisableBlocking();
         //this.gameObject.SetActive(false);
     }
 
