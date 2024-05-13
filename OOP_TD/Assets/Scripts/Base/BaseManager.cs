@@ -19,15 +19,18 @@ public class BaseManager : MonoBehaviour
     public Material shieldEffect;
     public float shieldValue = -0.4f;
     public HealthBar shieldHealthBar;
+    public BaseShieldTimer shieldTimer;
     private bool isBaseShielded = false;
     private float baseHealthSave = 100f;
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
     public ButtonManager shieldButton;
     private Renderer targetRenderer; // Renderer of the target GameObject
+    public AbilityManager abilityManager;
 
     void Start()
     {
+        shieldButton.enabled = false;
         if (targetObject != null)
         {
             targetRenderer = targetObject.GetComponent<Renderer>(); // Get the Renderer component of the target GameObject
@@ -78,17 +81,26 @@ public class BaseManager : MonoBehaviour
 
     public void SpawnShield()
     {
-        baseShield.gameObject.SetActive(true);
-        shieldHealthBar.gameObject.SetActive(true);
-        baseHealthSave = currentHealth;
-        originalHealthBar = healthBar;
-        healthBar = shieldHealthBar;
-        healthBar.SetMaxHealth(maxHealth);
-        currentHealth = maxHealth;
-        isBaseShielded = true;
-        shieldEffect.SetFloat("_Fill", shieldValue);
-        StartCoroutine(ShieldAppear());
-        shieldButton.enabled = false;
+        if (abilityManager.shieldsAmount > 0)
+        {
+            shieldButton.enabled = true;
+            abilityManager.DecreaseShieldCount();
+            baseShield.gameObject.SetActive(true);
+            shieldHealthBar.gameObject.SetActive(true);
+            baseHealthSave = currentHealth;
+            originalHealthBar = healthBar;
+            healthBar = shieldHealthBar;
+            healthBar.SetMaxHealth(maxHealth);
+            currentHealth = maxHealth;
+            isBaseShielded = true;
+            shieldEffect.SetFloat("_Fill", shieldValue);
+            StartCoroutine(ShieldAppear());
+            StartCoroutine(ShieldTimer());
+        }
+        else
+        {
+            shieldButton.enabled = false;
+        }
     }
 
     IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it
@@ -113,6 +125,27 @@ public class BaseManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         baseShield.gameObject.SetActive(false);
+        yield return null;
+    }
+
+    IEnumerator ShieldTimer()
+    {
+        shieldTimer.gameObject.SetActive(true);
+        float counter = 15f;
+        shieldTimer.SetMaxHealth(counter);
+        while (counter > 0f)
+        {
+            counter -= 0.01f;
+            yield return new WaitForSeconds(0.01f);
+            shieldTimer.SetHealth(counter);
+        }
+        if (counter <= 0f)
+        {
+            healthBar = originalHealthBar;
+            StartCoroutine(ShieldDestroyed());
+            currentHealth = baseHealthSave;
+            shieldTimer.gameObject.SetActive(false);
+        }
         yield return null;
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -25,7 +27,8 @@ public class EnemyMovement : MonoBehaviour
     public int pathnumber;
     public GameObject waveSpawner;
     public bool isTeleporting = false;
-
+    public GameObject abilityManager;
+    public GameObject gameManager;
 
     void Start()
     {
@@ -33,6 +36,8 @@ public class EnemyMovement : MonoBehaviour
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
+        abilityManager = GameObject.FindWithTag("AbilityManager");
+        gameManager = GameObject.FindWithTag("GameManager");
         for (int i = 0; i < turningPoints.transform.childCount; i++)
         {
             if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
@@ -101,7 +106,16 @@ public class EnemyMovement : MonoBehaviour
             {
                 target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
             }
-            
+            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
+            if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
+            }
+            else if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
+            }
+            gameManager.GetComponent<LevelManager>().ChangeMoneyValue(10);
             Destroy(gameObject);
         }
 
@@ -121,6 +135,7 @@ public class EnemyMovement : MonoBehaviour
                 }
                 if (i >= targetAttackPoints.transform.childCount - 1)
                 {
+                    waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
                     //TODO: Do something with enemies that cannot fit around the base instead of destroying them
                     Destroy(gameObject);
                 }

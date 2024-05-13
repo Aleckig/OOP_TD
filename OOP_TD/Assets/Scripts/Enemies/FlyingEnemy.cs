@@ -18,6 +18,8 @@ public class FlyingEnemy : MonoBehaviour
     private AudioSource audioSource;
     private bool reachedDestination = false;
     public HealthBar enemyHealthBar;
+    public GameObject waveSpawner;
+    public GameObject abilityManager;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class FlyingEnemy : MonoBehaviour
         flyingTargetAttackPoints = GameObject.FindWithTag("FlyingAttackPoints");
         target = flyingTargetAttackPoints.transform.GetChild(0);
         enemyHealthBar.SetMaxHealth(health);
+        waveSpawner = GameObject.FindWithTag("WaveSpawner");
+        abilityManager = GameObject.FindWithTag("AbilityManager");
     }
 
     void FixedUpdate()
@@ -60,6 +64,15 @@ public class FlyingEnemy : MonoBehaviour
             if (isAttacking == true)
             {
                 target.gameObject.SetActive(true); //Re-enable attack point for next enemy to take the spot
+            }
+            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
+            if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
+            }
+            else if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
             }
             Destroy(gameObject); //Kill the enemy
         }

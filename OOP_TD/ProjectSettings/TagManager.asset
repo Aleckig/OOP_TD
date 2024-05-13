@@ -13,6 +13,8 @@ TagManager:
   - TurningPoints
   - WaveSpawner
   - TunnelExit
+  - AbilityManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
