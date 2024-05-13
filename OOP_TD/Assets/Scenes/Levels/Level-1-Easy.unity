@@ -9742,7 +9742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allDisablePaths: []
-  abilityManager: {fileID: 0}
+  abilityManager: {fileID: 1743127614}
 --- !u!4 &5909124279209799830
 Transform:
   m_ObjectHideFlags: 0
