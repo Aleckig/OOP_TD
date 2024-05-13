@@ -1442,9 +1442,11 @@ MonoBehaviour:
   shieldEffect: {fileID: 2100000, guid: af1c4223f0caf0d47a3f0617ac715ecc, type: 2}
   shieldValue: -0.3
   shieldHealthBar: {fileID: 448213620}
+  shieldTimer: {fileID: 0}
   originalHealthBar: {fileID: 0}
   damageMultiplier: 1
   shieldButton: {fileID: 0}
+  abilityManager: {fileID: 0}
 --- !u!1 &264463521
 GameObject:
   m_ObjectHideFlags: 0
@@ -3012,6 +3014,9 @@ MonoBehaviour:
   pathnumb: 0
   aliveEnemies: 0
   lastWave: 0
+  countDown: {fileID: 0}
+  gameWinScreen: {fileID: 0}
+  betweenWaves: 0
 --- !u!4 &665467718
 Transform:
   m_ObjectHideFlags: 0
@@ -8275,12 +8280,12 @@ PrefabInstance:
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -8290,12 +8295,12 @@ PrefabInstance:
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4296114037203837850, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -8576,6 +8581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: --- UI ---
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185777736045264201, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5239406788511103275, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -10624,6 +10634,7 @@ MonoBehaviour:
   - {fileID: 999529932}
   - {fileID: 387649757}
   - {fileID: 464691747}
+  additionalObjectsToBlock: []
   blockedVFX: {fileID: 1168624208}
 --- !u!65 &5616717797539629596
 BoxCollider:
@@ -10661,7 +10672,7 @@ MonoBehaviour:
   allDisablePaths:
   - {fileID: 3572882327611413318}
   - {fileID: 6726855359054849938}
-  button: {fileID: 720202439}
+  abilityManager: {fileID: 0}
 --- !u!4 &5909124279209799830
 Transform:
   m_ObjectHideFlags: 0
@@ -11158,6 +11169,7 @@ MonoBehaviour:
   pathToBlock:
   - {fileID: 1409992346}
   - {fileID: 999529932}
+  additionalObjectsToBlock: []
   blockedVFX: {fileID: 203739622}
 --- !u!65 &8677975289226917021
 BoxCollider:

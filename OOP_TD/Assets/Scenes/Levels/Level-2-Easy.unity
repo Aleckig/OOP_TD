@@ -998,10 +998,11 @@ MonoBehaviour:
   shieldEffect: {fileID: 2100000, guid: af1c4223f0caf0d47a3f0617ac715ecc, type: 2}
   shieldValue: -0.3
   shieldHealthBar: {fileID: 448213620}
+  shieldTimer: {fileID: 0}
   originalHealthBar: {fileID: 0}
   damageMultiplier: 1
   shieldButton: {fileID: 781452164}
-  shieldSound: {fileID: 8300000, guid: 022f5cb3a7849d142813422cdf16c5b4, type: 3}
+  abilityManager: {fileID: 0}
 --- !u!82 &235963171
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2783,12 +2784,12 @@ PrefabInstance:
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -2798,12 +2799,12 @@ PrefabInstance:
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4137982594261372892, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4296114037203837850, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -3094,6 +3095,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: --- UI --- In-game
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185777736045264201, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5239406788511103275, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -4893,7 +4899,13 @@ MonoBehaviour:
     count: 10
     paths: 02000000020000000100000001000000020000000200000001000000010000000400000004000000
   spawnLocation: {fileID: 1836480890}
+  timeBetweenWaves: 0
   pathnumb: 0
+  aliveEnemies: 0
+  lastWave: 0
+  countDown: {fileID: 0}
+  gameWinScreen: {fileID: 0}
+  betweenWaves: 0
 --- !u!4 &665467718
 Transform:
   m_ObjectHideFlags: 0
@@ -12923,7 +12935,7 @@ MonoBehaviour:
   allDisablePaths:
   - {fileID: 6581617289659701551}
   - {fileID: 4575159112256372929}
-  button: {fileID: 720202439}
+  abilityManager: {fileID: 0}
 --- !u!4 &5909124279209799830
 Transform:
   m_ObjectHideFlags: 0
