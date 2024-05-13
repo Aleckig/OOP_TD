@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 public class Path : MonoBehaviour
 {
     public Transform[] points;
+
+    internal static string Combine(string folderPath, string v)
+    {
+        throw new NotImplementedException();
+    }
 
     void Awake()
     {

@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,7 +9,8 @@ public class ShopManager : MonoBehaviour
   private TowerPlacement selectedTowerPlacement;
   [SerializeField] private string returnMoneyMethodName;
   [SerializeField] private float returnMoneyCoef;
-
+  [HideInInspector]
+  public List<GameObject> saveCreatedTowersDataList = new();
   public bool IsPlaced => selectedTowerPlacement.IsPlaced;
   public Tower GetSelectedTower => selectedTowerPlacement.towerObj.GetComponent<TowerSettings>().GetTower();
 
@@ -33,6 +32,9 @@ public class ShopManager : MonoBehaviour
       tower.GetComponent<TowerSettings>().SetTower(towerData);
       selectedTowerPlacement.IsPlaced = true;
       selectedTowerPlacement.towerObj = tower;
+
+      //list for saving data
+      saveCreatedTowersDataList.Add(tower);
     }
   }
 
@@ -48,7 +50,11 @@ public class ShopManager : MonoBehaviour
     else levelManager.ChangeMoneyValue((int)(towerData.price * returnMoneyCoef));
 
     selectedTowerPlacement.IsPlaced = false;
+
     Destroy(selectedTowerPlacement.towerObj);
+
+    //list for saving data
+    saveCreatedTowersDataList.Remove(selectedTowerPlacement.towerObj);
   }
 
   public void DisplayUIButtonContainer(bool value)

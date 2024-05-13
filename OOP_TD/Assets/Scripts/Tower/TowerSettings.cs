@@ -33,7 +33,7 @@ public class TowerSettings : SerializedMonoBehaviour
 
     public void SetTower(Tower _tower)
     {
-        tower = _tower;
+        tower = new(_tower);
         sphereCollider.radius = tower.damageRange;
     }
 

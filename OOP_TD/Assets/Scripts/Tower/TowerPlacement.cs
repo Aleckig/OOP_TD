@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public class TowerPlacement : MonoBehaviour, IPointerClickHandler
 {
-
     private ShopManager shopManager;
     public GameObject towerObj;
     private bool isPlaced = false;

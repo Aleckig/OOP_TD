@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +25,14 @@ public class TowersActionController : MonoBehaviour
     [SerializeField] private int AddDamageTypePrice = 100;
     private IEnumerator CheckBuyButtonCoroutine;
     private Tower activeTower;
-    private LineManager damageTypeObjRef;
-
+    private bool addDTLocked = false;
+    System.Action saveEnemyTarget;
     private void Start()
     {
         for (int i = 0; i < 4; i++)
         {
             buyButtons[i].boxButtonManager.buttonTitle = gameData.towersList[i].price + " Bits";
-            buyButtons[i].boxButtonManager.buttonDescription = gameData.towersList[i].name;
+            buyButtons[i].boxButtonManager.buttonDescription = gameData.towersList[i].towerName;
             buyButtons[i].boxButtonManager.UpdateUI();
 
             Tower tower = new(gameData.towersList[i]);
@@ -48,13 +47,14 @@ public class TowersActionController : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(CheckBuyButtonCoroutine);
+        if (CheckBuyButtonCoroutine != null) StopCoroutine(CheckBuyButtonCoroutine);
     }
 
     private IEnumerator CheckBuyButton()
     {
         while (true)
         {
+            //Buy tower buttons check
             for (int i = 0; i < 4; i++)
             {
                 if (!buyButtons[i].gameObject.activeInHierarchy) continue;
@@ -82,7 +82,10 @@ public class TowersActionController : MonoBehaviour
 
     public void CloseMorphWindow()
     {
-        damageTypeObjRef = null;
+        addDTLocked = false;
+
+        saveEnemyTarget.Invoke();
+
         morphWidnow.SetActive(false);
     }
 
@@ -114,6 +117,16 @@ public class TowersActionController : MonoBehaviour
             LineManager lineManager = line.GetComponent<LineManager>();
             lineManager.TextSet("TargetEnemy");
             lineManager.DropdownSetList(gameData.EnemyNamesList);
+
+            for (int i = 0; i < gameData.EnemyNamesList.Count; i++)
+            {
+                if (activeTower.targetEnemyName == gameData.EnemyNamesList[i])
+                {
+                    lineManager.DropdownSetSelectedValue(i);
+                }
+            }
+
+            saveEnemyTarget = () => { SaveEnemyTarget(lineManager, activeTower); };
         }
 
         //Instantiate methods lines without parameters
@@ -131,34 +144,48 @@ public class TowersActionController : MonoBehaviour
     {
         if (levelManager.GetMoneyValue < AddDamageTypePrice) return;
         if (activeTower.towerDamageTypeAdded.Count >= Tower.towerDamageTypeAvailable.Count) return;
+        if (addDTLocked) return;
 
         CreateDamageTypeLine();
+        addDTLocked = true;
     }
 
     private void CreateDamageTypeLine()
     {
         int dTAdded = activeTower.towerDamageTypeAdded.Count; //for shortening code
 
-        {
-            GameObject line = Instantiate(damageTypeDropdownPrefab, morphDamageTypesBlock);
-            LineManager lineManager = line.GetComponent<LineManager>();
-            lineManager.DropdownSetList(Tower.towerDamageTypeAvailable.GetRange(dTAdded, 3 - dTAdded));
+        GameObject line = Instantiate(damageTypeDropdownPrefab, morphDamageTypesBlock);
+        LineManager lineManager = line.GetComponent<LineManager>();
 
-            lineManager.DropdownSetSelectedValue(0);
-            damageTypeObjRef = lineManager;
+        lineManager.TextSet(string.Join(", ", activeTower.towerDamageTypeAdded.Take(activeTower.towerDamageTypeAdded.Count)) + ",");
+
+        List<string> notAddedDTList = new();
+        foreach (string dType in Tower.towerDamageTypeAvailable)
+        {
+            if (!activeTower.towerDamageTypeAdded.Contains(dType))
+            {
+                notAddedDTList.Add(dType);
+            }
         }
 
-        {
-            string selectedType = damageTypeObjRef.DropdownGetSelectedValue();
-            List<string> temp = new() { selectedType };
-            damageTypeObjRef.DropdownSetList(temp);
+        lineManager.DropdownSetList(notAddedDTList.GetRange(0, notAddedDTList.Count));
+        lineManager.DropdownSetSelectedValue(0);
 
-            string lastType = selectedType == "Fire" ? "Frost" : "Fire";
-            GameObject line = Instantiate(damageTypeTextPrefab, morphDamageTypesBlock);
-            line.GetComponent<LineManager>().TextSet("Electro, " + damageTypeObjRef.DropdownGetSelectedValue() + ", " + lastType);
-        }
+        lineManager.AddEventOnClick(() => { SaveDamageType(lineManager, activeTower); addDTLocked = false; levelManager.ChangeMoneyValue(-1 * AddDamageTypePrice); });
+    }
 
+    public void SaveDamageType(LineManager lineManager, Tower activeTowerParam)
+    {
+        activeTowerParam.towerDamageTypeAdded.Add(lineManager.DropdownGetSelectedValue());
 
+        GameObject newLine = Instantiate(damageTypeTextPrefab, morphDamageTypesBlock);
+        newLine.GetComponent<LineManager>().TextSet(string.Join(", ", activeTowerParam.towerDamageTypeAdded.Take(activeTowerParam.towerDamageTypeAdded.Count)));
 
+        Destroy(lineManager.gameObject);
+    }
+
+    public void SaveEnemyTarget(LineManager lineManager, Tower activeTowerParam)
+    {
+        activeTowerParam.targetEnemyName = lineManager.DropdownGetSelectedValue();
     }
 }
