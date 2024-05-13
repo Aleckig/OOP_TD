@@ -107,11 +107,11 @@ public class EnemyMovement : MonoBehaviour
                 target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
             }
             waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
-            if (Random.value < 0.1f)
+            if (Random.value < 0.3f)
             {
                 abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
             }
-            else if (Random.value < 0.1f)
+            else if (Random.value < 0.3f)
             {
                 abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
             }
