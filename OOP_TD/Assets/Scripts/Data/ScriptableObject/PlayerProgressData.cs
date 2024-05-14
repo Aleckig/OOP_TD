@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 [Serializable]
 [CreateAssetMenu(fileName = "PlayerProgressData", menuName = "Game Data Containers/ Player Progress Data", order = 1)]
-public class PlayerProgressData : ScriptableObject
+public class PlayerProgressData : SerializedScriptableObject
 {
   public List<SpecialMethodItem> specialMethodsList;
-  // [HideInInspector]
+  [NonSerialized, OdinSerialize]
   public LevelDataSaveManager levelDataSaveManager = new();
 
   public void UnlockSpecialMethod(string methodNameCode)

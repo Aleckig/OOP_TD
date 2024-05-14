@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class FlyingEnemy : MonoBehaviour
 {
+    [SerializeField] private Enemy enemyData;
+    private float currentHealth;
     public float timeBetweenAttacks = 0f;
-    private float damage = 4f;
-    public float speed = 6f;
-    public float health = 40f;
     private float rotationSpeed = 10.0f;
     public bool isAttacking = false;
     public Transform target;
@@ -20,16 +19,21 @@ public class FlyingEnemy : MonoBehaviour
     public HealthBar enemyHealthBar;
     public GameObject waveSpawner;
     public GameObject abilityManager;
+    public GameObject gameManager;
 
     void Start()
     {
+        currentHealth = enemyData.health;
+        timeBetweenAttacks = enemyData.attackCooldown;
+
         audioSource = GetComponent<AudioSource>();
         baseObject = GameObject.FindWithTag("Base");
         flyingTargetAttackPoints = GameObject.FindWithTag("FlyingAttackPoints");
         target = flyingTargetAttackPoints.transform.GetChild(0);
-        enemyHealthBar.SetMaxHealth(health);
+        enemyHealthBar.SetMaxHealth(enemyData.health);
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         abilityManager = GameObject.FindWithTag("AbilityManager");
+        gameManager = GameObject.FindWithTag("GameManager");
     }
 
     void FixedUpdate()
@@ -58,8 +62,8 @@ public class FlyingEnemy : MonoBehaviour
         {
             isAttacking = true;
         }
-        
-        if (health <= 0f)
+
+        if (currentHealth <= 0f)
         {
             if (isAttacking == true)
             {
@@ -77,14 +81,14 @@ public class FlyingEnemy : MonoBehaviour
             Destroy(gameObject); //Kill the enemy
         }
     }
-    
+
     private void Move()
     {
         if (isAttacking == false && reachedDestination == false) //Moves straight towards FlyingDestination, which is the point where enemies will turn towards the first available attack point around the base
         {
             Vector3 direction = target.position - transform.position;
             direction = direction + new Vector3(0, Mathf.Cos(Time.time * 3), 0);
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            transform.Translate(direction.normalized * enemyData.movementSpeed * Time.deltaTime, Space.World);
             Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
             transform.rotation = rot;
         }
@@ -92,7 +96,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             Vector3 direction = target.position - transform.position;
             Vector3 lookDirection = flyingTargetAttackPoints.transform.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            transform.Translate(direction.normalized * enemyData.movementSpeed * Time.deltaTime, Space.World);
             Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), rotationSpeed * Time.deltaTime);
             transform.rotation = rot;
         }
@@ -118,7 +122,33 @@ public class FlyingEnemy : MonoBehaviour
 
     IEnumerator Attack()
     {
-        baseObject.GetComponent<BaseManager>().TakeDamage(damage);
+        baseObject.GetComponent<BaseManager>().TakeDamage(enemyData.damage, "Flying enemy");
         yield return null;
+    }
+
+    public void TakeDamage(float damageValue)
+    {
+        currentHealth -= damageValue;
+        enemyHealthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            if (isAttacking == true)
+            {
+                target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
+            }
+            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
+            if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
+            }
+            else if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
+            }
+
+            gameManager.GetComponent<LevelManager>().ChangeMoneyValue(enemyData.moneyReward);
+            Destroy(gameObject);
+        }
     }
 }

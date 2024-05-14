@@ -5,16 +5,15 @@ using UnityEngine;
 [Serializable]
 public class Enemy
 {
-    public GameObject enemyPrefab;
     public string typeName;
-    public int health;
-    public int movementSpeed;
+    public float health;
+    public float movementSpeed;
     public int damage;
     public float attackCooldown; //how often enemy will attack Base
+    public int moneyReward;
 
-    public Enemy(GameObject _enemyPrefab, string _typeName, int _health, int _movementSpeed, int _damage, float _attackCooldown)
+    public Enemy(string _typeName, int _health, int _movementSpeed, int _damage, float _attackCooldown)
     {
-        this.enemyPrefab = _enemyPrefab;
         this.typeName = _typeName;
         this.health = _health;
         this.movementSpeed = _movementSpeed;
@@ -23,7 +22,6 @@ public class Enemy
     }
     public Enemy(Enemy enemy)
     {
-        this.enemyPrefab = enemy.enemyPrefab;
         this.typeName = enemy.typeName;
         this.health = enemy.health;
         this.movementSpeed = enemy.movementSpeed;

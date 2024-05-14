@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BaseManager : MonoBehaviour
 {
+    [SerializeField] private LevelManager levelManager;
+    private DictionaryStrFloat enemiesThatDealtDamageDict;
+    private float totalDamage = 0;
     public float maxHealth = 100f;
     public float currentHealth;
     public HealthBar healthBar;
@@ -32,8 +35,8 @@ public class BaseManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
-        
+        audioSource = GetComponent<AudioSource>();
+
         shieldButton.enabled = false;
         if (targetObject != null)
         {
@@ -59,7 +62,10 @@ public class BaseManager : MonoBehaviour
 
         if (currentHealth <= 0f && isBaseShielded == false)
         {
+            levelManager.SaveEnemyDamage(totalDamage, enemiesThatDealtDamageDict);
+            levelManager.OnLevelEnd(false);
             gameOverScreen.ShowGameOverScreen();
+            this.enabled = false;
         }
         else if (currentHealth <= 30f && isBaseShielded == false)
         {
@@ -77,10 +83,20 @@ public class BaseManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string enemyTypeName)
     {
         currentHealth -= damage * damageMultiplier;
         healthBar.SetHealth(currentHealth);
+        totalDamage += damage;
+
+
+        if (enemiesThatDealtDamageDict.ContainsKey(enemyTypeName))
+        {
+            enemiesThatDealtDamageDict[enemyTypeName] += damage;
+            return;
+        }
+
+        enemiesThatDealtDamageDict.Add(enemyTypeName, damage);
     }
 
     public void SpawnShield()

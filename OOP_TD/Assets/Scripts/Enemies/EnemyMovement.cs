@@ -1,43 +1,42 @@
 using System.Collections;
-using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class EnemyMovement : MonoBehaviour
 {
-
-    public float speed = 3f;
-    public Transform target;
-    private int TurningPointIndex = 0;
-    private float rotationSpeed = 10.0f;
-    public bool isAttacking = false;
-    public GameObject targetAttackPoints;
-    public bool reachedEnd = false;
-    public GameObject baseObject;
-    public float timeBetweenAttacks = 0f;
-    [SerializeField] private float damage = 1f;
-    public float health = 100f;
-    public HealthBar enemyHealthBar;
+    [SerializeField] private Enemy enemyData;
+    private float currentHealth;
     [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private AudioClip attackSound;
     [SerializeField] private bool isCoder = false;
-    private AudioSource audioSource;
+    public Transform target;
+    public HealthBar enemyHealthBar;
+    public GameObject targetAttackPoints;
+    public GameObject baseObject;
     public GameObject turningPoints;
-    public int pathnumber;
     public GameObject waveSpawner;
-    public bool isTeleporting = false;
     public GameObject abilityManager;
     public GameObject gameManager;
+    public int pathnumber;
+    public bool isAttacking = false;
+    public bool reachedEnd = false;
+    public bool isTeleporting = false;
+    private AudioSource audioSource;
+    private float rotationSpeed = 10.0f;
+    public float timeBetweenAttacks = 0f;
+    private int TurningPointIndex = 0;
 
     void Start()
     {
+        currentHealth = enemyData.health;
+
         audioSource = GetComponent<AudioSource>();
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
         pathnumber = waveSpawner.GetComponent<WaveSpawner>().pathnumb;
         turningPoints = GameObject.FindWithTag("TurningPoints");
         abilityManager = GameObject.FindWithTag("AbilityManager");
         gameManager = GameObject.FindWithTag("GameManager");
+
         for (int i = 0; i < turningPoints.transform.childCount; i++)
         {
             if (turningPoints.transform.GetChild(pathnumber - 1).gameObject.activeSelf == true)
@@ -56,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
         }
         targetAttackPoints = GameObject.FindWithTag("AttackPoints");
         baseObject = GameObject.FindWithTag("Base");
-        enemyHealthBar.SetMaxHealth(health);
+        enemyHealthBar.SetMaxHealth(enemyData.health);
     }
 
     void FixedUpdate()
@@ -68,9 +67,6 @@ public class EnemyMovement : MonoBehaviour
 
         if (isAttacking == true)
         {
-            //this.transform.GetChild(0).GetComponent<Animator>().Rebind();
-            //this.transform.GetChild(0).GetComponent<Animator>().enabled = false; //Stops the animation when attacking begins. TODO: Edit animations with Unity's animation states
-            //TODO: Play attack animation
             if (timeBetweenAttacks <= 0)
             {
                 StartCoroutine(Attack());
@@ -94,29 +90,10 @@ public class EnemyMovement : MonoBehaviour
                 {
                     Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
                 }
-                
+
                 return;
             }
             timeBetweenAttacks -= Time.deltaTime;
-        }
-
-        if (health <= 0)
-        {
-            if (isAttacking == true)
-            {
-                target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
-            }
-            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
-            if (Random.value < 0.1f)
-            {
-                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
-            }
-            else if (Random.value < 0.1f)
-            {
-                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
-            }
-            gameManager.GetComponent<LevelManager>().ChangeMoneyValue(10);
-            Destroy(gameObject);
         }
 
     }
@@ -159,7 +136,7 @@ public class EnemyMovement : MonoBehaviour
         if (isAttacking == false)
         {
             Vector3 direction = target.position - transform.position;
-            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            transform.Translate(direction.normalized * enemyData.movementSpeed * Time.deltaTime, Space.World);
             Quaternion rot = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
             transform.rotation = rot;
         }
@@ -190,7 +167,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Attack()
     {
-        baseObject.GetComponent<BaseManager>().TakeDamage(damage);
+        baseObject.GetComponent<BaseManager>().TakeDamage(enemyData.damage, enemyData.typeName);
         yield return null;
     }
 
@@ -204,5 +181,30 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isTeleporting = false;
         yield return null;
+    }
+
+    public void TakeDamage(float damageValue)
+    {
+        currentHealth -= damageValue;
+        enemyHealthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            if (isAttacking == true)
+            {
+                target.gameObject.SetActive(true); //If enemy dies while being on an attack point around the base, then the spot is made available for the next enemy to take
+            }
+            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
+            if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
+            }
+            else if (Random.value < 0.1f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
+            }
+            gameManager.GetComponent<LevelManager>().ChangeMoneyValue(enemyData.moneyReward);
+            Destroy(gameObject);
+        }
     }
 }
