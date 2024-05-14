@@ -1,27 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using Tymski;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameWinScreen : MonoBehaviour
 {
-    private string currentSceneName;
-
-    void Start()
-    {
-        currentSceneName = SceneManager.GetActiveScene().name;
-    }
+    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private SceneReference mainMenuScene;
 
     public void ShowGameWinScreen()
     {
+        levelManager.OnLevelEnd(true);
         this.gameObject.SetActive(true);
     }
 
-    public void RestartGame()
+    public void BackToMenu()
     {
-        SceneManager.LoadScene(currentSceneName);
+        SceneManager.LoadScene(mainMenuScene);
     }
-
-    //TODO: Create method for next level?
 }

@@ -4,20 +4,23 @@ using System.Collections.Generic;
 [Serializable]
 public class LevelDataSaveManager
 {
-  public Dictionary<int, LevelDataSaveSlot> levelsDataList = new();
+  public LevelsDataDict levelsDataDict = new() { };
 
   public bool SaveData(int levelId, string difficulty, LevelDataSaveItem item)
   {
-    if (!levelsDataList.ContainsKey(levelId))
-    {
-      levelsDataList.Add(levelId, new LevelDataSaveSlot());
-    }
+    if (levelsDataDict != null)
+      if (!levelsDataDict.ContainsKey(levelId))
+      {
+        levelsDataDict.Add(levelId, new LevelDataSaveSlot());
+      }
 
-    return levelsDataList[levelId].Add(difficulty, item); //If wrong key(difficulty) than LevelDataSaveSlot.Add(...) return false
+    LevelDataSaveItem temp = new(item); //For avoid any reference to original object
+    return levelsDataDict[levelId].Add(difficulty, temp); //If wrong key(difficulty) than LevelDataSaveSlot.Add(...) return false
   }
 
   public string CreateFeedbackForLevel(int levelId, string difficulty)
   {
+    if (levelsDataDict[levelId][difficulty].Count <= 0) return "";
     //Shortcuts for text formating
     string leftDec = "--- ";
     string rightDec = " ---\n";
@@ -27,11 +30,11 @@ public class LevelDataSaveManager
     string threeTab = "\t\t\t";
 
     //Title of the feedback
-    string headerStr = leftDec + "Level - " + levelId.ToString() + twoSidesDec + "Level difficulty - " + difficulty + twoSidesDec + "Total attempts - " + levelsDataList[levelId].CountTotalAttempts(difficulty) + rightDec;
+    string headerStr = leftDec + "Level - " + levelId.ToString() + twoSidesDec + "Level difficulty - " + difficulty + twoSidesDec + "Total attempts - " + levelsDataDict[levelId].CountTotalAttempts(difficulty) + rightDec;
 
-    LevelDataSaveItem tempGeneralData = levelsDataList[levelId][difficulty][0];
+    LevelDataSaveItem tempGeneralData = levelsDataDict[levelId][difficulty][0];
 
-    string generalLevelDataStr = leftDec + "\n" + leftDec + "General level data\n" + oneTab + "Mixing tunnel available - " + (tempGeneralData.mixingTunnelAvailable ? "yes" : "no") + "\n" + oneTab + "Blockable Paths count - " + tempGeneralData.pathsCount.ToString() + "\n" + oneTab + "Tower placement amount - " + tempGeneralData.towerPlacementAmount.ToString() + "\n" + oneTab + "Enemy amount:\n";
+    string generalLevelDataStr = leftDec + "\n" + leftDec + "General level data\n" + oneTab + "Mixing tunnel available - " + (tempGeneralData.mixingTunnelAvailable ? "yes" : "no") + "\n" + oneTab + "Blockable Paths count - " + tempGeneralData.blockablePathsCount.ToString() + "\n" + oneTab + "Tower placement amount - " + tempGeneralData.towerPlacementAmount.ToString() + "\n" + oneTab + "Enemy amount:\n";
 
     foreach (var item in tempGeneralData.enemiesAmountDict)
     {
@@ -40,10 +43,10 @@ public class LevelDataSaveManager
 
     string attemptsDataStr = "";
     int attemptCount = 1;
-    foreach (var item in levelsDataList[levelId][difficulty])
+    foreach (var item in levelsDataDict[levelId][difficulty])
     {
       //Title
-      string titleStr = leftDec + "\n" + leftDec + "Attempt - " + attemptCount.ToString() + twoSidesDec + "Status - " + (item.completionStatus ? "Victory" : "Defeat") + rightDec;
+      string titleStr = leftDec + "\n" + leftDec + "\n" + leftDec + "Attempt - " + attemptCount.ToString() + twoSidesDec + "Status - " + (item.completionStatus ? "Victory" : "Defeat") + rightDec;
 
       //Actions
       string actionsStr = leftDec + "Actions\n" + oneTab + "Power-up used amount:\n";
@@ -99,12 +102,12 @@ public class LevelDataSaveManager
   {
     bool[] result = new bool[2] { false, false };
 
-    foreach (var item in levelsDataList[levelId]["Easy"])
+    foreach (var item in levelsDataDict[levelId]["Easy"])
     {
       if (item.completionStatus == true) { result[0] = true; break; }
     }
 
-    foreach (var item in levelsDataList[levelId]["Hard"])
+    foreach (var item in levelsDataDict[levelId]["Hard"])
     {
       if (item.completionStatus == true) { result[1] = true; break; }
     }
@@ -113,7 +116,7 @@ public class LevelDataSaveManager
 
   public string GetLevelStatusDisplay(int levelId)
   {
-    string levelStatusStr = "Total attempts:\n Easy - " + levelsDataList[levelId].CountTotalAttempts("Easy") + "\nHard - " + levelsDataList[levelId].CountTotalAttempts("Hard");
+    string levelStatusStr = "Total attempts:\nEasy - " + levelsDataDict[levelId].CountTotalAttempts("Easy") + "\nHard - " + levelsDataDict[levelId].CountTotalAttempts("Hard");
 
     return levelStatusStr;
   }
@@ -122,7 +125,7 @@ public class LevelDataSaveManager
 [Serializable]
 public class LevelDataSaveSlot
 {
-  public Dictionary<string, List<LevelDataSaveItem>> LevelsDataSaveDict = new() { { "Easy", new() }, { "Hard", new() } };
+  public LevelsDataSaveDict LevelsDataSaveDict = new() { { "Easy", new() }, { "Hard", new() } };
 
   public bool Add(string difficulty, LevelDataSaveItem item)
   {
@@ -155,29 +158,29 @@ public class LevelDataSaveSlot
       else failedCount++;
     }
 
-    return $"Victory {successfulCount}/ Defeat{failedCount}";
+    return $"Victory {successfulCount}/ Defeat {failedCount}";
   }
 }
 
 [Serializable]
-public class LevelDataSaveItem //Saving information about the Level for building a feedback
+public class LevelDataSaveItem//Saving information about the Level for building a feedback
 {
   public bool completionStatus;
   public bool mixingTunnelAvailable;
-  public int pathsCount;
+  public int blockablePathsCount;
   public int towerPlacementAmount;
-  public Dictionary<string, int> enemiesAmountDict;
-  public Dictionary<string, int> powerupUsedCountDict;
+  public DictionaryStrInt enemiesAmountDict = new() { };
+  public DictionaryStrInt powerupUsedCountDict = new() { };
   public List<TowerCard> towerCardsList;
   public List<Tower> towersList;
-  public int baseDamageReceived;
-  public Dictionary<string, float> enemiesThatDealtDamageDict;
+  public float baseDamageReceived;
+  public DictionaryStrFloat enemiesThatDealtDamageDict = new() { };
 
-  public LevelDataSaveItem(bool completionStatus, bool mixingTunnelAvailable, int pathsCount, int towerPlacementAmount, Dictionary<string, int> enemiesAmountDict, Dictionary<string, int> powerupUsedCountDict, List<TowerCard> towerCardsList, List<Tower> towersList, int baseDamageReceived, Dictionary<string, float> enemiesThatDealtDamageDict)
+  public LevelDataSaveItem(bool completionStatus, bool mixingTunnelAvailable, int blockablePathsCount, int towerPlacementAmount, DictionaryStrInt enemiesAmountDict, DictionaryStrInt powerupUsedCountDict, List<TowerCard> towerCardsList, List<Tower> towersList, float baseDamageReceived, DictionaryStrFloat enemiesThatDealtDamageDict)
   {
     this.completionStatus = completionStatus;
     this.mixingTunnelAvailable = mixingTunnelAvailable;
-    this.pathsCount = pathsCount;
+    this.blockablePathsCount = blockablePathsCount;
     this.towerPlacementAmount = towerPlacementAmount;
     this.enemiesAmountDict = enemiesAmountDict;
     this.powerupUsedCountDict = powerupUsedCountDict;
@@ -185,5 +188,19 @@ public class LevelDataSaveItem //Saving information about the Level for building
     this.towersList = towersList;
     this.baseDamageReceived = baseDamageReceived;
     this.enemiesThatDealtDamageDict = enemiesThatDealtDamageDict;
+  }
+
+  public LevelDataSaveItem(LevelDataSaveItem levelDataSaveItem)
+  {
+    completionStatus = levelDataSaveItem.completionStatus;
+    mixingTunnelAvailable = levelDataSaveItem.mixingTunnelAvailable;
+    blockablePathsCount = levelDataSaveItem.blockablePathsCount;
+    towerPlacementAmount = levelDataSaveItem.towerPlacementAmount;
+    enemiesAmountDict = levelDataSaveItem.enemiesAmountDict;
+    powerupUsedCountDict = levelDataSaveItem.powerupUsedCountDict;
+    towerCardsList = levelDataSaveItem.towerCardsList;
+    towersList = levelDataSaveItem.towersList;
+    baseDamageReceived = levelDataSaveItem.baseDamageReceived;
+    enemiesThatDealtDamageDict = levelDataSaveItem.enemiesThatDealtDamageDict;
   }
 }

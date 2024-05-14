@@ -7,7 +7,7 @@ using Tymski;
 
 [Serializable]
 [CreateAssetMenu(fileName = "GameData", menuName = "Game Data Containers/ Game Data", order = 0)]
-public class GameData : ScriptableObject
+public class GameData : SerializedScriptableObject
 {
   [Title("References")]
   public PlayerProgressData playerProgressData;
