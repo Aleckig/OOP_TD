@@ -27,9 +27,13 @@ public class BaseManager : MonoBehaviour
     public ButtonManager shieldButton;
     private Renderer targetRenderer; // Renderer of the target GameObject
     public AbilityManager abilityManager;
+    [SerializeField] private AudioClip shieldSound;
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();  
+        
         shieldButton.enabled = false;
         if (targetObject != null)
         {
@@ -81,6 +85,7 @@ public class BaseManager : MonoBehaviour
 
     public void SpawnShield()
     {
+        audioSource.PlayOneShot(shieldSound);
         if (abilityManager.shieldsAmount > 0)
         {
             shieldButton.enabled = true;
