@@ -237,24 +237,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afe09d95a16ee94ebddb92048aece71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  target: {fileID: 0}
-  isAttacking: 0
-  targetAttackPoints: {fileID: 0}
-  reachedEnd: 0
-  baseObject: {fileID: 0}
-  timeBetweenAttacks: 1
-  damage: 1
-  health: 20
-  enemyHealthBar: {fileID: 5892278017915124469}
+  enemyData:
+    typeName: 
+    health: 20
+    movementSpeed: 2
+    damage: 1
+    attackCooldown: 1
+    moneyReward: 5
   particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
   attackSound: {fileID: 8300000, guid: dd82b8be002300647823927aad70776c, type: 3}
   isCoder: 0
+  target: {fileID: 0}
+  enemyHealthBar: {fileID: 5892278017915124469}
+  targetAttackPoints: {fileID: 0}
+  baseObject: {fileID: 0}
   turningPoints: {fileID: 0}
-  pathnumber: 0
   waveSpawner: {fileID: 0}
+  abilityManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  pathnumber: 0
+  isAttacking: 0
+  reachedEnd: 0
   isTeleporting: 0
+  timeBetweenAttacks: 1
 --- !u!82 &4688257137738561577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -532,8 +538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5690767962775816211}
-  damageSound: {fileID: 8300000, guid: 403af734c6455f74c937691e304f098e, type: 3}
-  deathSound: {fileID: 8300000, guid: 69ccdaa7aa6b06540a04da452eaa1d17, type: 3}
 --- !u!82 &6183389522772468492
 AudioSource:
   m_ObjectHideFlags: 0

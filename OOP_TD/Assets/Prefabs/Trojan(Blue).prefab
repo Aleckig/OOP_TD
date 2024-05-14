@@ -869,24 +869,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afe09d95a16ee94ebddb92048aece71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  target: {fileID: 0}
-  isAttacking: 0
-  targetAttackPoints: {fileID: 0}
-  reachedEnd: 0
-  baseObject: {fileID: 0}
-  timeBetweenAttacks: 4
-  damage: 4
-  health: 80
-  enemyHealthBar: {fileID: 8113013704937763783}
+  enemyData:
+    typeName: 
+    health: 80
+    movementSpeed: 1
+    damage: 4
+    attackCooldown: 4
+    moneyReward: 20
   particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
   attackSound: {fileID: 8300000, guid: dd82b8be002300647823927aad70776c, type: 3}
   isCoder: 0
+  target: {fileID: 0}
+  enemyHealthBar: {fileID: 8113013704937763783}
+  targetAttackPoints: {fileID: 0}
+  baseObject: {fileID: 0}
   turningPoints: {fileID: 0}
-  pathnumber: 0
   waveSpawner: {fileID: 0}
+  abilityManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  pathnumber: 0
+  isAttacking: 0
+  reachedEnd: 0
   isTeleporting: 0
+  timeBetweenAttacks: 4
 --- !u!65 &3551392232919758550
 BoxCollider:
   m_ObjectHideFlags: 0

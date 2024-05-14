@@ -48,9 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e1262ef42605b4db6499fc3ec305eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData:
+    typeName: 
+    health: 60
+    movementSpeed: 3
+    damage: 3
+    attackCooldown: 2
+    moneyReward: 30
   timeBetweenAttacks: 2
-  speed: 3
-  health: 60
   isAttacking: 0
   target: {fileID: 0}
   baseObject: {fileID: 0}
@@ -59,6 +64,9 @@ MonoBehaviour:
     type: 3}
   attackSound: {fileID: 8300000, guid: dd82b8be002300647823927aad70776c, type: 3}
   enemyHealthBar: {fileID: 1762455852859420263}
+  waveSpawner: {fileID: 0}
+  abilityManager: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!82 &8104444475579713851
 AudioSource:
   m_ObjectHideFlags: 0
