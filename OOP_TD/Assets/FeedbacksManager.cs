@@ -14,7 +14,7 @@ public class FeedbacksManager : MonoBehaviour
     }
     private void InstaniateCardButtons()
     {
-        foreach (var item in playerProgressData.levelDataSaveManager.levelsDataList)
+        foreach (var item in playerProgressData.levelDataSaveManager.levelsDataDict)
         {
             GameObject button = Instantiate(feedbackLinePrefab, feedbackLinesBlock);
             LineManager lineManager = button.GetComponent<LineManager>();
@@ -28,11 +28,11 @@ public class FeedbacksManager : MonoBehaviour
 
     public void CreateFeedbackFile(LevelDataSaveManager levelDataSaveManager, int levelId)
     {
-        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        string folderPath = Path.Combine(documentsPath, "OOP TowerDefence/Feedbacks");
+        string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+        string folderPath = System.IO.Path.Combine(documentsPath, "OOP TowerDefence/Feedbacks");
         Directory.CreateDirectory(folderPath);
 
-        string filePath = Path.Combine(folderPath, $"Level {levelId} feedback.txt");
+        string filePath = System.IO.Path.Combine(folderPath, $"Level {levelId} feedback.txt");
         File.WriteAllText(filePath, levelDataSaveManager.CreateFeedbackForBothLevels(levelId));
     }
 }

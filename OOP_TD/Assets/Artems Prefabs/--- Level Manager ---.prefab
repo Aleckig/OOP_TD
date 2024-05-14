@@ -44,5 +44,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a6e6eec98a3134bbe18c15af384e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: a20f0290d76924e42af7aad16906720e, type: 2}
+  playerProgressData: {fileID: 11400000, guid: 431ffac6567b8414bb0b515e905a9b84, type: 2}
+  shopManager: {fileID: 0}
   UIMoneyText: {fileID: 0}
   moneyValue: 1000
+  levelDataSave:
+    completionStatus: 0
+    mixingTunnelAvailable: 1
+    blockablePathsCount: 5
+    towerPlacementAmount: 2
+    enemiesAmountDict:
+      m_Keys:
+      - Something
+      m_Values: c8000000
+    powerupUsedCountDict:
+      m_Keys:
+      - Shield
+      m_Values: 02000000
+    towerCardsList: []
+    towersList: []
+    baseDamageReceived: 50
+    enemiesThatDealtDamageDict:
+      m_Keys:
+      - Angry
+      - Very Angry
+      m_Values:
+      - 20
+      - 30
+  levelDifficulty: 

@@ -12,64 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff01922f64c18f94d863b8b9a79015cf, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   playerProgressData: {fileID: 11400000, guid: 431ffac6567b8414bb0b515e905a9b84, type: 2}
-  towerCardsList:
-  - towerCardId: 0
-    towerCardName: Tower 1
-    priceDefVal: 100
-    damageDefVal: 25
-    damageRangeDefVal: 5
-    attackCooldownDefVal: 10
-    usedPoints: 0
-    usedSpecialPoints: 2
-    pricePoints: 0
-    damagePoints: 0
-    damageRangePoints: 0
-    attackCooldownPoints: 0
-    specialMethods:
-    - TestName
-    - TargetEnemy
-  - towerCardId: 1
-    towerCardName: Tower 2
-    priceDefVal: 100
-    damageDefVal: 25
-    damageRangeDefVal: 5
-    attackCooldownDefVal: 10
-    usedPoints: 0
-    usedSpecialPoints: 0
-    pricePoints: 0
-    damagePoints: 0
-    damageRangePoints: 0
-    attackCooldownPoints: 0
-    specialMethods: []
-  - towerCardId: 2
-    towerCardName: Tower 3
-    priceDefVal: 100
-    damageDefVal: 25
-    damageRangeDefVal: 5
-    attackCooldownDefVal: 10
-    usedPoints: 10
-    usedSpecialPoints: 2
-    pricePoints: 0
-    damagePoints: 10
-    damageRangePoints: 0
-    attackCooldownPoints: 0
-    specialMethods:
-    - TargetEnemy
-    - TestName
-  - towerCardId: 3
-    towerCardName: Tower 4
-    priceDefVal: 100
-    damageDefVal: 25
-    damageRangeDefVal: 5
-    attackCooldownDefVal: 10
-    usedPoints: 10
-    usedSpecialPoints: 0
-    pricePoints: 10
-    damagePoints: 0
-    damageRangePoints: 0
-    attackCooldownPoints: 0
-    specialMethods: []
+  towerCardsList: []
   towersList:
   - towerPrefab: {fileID: 4197643823405404435, guid: 04e010331015bda4db5df0b3136f15da,
       type: 3}
@@ -118,7 +71,7 @@ MonoBehaviour:
   EnemyNamesList:
   - Enemy Coder
   - Resisting Enemy
-  activeLevelId: 3
+  activeLevelId: 1
   levelsDataList:
   - levelId: 1
     levelImage: {fileID: 21300000, guid: da72769ae28c7724895d4961a05d24e1, type: 3}
