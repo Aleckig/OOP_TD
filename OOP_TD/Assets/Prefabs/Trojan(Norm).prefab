@@ -871,7 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData:
-    typeName: 
+    typeName: Trojan_Normal
     health: 60
     movementSpeed: 1
     damage: 2

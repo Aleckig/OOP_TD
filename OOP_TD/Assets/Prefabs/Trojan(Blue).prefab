@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData:
-    typeName: 
+    typeName: Trojan_Blue
     health: 80
     movementSpeed: 1
     damage: 4

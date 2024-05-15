@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData:
-    typeName: 
+    typeName: Bug_Normal
     health: 20
     movementSpeed: 2
     damage: 1

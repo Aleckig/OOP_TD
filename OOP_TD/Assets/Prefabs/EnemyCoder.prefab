@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData:
-    typeName: 
+    typeName: Coder
     health: 100
     movementSpeed: 1
     damage: 0

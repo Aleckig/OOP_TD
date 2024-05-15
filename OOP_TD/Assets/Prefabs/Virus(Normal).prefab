@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData:
-    typeName: 
+    typeName: Virus_Normal
     health: 40
     movementSpeed: 2
     damage: 2
     attackCooldown: 2
-    moneyReward: 20
+    moneyReward: 10
   timeBetweenAttacks: 2
   isAttacking: 0
   target: {fileID: 0}

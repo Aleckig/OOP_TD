@@ -6964,6 +6964,21 @@ PrefabInstance:
       propertyPath: abilityManager
       value: 
       objectReference: {fileID: 1743127614}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDifficulty
+      value: Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDataSave.blockablePathsCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDataSave.towerPlacementAmount
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2355007096081769278, guid: 82f6a4b857d2b4243be6ed8b14c76814,
         type: 3}
       propertyPath: m_LocalPosition.x

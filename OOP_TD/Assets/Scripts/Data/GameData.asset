@@ -79,21 +79,21 @@ MonoBehaviour:
       sceneAsset: {fileID: 102900000, guid: 07d2d68d2a6182644a34bbafab1a0dca, type: 3}
       scenePath: Assets/Scenes/Levels/Level-1-Easy.unity
     hardLevelScene:
-      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
-      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+      sceneAsset: {fileID: 102900000, guid: 2650a0f35f4a01040b8295e57fcadcd3, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-1-Hard.unity
   - levelId: 2
-    levelImage: {fileID: 21300000, guid: 786ba3b0b4fa9994695b5696114d94fc, type: 3}
+    levelImage: {fileID: 21300000, guid: 2da2df0c694fc8e4da5ea8e6879ac29b, type: 3}
     easyLevelScene:
       sceneAsset: {fileID: 102900000, guid: 5098a9b0c1c14e94da63ffcf1459bc92, type: 3}
       scenePath: Assets/Scenes/Levels/Level-2-Easy.unity
     hardLevelScene:
-      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
-      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+      sceneAsset: {fileID: 102900000, guid: 5cc3f5e605a4b57498c3b9db7d771ac2, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-2-Hard.unity
   - levelId: 3
-    levelImage: {fileID: 21300000, guid: d6785846ab0688745a766312f5e8284a, type: 3}
+    levelImage: {fileID: 21300000, guid: ce6a18138004dfe4695f4bb39dfa76f6, type: 3}
     easyLevelScene:
       sceneAsset: {fileID: 102900000, guid: 0d5381a6ca96d8a499aecc7a79df5312, type: 3}
       scenePath: Assets/Scenes/Levels/Level-3-Easy.unity
     hardLevelScene:
-      sceneAsset: {fileID: 102900000, guid: b99ddac96881fef48b3edfe8c303b51f, type: 3}
-      scenePath: Assets/Scenes/Towers Related Scenes/Thursday.Demo01.unity
+      sceneAsset: {fileID: 102900000, guid: ca4c9530fb565ab489929e078e7e1ce0, type: 3}
+      scenePath: Assets/Scenes/Levels/Level-3-Hard.unity

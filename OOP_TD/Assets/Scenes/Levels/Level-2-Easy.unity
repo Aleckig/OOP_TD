@@ -3264,6 +3264,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: --- UI --- In-game
       objectReference: {fileID: 0}
+    - target: {fileID: 5185777736045264201, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5239406788511103275, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -8325,6 +8330,26 @@ PrefabInstance:
       propertyPath: abilityManager
       value: 
       objectReference: {fileID: 1617494287}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDifficulty
+      value: Easy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDataSave.blockablePathsCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDataSave.towerPlacementAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: levelDataSave.mixingTunnelAvailable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2355007096081769278, guid: 82f6a4b857d2b4243be6ed8b14c76814,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -770,7 +770,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5850886375469416950}
   m_HandleRect: {fileID: 4085288005057332125}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2242,7 +2242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 952.5792, y: 0}
+  m_AnchoredPosition: {x: 939.05396, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70330894205010496
@@ -8658,7 +8658,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8649521780569939615}
   m_HandleRect: {fileID: 6555737318191416845}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10610,7 +10610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1113.8042, y: 0}
+  m_AnchoredPosition: {x: 1100.279, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5465151257488291987
@@ -23979,9 +23979,9 @@ RectTransform:
   - {fileID: 9021253929506233425}
   m_Father: {fileID: 1147265141028516818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 783.49426, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 769.969, y: -50}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276808552223356778
@@ -28627,7 +28627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 944.71924, y: 0}
+  m_AnchoredPosition: {x: 931.194, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5989988942320995252
@@ -31585,7 +31585,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5767446924688060904}
   m_HandleRect: {fileID: 6865759200590845650}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
