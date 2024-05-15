@@ -6,13 +6,16 @@ public class LevelSelectionManager : MonoBehaviour
 {
     [Title("Reference")]
     public GameData gameData;
+    public PlayerProgressData playerProgressData;
     [SerializeField] private TMP_Text levelNameText;
     [SerializeField] private UnityEngine.UI.Image levelimage;
     [SerializeField] private GameObject levelSelectionBlock;
     [SerializeField] private GameObject levelList;
     [SerializeField] private GameObject levelGrid;
     [SerializeField] private ButtonManager easyButton;
+    [SerializeField] private GameObject easyButtonBlocked;
     [SerializeField] private ButtonManager hardButton;
+    [SerializeField] private GameObject hardButtonBlocked;
     [Title("Prefabs")]
     [SerializeField] private GameObject levelSelectionButtonPrefab;
 
@@ -59,5 +62,26 @@ public class LevelSelectionManager : MonoBehaviour
         levelSelectionBlock.SetActive(true);
 
         gameData.activeLevelId = levelId;
+
+
+        bool[] statusCurrent = playerProgressData.levelDataSaveManager.GetLevelStatus(levelId);
+        if (levelId == 1 && statusCurrent[1] == false)
+        {
+            easyButtonBlocked.SetActive(false);
+            easyButton.enabled = true;
+
+            hardButtonBlocked.SetActive(!statusCurrent[0]);
+            hardButton.enabled = statusCurrent[0];
+        }
+        else
+        {
+            bool[] statusPrev = playerProgressData.levelDataSaveManager.GetLevelStatus(levelId - 1);
+
+            easyButtonBlocked.SetActive(!statusPrev[1]);
+            easyButton.enabled = statusPrev[1];
+
+            hardButtonBlocked.SetActive(!statusCurrent[0]);
+            hardButton.enabled = statusCurrent[0];
+        }
     }
 }

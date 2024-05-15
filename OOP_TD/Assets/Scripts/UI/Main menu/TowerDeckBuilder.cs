@@ -44,6 +44,14 @@ public class TowerDeckBuilder : MonoBehaviour
     attackCooldownPointsCoef;
     // <--
 
+    // --> Values for maximum used points 
+    [BoxGroup("Limit for spending of the points")]
+    public int pricePointsLimit,
+    damagePointsLimit,
+     damageRangePointsLimit,
+    attackCooldownPointsLimit;
+    // <--
+
     // --> Script variables
     private int activeCardId;
     [ShowInInspector]

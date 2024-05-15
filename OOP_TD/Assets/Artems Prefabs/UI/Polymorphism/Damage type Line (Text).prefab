@@ -208,12 +208,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d09bed2b92b8f364fbecc088f1ef9eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnabledPlaceholder: 1
+  serializationData:
+    SerializedFormat: 1
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: InRleHRQbGFjZWhvbGRlcnNMaXN0Ijogew0KICAgICIkaWQiOiAwLA0KICAgICIkdHlwZSI6ICIwfFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltbU3lzdGVtLlN0cmluZywgbXNjb3JsaWJdLFtUTVByby5UTVBfVGV4dCwgVW5pdHkuVGV4dE1lc2hQcm9dXSwgbXNjb3JsaWIiLA0KICAgICJjb21wYXJlciI6IHsNCiAgICAgICAgIiRpZCI6IDEsDQogICAgICAgICIkdHlwZSI6ICIxfFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkdlbmVyaWNFcXVhbGl0eUNvbXBhcmVyYDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliXV0sIG1zY29ybGliIg0KICAgIH0sDQogICAgIiRybGVuZ3RoIjogMCwNCiAgICAiJHJjb250ZW50IjogWw0KICAgIF0NCn0=
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  EnablePlaceholder: 1
   textPlaceholder: {fileID: 8156352431866621438}
-  EnabledDropdown: 0
+  EnableMultiplePlaceholder: 0
+  EnableDropdown: 0
   dropdown: {fileID: 0}
-  EnabledButton: 0
+  EnableButton: 0
   buttonManager: {fileID: 0}
+  EnableDestroyOnDisable: 0
 --- !u!114 &3799397862189345858
 MonoBehaviour:
   m_ObjectHideFlags: 0

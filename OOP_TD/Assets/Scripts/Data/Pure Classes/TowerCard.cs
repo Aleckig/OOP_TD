@@ -31,7 +31,7 @@ public class TowerCard
     // <--
 
     // --> Polymorphism
-    public List<string> specialMethods;
+    public List<string> specialMethods = new() { };
     // <--
 
     public TowerCard(int _towerId, string _towerCardName, float _priceDefVal, float _damageDefVal, float _damageRangeDefVal, float _attackCooldownDefVal)

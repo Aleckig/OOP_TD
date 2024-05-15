@@ -56,16 +56,20 @@ public class TowerDeckEditCard : MonoBehaviour
         switch (valueId)
         {
             case 0:
-                towerCard.pricePoints += 1;
+                if (towerCard.pricePoints < towerDeckBuilder.pricePointsLimit)
+                    towerCard.pricePoints += 1;
                 break;
             case 1:
-                towerCard.damagePoints += 1;
+                if (towerCard.damagePoints < towerDeckBuilder.damagePointsLimit)
+                    towerCard.damagePoints += 1;
                 break;
             case 2:
-                towerCard.damageRangePoints += 1;
+                if (towerCard.damageRangePoints < towerDeckBuilder.damageRangePointsLimit)
+                    towerCard.damageRangePoints += 1;
                 break;
             case 3:
-                towerCard.attackCooldownPoints += 1;
+                if (towerCard.attackCooldownPoints < towerDeckBuilder.attackCooldownPointsLimit)
+                    towerCard.attackCooldownPoints += 1;
                 break;
         }
 
@@ -134,12 +138,14 @@ public class TowerDeckEditCard : MonoBehaviour
             string fieldDefVal = fieldBase + "DefVal";
             string fieldPoint = fieldBase + "Points";
             string fieldPointsCoef = fieldBase + "PointsCoef";
+            string fieldPointsLimit = fieldBase + "PointsLimit";
 
             towerStatsNameText[i].text = UIStatsTextList[i] + ": " + (towerCard.GetFieldValueFloat(fieldDefVal) + (towerCard.GetFieldValueFloat(fieldPoint) * towerDeckBuilder.GetFieldValueFloat(fieldPointsCoef)));
 
             towerPointsText[i].text = towerCard.GetFieldValueFloat(fieldPoint).ToString();
 
-            towerPointInfoText[i].text = "1 point = " + towerDeckBuilder.GetFieldValueFloat(fieldPointsCoef) + " value";
+            int pointsLimit = (int)towerDeckBuilder.GetFieldValueFloat(fieldPointsLimit);
+            towerPointInfoText[i].text = "1 point = " + towerDeckBuilder.GetFieldValueFloat(fieldPointsCoef) + " value | " + (pointsLimit == 100 ? "Max points - Infinity" : $"Max points - {pointsLimit}");
             heightValue += 100;
         }
 

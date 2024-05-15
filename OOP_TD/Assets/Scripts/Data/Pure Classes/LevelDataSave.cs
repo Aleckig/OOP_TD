@@ -68,8 +68,8 @@ public class LevelDataSaveManager
         towerStatsStr += threeTab + "Points for attack cooldown - " + towerCard.attackCooldownPoints + "\n";
 
         towerStatsStr += threeTab + "Polymorphism:\n";
-        towerStatsStr += threeTab + "Used damage type names - " + tower.towerDamageTypeAdded;
-        towerStatsStr += threeTab + "Used special methods - " + string.Join(", ", tower.specialMethods);
+        towerStatsStr += threeTab + "Used damage type names - " + string.Join(", ", tower.towerDamageTypeAdded) + "\n";
+        towerStatsStr += threeTab + "Used special methods - " + string.Join(", ", tower.specialMethods) + "\n";
 
         towersDataStr += towerStatsStr;
       }
@@ -100,6 +100,8 @@ public class LevelDataSaveManager
 
   public bool[] GetLevelStatus(int levelId)
   {
+    if (!levelsDataDict.ContainsKey(levelId)) return new[] { false, false };
+
     bool[] result = new bool[2] { false, false };
 
     foreach (var item in levelsDataDict[levelId]["Easy"])

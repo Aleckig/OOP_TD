@@ -38,6 +38,7 @@ public class AbilityManager : MonoBehaviour
         pathAbilityHighlighted.SetText(pathAbilityAmount.ToString());
         baseFix.SetText(baseFixAmount.ToString());
         baseFixHighlighted.SetText(baseFixAmount.ToString());
+        shieldButton.enabled = false;
         pathButton.enabled = false;
         baseFixButton.enabled = false;
         abilityDictionary = new() { };

@@ -84,7 +84,7 @@ public class TowersActionController : MonoBehaviour
     {
         addDTLocked = false;
 
-        saveEnemyTarget.Invoke();
+        // saveEnemyTarget.Invoke();
 
         morphWidnow.SetActive(false);
     }
