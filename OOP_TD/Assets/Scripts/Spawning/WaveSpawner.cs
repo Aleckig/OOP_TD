@@ -28,7 +28,7 @@ public class WaveSpawner : MonoBehaviour
         {
             gameWinScreen.ShowGameWinScreen();
         }
-     if (timeBetweenWaves <= 0f)
+        if (timeBetweenWaves <= 0f)
         {
             if (lastWave == false && aliveEnemies == 0)
             {
@@ -46,15 +46,15 @@ public class WaveSpawner : MonoBehaviour
         {
             betweenWaves = false;
         }
-        if (timeBetweenWaves <= 4.0f && timeBetweenWaves >= 0f && lastWave == false)
-        {
-            countDown.gameObject.SetActive(true);
-            countDown.text = "Next wave in: " + Mathf.FloorToInt(timeBetweenWaves);
-        }
-        else
-        {
-            countDown.gameObject.SetActive(false);
-        }
+        // if (timeBetweenWaves <= 4.0f && timeBetweenWaves >= 0f && lastWave == false)
+        // {
+        //     countDown.gameObject.SetActive(true);
+        //     countDown.text = "Next wave in: " + Mathf.FloorToInt(timeBetweenWaves);
+        // }
+        // else
+        // {
+        //     countDown.gameObject.SetActive(false);
+        // }
     }
 
     IEnumerator SpawnWave()

@@ -9,9 +9,7 @@ public class LineManager : SerializedMonoBehaviour
     [Title("Text")]
     [SerializeField] private bool EnablePlaceholder = false;
     [ShowIf("EnablePlaceholder")]
-    [HideIf("EnableMultiplePlaceholder")]
     [SerializeField] private TMP_Text textPlaceholder;
-    [ShowIf("EnablePlaceholder")]
     [SerializeField] private bool EnableMultiplePlaceholder = false;
     [ShowIf("EnableMultiplePlaceholder")]
     [SerializeField] private Dictionary<string, TMP_Text> textPlaceholdersList = new();
@@ -29,7 +27,7 @@ public class LineManager : SerializedMonoBehaviour
 
     public string TextGet()
     {
-        if (!EnablePlaceholder || EnableMultiplePlaceholder) return null;
+        if (!EnablePlaceholder) return null;
 
         return textPlaceholder.text;
     }
@@ -44,7 +42,7 @@ public class LineManager : SerializedMonoBehaviour
 
     public void TextSet(string text)
     {
-        if (!EnablePlaceholder || EnableMultiplePlaceholder) return;
+        if (!EnablePlaceholder) return;
 
         textPlaceholder.text = text;
     }
