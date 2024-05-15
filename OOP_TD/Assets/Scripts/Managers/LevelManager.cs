@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // levelDataSave.powerupUsedCountDict = abilityManager.SOMEDICTIOMARY;
+        levelDataSave.powerupUsedCountDict = abilityManager.abilityDictionary; //Added by Kimi
 
         playerProgressData.levelDataSaveManager.SaveData(gameData.activeLevelId, levelDifficulty, levelDataSave);
     }

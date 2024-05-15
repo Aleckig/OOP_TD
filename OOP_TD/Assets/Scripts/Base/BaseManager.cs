@@ -122,12 +122,29 @@ public class BaseManager : MonoBehaviour
         {
             shieldButton.enabled = false;
         }
+        if (!abilityManager.abilityDictionary.ContainsKey("ShieldAbility"))
+        {
+            abilityManager.abilityDictionary.Add("ShieldAbility", 1);
+        }
+        else
+        {
+            abilityManager.abilityDictionary["ShieldAbility"]++;
+        }
+
     }
 
     public void FixBaseCode()
     {
         damageMultiplier = 1f;
         abilityManager.DecreaseBaseFixCount();
+        if (!abilityManager.abilityDictionary.ContainsKey("BaseFix"))
+        {
+            abilityManager.abilityDictionary.Add("BaseFix", 1);
+        }
+        else
+        {
+            abilityManager.abilityDictionary["BaseFix"]++;
+        }
     }
 
     IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it

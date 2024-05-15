@@ -716,6 +716,9 @@ MonoBehaviour:
   baseFix: {fileID: 1865722583}
   baseFixHighlighted: {fileID: 1271696051}
   waveSpawner: {fileID: 665467717}
+  abilityDictionary:
+    m_Keys: []
+    m_Values: 
 --- !u!114 &117240540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8907055539063413810, guid: bac7ad904f491314d9a94e75fbda96fc,
@@ -11306,6 +11309,7 @@ MonoBehaviour:
   - {fileID: 371711918}
   additionalObjectsToBlock: []
   blockedVFX: {fileID: 513743248}
+  abilityManager: {fileID: 94247294}
 --- !u!65 &5660808905142927103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11643,6 +11647,7 @@ MonoBehaviour:
   - {fileID: 1083266573}
   additionalObjectsToBlock: []
   blockedVFX: {fileID: 1386114531}
+  abilityManager: {fileID: 94247294}
 --- !u!65 &9019274050609561949
 BoxCollider:
   m_ObjectHideFlags: 0

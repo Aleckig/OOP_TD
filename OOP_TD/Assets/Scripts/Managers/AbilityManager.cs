@@ -23,6 +23,7 @@ public class AbilityManager : MonoBehaviour
     private bool pathAbilityGained;
     public WaveSpawner waveSpawner;
     private bool enablePathBlock;
+    public DictionaryStrInt abilityDictionary;
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class AbilityManager : MonoBehaviour
         baseFixHighlighted.SetText(baseFixAmount.ToString());
         pathButton.enabled = false;
         baseFixButton.enabled = false;
+        abilityDictionary = new() { };
     }
 
     void Update()

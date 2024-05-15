@@ -7,6 +7,7 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public GameObject[] additionalObjectsToBlock; // Add the chosen game objects here
     private GameObject turningPoints;
     public GameObject blockedVFX;
+    [SerializeField] private AbilityManager abilityManager;
 
     void Start()
     {
@@ -31,6 +32,14 @@ public class PathBlocker : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         }
 
         blockedVFX.SetActive(true);
+        if (!abilityManager.abilityDictionary.ContainsKey("PathBlock"))
+        {
+            abilityManager.abilityDictionary.Add("PathBlock", 1);
+        }
+        else
+        {
+            abilityManager.abilityDictionary["PathBlock"]++;
+        }
         //turningPoints.GetComponent<TurningPoints>().DisableBlocking();
         //this.gameObject.SetActive(false);
     }

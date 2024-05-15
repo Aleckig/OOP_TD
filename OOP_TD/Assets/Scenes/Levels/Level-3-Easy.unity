@@ -4385,6 +4385,9 @@ MonoBehaviour:
   baseFix: {fileID: 182140625}
   baseFixHighlighted: {fileID: 605239634}
   waveSpawner: {fileID: 665467717}
+  abilityDictionary:
+    m_Keys: []
+    m_Values: 
 --- !u!1 &845483973
 GameObject:
   m_ObjectHideFlags: 0
@@ -12051,6 +12054,7 @@ MonoBehaviour:
   - {fileID: 464691747}
   additionalObjectsToBlock: []
   blockedVFX: {fileID: 1168624208}
+  abilityManager: {fileID: 828952471}
 --- !u!65 &5616717797539629596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12586,6 +12590,7 @@ MonoBehaviour:
   - {fileID: 999529932}
   additionalObjectsToBlock: []
   blockedVFX: {fileID: 203739622}
+  abilityManager: {fileID: 828952471}
 --- !u!65 &8677975289226917021
 BoxCollider:
   m_ObjectHideFlags: 0

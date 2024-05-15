@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff8bc57b6d32f14183d3c67b78426a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 1403992290}
   maxHealth: 100
   currentHealth: 100
   healthBar: {fileID: 1871829360}
@@ -6172,6 +6172,9 @@ MonoBehaviour:
   baseFix: {fileID: 680169779}
   baseFixHighlighted: {fileID: 1169448993}
   waveSpawner: {fileID: 665467717}
+  abilityDictionary:
+    m_Keys: []
+    m_Values: 
 --- !u!1 &1799254305
 GameObject:
   m_ObjectHideFlags: 3

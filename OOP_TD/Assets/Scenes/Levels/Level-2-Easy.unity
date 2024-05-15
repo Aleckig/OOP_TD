@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a07d33367d45e42b3859462ce9946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 2127784892}
   mainMenuScene:
     sceneAsset: {fileID: 0}
     scenePath: 
@@ -2502,12 +2502,12 @@ PrefabInstance:
     - target: {fileID: 2498234544360958846, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2498234544360958846, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2498234544360958846, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -2517,12 +2517,12 @@ PrefabInstance:
     - target: {fileID: 2498234544360958846, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2498234544360958846, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2554870629374800386, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -2672,12 +2672,12 @@ PrefabInstance:
     - target: {fileID: 3123502099056366526, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123502099056366526, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3123502099056366526, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -2692,7 +2692,7 @@ PrefabInstance:
     - target: {fileID: 3123502099056366526, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -98.33333
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3130967539672477637, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
@@ -6565,6 +6565,9 @@ MonoBehaviour:
   baseFix: {fileID: 518417104}
   baseFixHighlighted: {fileID: 1551743861}
   waveSpawner: {fileID: 665467717}
+  abilityDictionary:
+    m_Keys: []
+    m_Values: 
 --- !u!114 &823751870 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2107185844767008891, guid: bac7ad904f491314d9a94e75fbda96fc,
@@ -9088,6 +9091,9 @@ MonoBehaviour:
   baseFix: {fileID: 940124181}
   baseFixHighlighted: {fileID: 823751870}
   waveSpawner: {fileID: 665467717}
+  abilityDictionary:
+    m_Keys: []
+    m_Values: 
 --- !u!1 &1669316459
 GameObject:
   m_ObjectHideFlags: 0
@@ -14224,6 +14230,7 @@ MonoBehaviour:
   additionalObjectsToBlock:
   - {fileID: 1466625517}
   blockedVFX: {fileID: 513743248}
+  abilityManager: {fileID: 1617494287}
 --- !u!65 &5660808905142927103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14563,6 +14570,7 @@ MonoBehaviour:
   additionalObjectsToBlock:
   - {fileID: 846382260}
   blockedVFX: {fileID: 1386114531}
+  abilityManager: {fileID: 1617494287}
 --- !u!65 &9019274050609561949
 BoxCollider:
   m_ObjectHideFlags: 0
