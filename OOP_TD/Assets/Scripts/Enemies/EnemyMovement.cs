@@ -203,6 +203,10 @@ public class EnemyMovement : MonoBehaviour
             {
                 abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
             }
+            else if (Random.value < 0.05f)
+            {
+                abilityManager.GetComponent<AbilityManager>().IncreaseBaseFixCount();
+            }
             gameManager.GetComponent<LevelManager>().ChangeMoneyValue(enemyData.moneyReward);
             Destroy(gameObject);
         }

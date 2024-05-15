@@ -14,7 +14,11 @@ public class AbilityManager : MonoBehaviour
     public TMP_Text pathAbility;
     public TMP_Text pathAbilityHighlighted;
     public int pathAbilityAmount;
+    public int baseFixAmount;
     public ButtonManager pathButton;
+    public ButtonManager baseFixButton;
+    public TMP_Text baseFix;
+    public TMP_Text baseFixHighlighted;
     //private bool pathAbilityUsed;
     private bool pathAbilityGained;
     public WaveSpawner waveSpawner;
@@ -24,13 +28,17 @@ public class AbilityManager : MonoBehaviour
     {
         shieldsAmount = 0;
         pathAbilityAmount = 0;
+        baseFixAmount = 0;
         //pathAbilityUsed = false;
         pathAbilityGained = false;
         shieldAbility.SetText(shieldsAmount.ToString());
         shieldAbilityHighlighted.SetText(shieldsAmount.ToString());
         pathAbility.SetText(pathAbilityAmount.ToString());
         pathAbilityHighlighted.SetText(pathAbilityAmount.ToString());
+        baseFix.SetText(baseFixAmount.ToString());
+        baseFixHighlighted.SetText(baseFixAmount.ToString());
         pathButton.enabled = false;
+        baseFixButton.enabled = false;
     }
 
     void Update()
@@ -84,5 +92,24 @@ public class AbilityManager : MonoBehaviour
         pathAbilityHighlighted.SetText(pathAbilityAmount.ToString());
         //pathAbilityUsed = true;
         pathButton.enabled = false;
+    }
+
+    public void IncreaseBaseFixCount()
+    {
+        baseFixButton.enabled = true;
+        baseFixAmount++;
+        baseFix.SetText(baseFixAmount.ToString());
+        baseFixHighlighted.SetText(baseFixAmount.ToString());
+    }
+
+    public void DecreaseBaseFixCount()
+    {
+        baseFixAmount--;
+        if (baseFixAmount == 0)
+        {
+            baseFixButton.enabled = false;
+        }
+        baseFix.SetText(baseFixAmount.ToString());
+        baseFixHighlighted.SetText(baseFixAmount.ToString());
     }
 }

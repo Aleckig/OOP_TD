@@ -512,6 +512,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 504050c5fda9c0645802e401a644a171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &72099047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2016660942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504050c5fda9c0645802e401a644a171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &73482502
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +710,11 @@ MonoBehaviour:
   pathAbility: {fileID: 1680214347}
   pathAbilityHighlighted: {fileID: 278615374}
   pathAbilityAmount: 0
+  baseFixAmount: 0
   pathButton: {fileID: 797920699}
+  baseFixButton: {fileID: 72099047}
+  baseFix: {fileID: 1865722583}
+  baseFixHighlighted: {fileID: 1271696051}
   waveSpawner: {fileID: 665467717}
 --- !u!114 &117240540 stripped
 MonoBehaviour:
@@ -1164,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff8bc57b6d32f14183d3c67b78426a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1403992290}
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1871829360}
@@ -1183,6 +1200,8 @@ MonoBehaviour:
   damageMultiplier: 1
   shieldButton: {fileID: 71877714}
   abilityManager: {fileID: 94247294}
+  shieldSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &240042631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,6 +2774,7 @@ MonoBehaviour:
   countDown: {fileID: 1008048590}
   gameWinScreen: {fileID: 2045650280}
   betweenWaves: 0
+  timeBetweenEnemies: 1.2
 --- !u!4 &665467718
 Transform:
   m_ObjectHideFlags: 0
@@ -5019,6 +5039,18 @@ Transform:
   - {fileID: 665467718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271696051 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2107185844767008891, guid: bac7ad904f491314d9a94e75fbda96fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2016660942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1316592397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7243,6 +7275,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1995574065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865722583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4545374176134244256, guid: bac7ad904f491314d9a94e75fbda96fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2016660942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871829359
 GameObject:
   m_ObjectHideFlags: 0
@@ -7845,6 +7889,16 @@ PrefabInstance:
       propertyPath: UIMoneyText
       value: 
       objectReference: {fileID: 983050066}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: shopManager
+      value: 
+      objectReference: {fileID: 1933693511}
+    - target: {fileID: 1226920512356057789, guid: 82f6a4b857d2b4243be6ed8b14c76814,
+        type: 3}
+      propertyPath: abilityManager
+      value: 
+      objectReference: {fileID: 94247294}
     - target: {fileID: 2355007096081769278, guid: 82f6a4b857d2b4243be6ed8b14c76814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8969,6 +9023,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -25
       objectReference: {fileID: 0}
+    - target: {fileID: 4577012026738169499, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1933693511}
+    - target: {fileID: 4577012026738169499, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DestroyTower
+      objectReference: {fileID: 0}
     - target: {fileID: 4755725176460080171, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9674,6 +9738,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 235963170}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FixBaseCode
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BaseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053541108206840866, guid: bac7ad904f491314d9a94e75fbda96fc,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7219467295328265388, guid: bac7ad904f491314d9a94e75fbda96fc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10256,6 +10355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a07d33367d45e42b3859462ce9946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 0}
+  mainMenuScene:
+    sceneAsset: {fileID: 0}
+    scenePath: 
 --- !u!114 &2045650281
 MonoBehaviour:
   m_ObjectHideFlags: 0

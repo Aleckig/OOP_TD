@@ -124,6 +124,12 @@ public class BaseManager : MonoBehaviour
         }
     }
 
+    public void FixBaseCode()
+    {
+        damageMultiplier = 1f;
+        abilityManager.DecreaseBaseFixCount();
+    }
+
     IEnumerator ShieldAppear() //Gradually makes the shield appear by changing the Fill value on it
     {
         while (shieldEffect.GetFloat("_Fill") < 0f)
