@@ -6,7 +6,7 @@ using UnityEngine;
 public class BaseManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
-    private DictionaryStrFloat enemiesThatDealtDamageDict;
+    private DictionaryStrFloat enemiesThatDealtDamageDict = new() { };
     private float totalDamage = 0;
     public float maxHealth = 100f;
     public float currentHealth;
