@@ -28,7 +28,7 @@ public class Tower
   [BoxGroup("Polymorphism")]
   static public List<string> towerDamageTypeAvailable = new() { "Electro", "Fire", "Frost" };
   [BoxGroup("Polymorphism")]
-  public List<string> towerDamageTypeAdded = new() { "Electro" };
+  public List<string> towerDamageTypeAdded = new() { };
   [BoxGroup("Polymorphism")]
   public List<string> specialMethods = new();
   [BoxGroup("Polymorphism")]
@@ -58,6 +58,7 @@ public class Tower
     this.damage = tower.damage;
     this.damageRange = tower.damageRange;
     this.attackCooldown = tower.attackCooldown;
+        this.towerDamageTypeAdded = tower.towerDamageTypeAdded;
 
 
     if (tower.specialMethods != null)

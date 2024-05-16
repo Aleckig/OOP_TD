@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 
 public class FlyingEnemy : MonoBehaviour
 {
-    [SerializeField] private Enemy enemyData;
+    [SerializeField] public Enemy enemyData;
     private float currentHealth;
     public float timeBetweenAttacks = 0f;
     private float rotationSpeed = 10.0f;
@@ -63,23 +63,23 @@ public class FlyingEnemy : MonoBehaviour
             isAttacking = true;
         }
 
-        if (currentHealth <= 0f)
-        {
-            if (isAttacking == true)
-            {
-                target.gameObject.SetActive(true); //Re-enable attack point for next enemy to take the spot
-            }
-            waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
-            if (Random.value < 0.1f)
-            {
-                abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
-            }
-            else if (Random.value < 0.1f)
-            {
-                abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
-            }
-            Destroy(gameObject); //Kill the enemy
-        }
+        //if (currentHealth <= 0f)
+        //{
+        //    if (isAttacking == true)
+        //    {
+        //        target.gameObject.SetActive(true); //Re-enable attack point for next enemy to take the spot
+        //    }
+        //    waveSpawner.GetComponent<WaveSpawner>().aliveEnemies -= 1;
+        //    if (Random.value < 0.1f)
+        //    {
+        //        abilityManager.GetComponent<AbilityManager>().IncreaseShieldCount();
+        //    }
+        //    else if (Random.value < 0.1f)
+        //    {
+        //        abilityManager.GetComponent<AbilityManager>().IncreasePathAbilityCount();
+        //    }
+        //    Destroy(gameObject); //Kill the enemy
+        //}
     }
 
     private void Move()

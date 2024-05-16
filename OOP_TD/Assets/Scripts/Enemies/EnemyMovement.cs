@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Enemy enemyData;
+    [SerializeField] public Enemy enemyData;
     private float currentHealth;
     [SerializeField] private GameObject particleEffectPrefab;
     [SerializeField] private AudioClip attackSound;

@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public int pathnumb;
     public int aliveEnemies;
     public bool lastWave;
-    public TMP_Text countDown;
+    //public TMP_Text countDown;
     public GameWinScreen gameWinScreen;
     public bool betweenWaves;
     [SerializeField] private float timeBetweenEnemies = 1.2f;
@@ -46,15 +46,15 @@ public class WaveSpawner : MonoBehaviour
         {
             betweenWaves = false;
         }
-        if (timeBetweenWaves <= 4.0f && timeBetweenWaves >= 0f && lastWave == false)
-        {
-            countDown.gameObject.SetActive(true);
-            countDown.text = "Next wave in: " + Mathf.FloorToInt(timeBetweenWaves);
-        }
-        else
-        {
-            countDown.gameObject.SetActive(false);
-        }
+        //if (timeBetweenWaves <= 4.0f && timeBetweenWaves >= 0f && lastWave == false)
+        //{
+        //    countDown.gameObject.SetActive(true);
+        //    countDown.text = "Next wave in: " + Mathf.FloorToInt(timeBetweenWaves);
+        //}
+        //else
+        //{
+        //    countDown.gameObject.SetActive(false);
+        //}
     }
 
     IEnumerator SpawnWave()

@@ -22,50 +22,102 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   playerProgressData: {fileID: 11400000, guid: 431ffac6567b8414bb0b515e905a9b84, type: 2}
-  towerCardsList: []
+  towerCardsList:
+  - towerCardId: 0
+    towerCardName: Tower 1
+    priceDefVal: 100
+    damageDefVal: 25
+    damageRangeDefVal: 5
+    attackCooldownDefVal: 10
+    usedPoints: 0
+    usedSpecialPoints: 0
+    pricePoints: 0
+    damagePoints: 0
+    damageRangePoints: 0
+    attackCooldownPoints: 0
+    specialMethods: []
+  - towerCardId: 1
+    towerCardName: Tower 2
+    priceDefVal: 100
+    damageDefVal: 25
+    damageRangeDefVal: 5
+    attackCooldownDefVal: 10
+    usedPoints: 0
+    usedSpecialPoints: 0
+    pricePoints: 0
+    damagePoints: 0
+    damageRangePoints: 0
+    attackCooldownPoints: 0
+    specialMethods: []
+  - towerCardId: 2
+    towerCardName: Tower 3
+    priceDefVal: 100
+    damageDefVal: 25
+    damageRangeDefVal: 5
+    attackCooldownDefVal: 10
+    usedPoints: 0
+    usedSpecialPoints: 0
+    pricePoints: 0
+    damagePoints: 0
+    damageRangePoints: 0
+    attackCooldownPoints: 0
+    specialMethods: []
+  - towerCardId: 3
+    towerCardName: Tower 4
+    priceDefVal: 100
+    damageDefVal: 25
+    damageRangeDefVal: 5
+    attackCooldownDefVal: 10
+    usedPoints: 0
+    usedSpecialPoints: 0
+    pricePoints: 0
+    damagePoints: 0
+    damageRangePoints: 0
+    attackCooldownPoints: 0
+    specialMethods: []
   towersList:
   - towerPrefab: {fileID: 4197643823405404435, guid: 04e010331015bda4db5df0b3136f15da,
       type: 3}
-    towerName: 
+    towerName: Tower 1
     price: 100
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerDamageTypeAdded: []
-    specialMethods:
-    - TestName
-    - TargetEnemy
+    towerDamageTypeAdded:
+    - 
+    specialMethods: []
     targetEnemyName: 
   - towerPrefab: {fileID: 4940548799210332013, guid: 2ff8de8d516b723429fb64cf3d5443f0,
       type: 3}
-    towerName: 
+    towerName: Tower 2
     price: 100
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerDamageTypeAdded: []
+    towerDamageTypeAdded:
+    - Fire
     specialMethods: []
     targetEnemyName: 
   - towerPrefab: {fileID: 6298782840030658673, guid: c8ea6be4d411fc94895ad54f6067b3ab,
       type: 3}
-    towerName: 
+    towerName: Tower 3
     price: 100
-    damage: 75
-    damageRange: 5
-    attackCooldown: 10
-    towerDamageTypeAdded: []
-    specialMethods:
-    - TargetEnemy
-    - TestName
-    targetEnemyName: 
-  - towerPrefab: {fileID: 5240100269545206463, guid: 8105b78269499ee4e887e423e461e5d2,
-      type: 3}
-    towerName: 
-    price: 0
     damage: 25
     damageRange: 5
     attackCooldown: 10
-    towerDamageTypeAdded: []
+    towerDamageTypeAdded:
+    - Electro
+    specialMethods: []
+    targetEnemyName: 
+  - towerPrefab: {fileID: 5240100269545206463, guid: 8105b78269499ee4e887e423e461e5d2,
+      type: 3}
+    towerName: Tower 4
+    price: 100
+    damage: 25
+    damageRange: 5
+    attackCooldown: 10
+    towerDamageTypeAdded:
+    - Frost
     specialMethods: []
     targetEnemyName: 
   EnemyNamesList:
