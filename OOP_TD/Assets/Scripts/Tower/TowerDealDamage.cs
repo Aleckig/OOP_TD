@@ -85,7 +85,10 @@ public class TowerDealDamage : MonoBehaviour
         attackInProgress = true;
         yield return new WaitForSeconds(0.3f); //Waits for 0.3 seconds so that the tower has time to aim at the enemy before shooting
         currentTarget = activeTarget;
-        ThrowProjectile(); //Instantiates a projectile that flies towards current target (and also changes current target's tag to "Target", which is used in ProjectileFlying script)
+        if (currentTarget != null)
+        {
+            ThrowProjectile(); //Instantiates a projectile that flies towards current target (and also changes current target's tag to "Target", which is used in ProjectileFlying script)
+        }
         yield return new WaitForSeconds(towerSettings.GetTower().attackCooldown);
         attackInProgress = false;
         yield break;
@@ -113,11 +116,33 @@ public class TowerDealDamage : MonoBehaviour
         float damage = towerSettings.GetTower().damage;
         if (currentTarget.TryGetComponent<FlyingEnemy>(out var flyingEnemy))
         {
-            flyingEnemy.TakeDamage(damage);
+            if (towerSettings.GetTower().towerDamageTypeAdded.Contains(currentTarget.GetComponent<FlyingEnemy>().enemyData.weakness))
+            {
+                flyingEnemy.TakeDamage(damage * 1.5f);
+            }
+            else if (towerSettings.GetTower().towerDamageTypeAdded.Contains(currentTarget.GetComponent<FlyingEnemy>().enemyData.resistance))
+            {
+                flyingEnemy.TakeDamage(damage * 0.5f);
+            }
+            else
+            {
+                flyingEnemy.TakeDamage(damage);
+            }
         }
         else if (currentTarget.TryGetComponent<EnemyMovement>(out var enemyMovement))
         {
-            enemyMovement.TakeDamage(damage);
+            if (towerSettings.GetTower().towerDamageTypeAdded.Contains(currentTarget.GetComponent<EnemyMovement>().enemyData.weakness))
+            {
+                enemyMovement.TakeDamage(damage * 1.5f);
+            }
+            else if (towerSettings.GetTower().towerDamageTypeAdded.Contains(currentTarget.GetComponent<EnemyMovement>().enemyData.resistance))
+            {
+                enemyMovement.TakeDamage(damage * 0.5f);
+            }
+            else
+            {
+                enemyMovement.TakeDamage(damage);
+            }
         }
     }
 }

@@ -55,6 +55,8 @@ MonoBehaviour:
     damage: 3
     attackCooldown: 2
     moneyReward: 30
+    resistance: Frost
+    weakness: Fire
   timeBetweenAttacks: 2
   isAttacking: 0
   target: {fileID: 0}

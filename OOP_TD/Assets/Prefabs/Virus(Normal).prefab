@@ -55,6 +55,8 @@ MonoBehaviour:
     damage: 2
     attackCooldown: 2
     moneyReward: 10
+    resistance: 
+    weakness: Electro
   timeBetweenAttacks: 2
   isAttacking: 0
   target: {fileID: 0}

@@ -244,6 +244,8 @@ MonoBehaviour:
     damage: 1
     attackCooldown: 1
     moneyReward: 5
+    resistance: 
+    weakness: Electro
   particleEffectPrefab: {fileID: 707441214696998423, guid: e7748aafbbfb8284399a8973fcc8acfe,
     type: 3}
   attackSound: {fileID: 8300000, guid: dd82b8be002300647823927aad70776c, type: 3}
