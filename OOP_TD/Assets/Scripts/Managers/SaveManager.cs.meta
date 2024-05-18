@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c0a6e6eec98a3134bbe18c15af384e8d
+guid: 409f6f14bc2056b489b1e68a99b510e3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -7,9 +7,6 @@ MonoImporter:
   - gameData: {fileID: 11400000, guid: a20f0290d76924e42af7aad16906720e, type: 2}
   - playerProgressData: {fileID: 11400000, guid: 431ffac6567b8414bb0b515e905a9b84,
       type: 2}
-  - shopManager: {instanceID: 0}
-  - UIMoneyText: {instanceID: 0}
-  - abilityManager: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

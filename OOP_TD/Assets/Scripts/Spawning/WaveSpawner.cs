@@ -24,20 +24,21 @@ public class WaveSpawner : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (aliveEnemies == 0 && lastWave == true)
+        if (aliveEnemies <= 0 && lastWave == true)
         {
             gameWinScreen.ShowGameWinScreen();
+            enabled = false;
         }
-     if (timeBetweenWaves <= 0f)
+        if (timeBetweenWaves <= 0f)
         {
-            if (lastWave == false && aliveEnemies == 0)
+            if (lastWave == false && aliveEnemies <= 0)
             {
                 StartCoroutine(SpawnWave());
             }
             timeBetweenWaves = 8f;
             return;
         }
-        if (aliveEnemies == 0)
+        if (aliveEnemies <= 0)
         {
             betweenWaves = true;
             timeBetweenWaves -= Time.deltaTime;

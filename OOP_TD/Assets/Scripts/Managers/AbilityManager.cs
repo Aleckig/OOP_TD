@@ -23,7 +23,7 @@ public class AbilityManager : MonoBehaviour
     private bool pathAbilityGained;
     public WaveSpawner waveSpawner;
     private bool enablePathBlock;
-    public DictionaryStrInt abilityDictionary;
+    public Dictionary<string, int> abilityDictionary;
 
     void Start()
     {

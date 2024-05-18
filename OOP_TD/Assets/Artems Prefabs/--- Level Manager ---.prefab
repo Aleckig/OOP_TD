@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1226920512356057789}
   m_Layer: 0
   m_Name: --- Level Manager ---
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,28 +48,23 @@ MonoBehaviour:
   playerProgressData: {fileID: 11400000, guid: 431ffac6567b8414bb0b515e905a9b84, type: 2}
   shopManager: {fileID: 0}
   UIMoneyText: {fileID: 0}
-  moneyValue: 1000
+  abilityManager: {fileID: 0}
+  moneyValue: 300
+  levelDifficulty: Easy
   levelDataSave:
     completionStatus: 0
-    mixingTunnelAvailable: 1
-    blockablePathsCount: 5
-    towerPlacementAmount: 2
+    mixingTunnelAvailable: 0
+    blockablePathsCount: 0
+    towerPlacementAmount: 6
     enemiesAmountDict:
-      m_Keys:
-      - Something
-      m_Values: c8000000
+      m_Keys: []
+      m_Values: 
     powerupUsedCountDict:
-      m_Keys:
-      - Shield
-      m_Values: 02000000
+      m_Keys: []
+      m_Values: 
     towerCardsList: []
     towersList: []
-    baseDamageReceived: 50
+    baseDamageReceived: 0
     enemiesThatDealtDamageDict:
-      m_Keys:
-      - Angry
-      - Very Angry
-      m_Values:
-      - 20
-      - 30
-  levelDifficulty: 
+      m_Keys: []
+      m_Values: []

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 
 public class LevelManager : MonoBehaviour
 {
@@ -61,21 +62,24 @@ public class LevelManager : MonoBehaviour
     }
 
     //Copy that methods into needed script to send data
-    public void SaveEnemyDamage(float totalDamage, DictionaryStrFloat enemiesThatDealtDamageDict)
+    public void SaveEnemyDamage(float totalDamage, Dictionary<string, float> enemiesThatDealtDamageDict)
     {
+        Debug.Log(levelDataSave.enemiesThatDealtDamageDict);
+
         levelDataSave.baseDamageReceived = totalDamage;
+        levelDataSave.enemiesThatDealtDamageDict?.Clear();
         foreach (var item in enemiesThatDealtDamageDict)
         {
-            levelDataSave.enemiesThatDealtDamageDict.Clear();
+            Debug.Log(item.Key + " " + item.Value);
             levelDataSave.enemiesThatDealtDamageDict.Add(item.Key, item.Value);
         }
     }
 
-    public void SavePowerupsCount(DictionaryStrInt powerupUsedCountDict)
+    public void SavePowerupsCount(Dictionary<string, int> powerupUsedCountDict)
     {
+        levelDataSave.powerupUsedCountDict?.Clear();
         foreach (var item in powerupUsedCountDict)
         {
-            levelDataSave.powerupUsedCountDict.Clear();
             levelDataSave.powerupUsedCountDict.Add(item.Key, item.Value);
         }
     }
