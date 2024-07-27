@@ -23979,9 +23979,9 @@ RectTransform:
   - {fileID: 9021253929506233425}
   m_Father: {fileID: 1147265141028516818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 769.969, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 769.969, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276808552223356778
@@ -27682,6 +27682,10 @@ MonoBehaviour:
   damagePointsCoef: 5
   damageRangePointsCoef: 1.25
   attackCooldownPointsCoef: -1.5
+  pricePointsLimit: 0
+  damagePointsLimit: 0
+  damageRangePointsLimit: 0
+  attackCooldownPointsLimit: 0
 --- !u!225 &6248460347864181782
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -29062,13 +29066,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: a20f0290d76924e42af7aad16906720e, type: 2}
+  playerProgressData: {fileID: 0}
   levelNameText: {fileID: 3489450080329832519}
   levelimage: {fileID: 7492979560188473557}
   levelSelectionBlock: {fileID: 1877944229270072881}
   levelList: {fileID: 602998517491944558}
   levelGrid: {fileID: 6962276931300372932}
   easyButton: {fileID: 2121248821151251527}
+  easyButtonBlocked: {fileID: 0}
   hardButton: {fileID: 3057027798950192860}
+  hardButtonBlocked: {fileID: 0}
   levelSelectionButtonPrefab: {fileID: 6462187555909645976, guid: 5e2b4208ef39dcd4191b731f49ae645a,
     type: 3}
 --- !u!225 &5645219553153889283
