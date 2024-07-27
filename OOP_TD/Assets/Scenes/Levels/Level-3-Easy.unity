@@ -4645,7 +4645,7 @@ PrefabInstance:
     - target: {fileID: 9020332692303433015, guid: 9ab9d17e6a263c24497220c6867ba3e9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.331
+      value: 14.83
       objectReference: {fileID: 0}
     - target: {fileID: 9020332692303433015, guid: 9ab9d17e6a263c24497220c6867ba3e9,
         type: 3}
@@ -4775,7 +4775,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 46b432e4fe1d3284dbe62fab485dd82b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 46b432e4fe1d3284dbe62fab485dd82b,
         type: 3}
@@ -4845,6 +4845,11 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 46b432e4fe1d3284dbe62fab485dd82b,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46b432e4fe1d3284dbe62fab485dd82b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1935283705133643461, guid: 46b432e4fe1d3284dbe62fab485dd82b,
@@ -6851,7 +6856,7 @@ Transform:
   m_GameObject: {fileID: 1709388274}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -0, y: 0.826, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8636,6 +8641,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4230675018876913118, guid: 9ab9d17e6a263c24497220c6867ba3e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7384733510018824578, guid: 9ab9d17e6a263c24497220c6867ba3e9,
         type: 3}
       propertyPath: m_Enabled
@@ -10314,9 +10324,6 @@ MonoBehaviour:
   baseFix: {fileID: 1107891040695332032}
   baseFixHighlighted: {fileID: 3263516466642494235}
   waveSpawner: {fileID: 665467717}
-  abilityDictionary:
-    m_Keys: []
-    m_Values: 
 --- !u!1 &325452375893791904
 GameObject:
   m_ObjectHideFlags: 0
@@ -13224,7 +13231,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000097353606, y: -0.00000005960464, z: 0.000000021855692,
     w: 1}
-  m_LocalPosition: {x: -1.3527266, y: 0.026008096, z: 0.5770401}
+  m_LocalPosition: {x: -1.417, y: 0.026, z: 0.577}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35152,18 +35159,9 @@ MonoBehaviour:
     mixingTunnelAvailable: 1
     blockablePathsCount: 2
     towerPlacementAmount: 4
-    enemiesAmountDict:
-      m_Keys: []
-      m_Values: 
-    powerupUsedCountDict:
-      m_Keys: []
-      m_Values: 
     towerCardsList: []
     towersList: []
     baseDamageReceived: 0
-    enemiesThatDealtDamageDict:
-      m_Keys: []
-      m_Values: []
 --- !u!1 &5272138569050141455
 GameObject:
   m_ObjectHideFlags: 0
