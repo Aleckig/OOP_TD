@@ -24,7 +24,11 @@ public class LineManager : SerializedMonoBehaviour
     [ShowIf("EnableButton")]
     [SerializeField] private ButtonManager buttonManager;
     [SerializeField] private bool EnableDestroyOnDisable = false;
-
+    [SerializeField] private bool EnableHideOnAwake = false;
+    private void Awake()
+    {
+        if (EnableHideOnAwake) gameObject.SetActive(false);
+    }
     public string TextGet()
     {
         if (!EnablePlaceholder) return null;

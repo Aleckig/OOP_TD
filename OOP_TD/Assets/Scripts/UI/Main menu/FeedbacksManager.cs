@@ -7,6 +7,7 @@ public class FeedbacksManager : MonoBehaviour
     [SerializeField] private PlayerProgressData playerProgressData;
     [SerializeField] private Transform feedbackLinesBlock;
     [SerializeField] private GameObject feedbackLinePrefab;
+    [SerializeField] private LineManager popUpBlock;
 
     private void Start()
     {
@@ -34,5 +35,13 @@ public class FeedbacksManager : MonoBehaviour
 
         string filePath = System.IO.Path.Combine(folderPath, $"Level {levelId} feedback.txt");
         File.WriteAllText(filePath, levelDataSaveManager.CreateFeedbackForBothLevels(levelId));
+
+        PopUpMessage(popUpBlock);
+    }
+
+    public void PopUpMessage(LineManager popUpBlock)
+    {
+        popUpBlock.gameObject.SetActive(true);
+        popUpBlock.TextSet("Your feedback saved to \"My Documents/OOP TowerDefence/Feedbacks\"");
     }
 }

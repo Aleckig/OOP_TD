@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Michsky.UI.Heat;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class BaseManager : MonoBehaviour
 {
     [SerializeField] private LevelManager levelManager;
-    private DictionaryStrFloat enemiesThatDealtDamageDict = new() { };
+    [ShowInInspector]
+    private Dictionary<string, float> enemiesThatDealtDamageDict = new() { };
     private float totalDamage = 0;
     public float maxHealth = 100f;
     public float currentHealth;
@@ -28,6 +30,7 @@ public class BaseManager : MonoBehaviour
     public HealthBar originalHealthBar;
     public float damageMultiplier = 1f;
     public ButtonManager shieldButton;
+    public ButtonManager fixButton;
     private Renderer targetRenderer; // Renderer of the target GameObject
     public AbilityManager abilityManager;
     [SerializeField] private AudioClip shieldSound;
@@ -36,7 +39,7 @@ public class BaseManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
+        enemiesThatDealtDamageDict = new() { };
         shieldButton.enabled = false;
         if (targetObject != null)
         {
@@ -49,6 +52,9 @@ public class BaseManager : MonoBehaviour
         {
             Debug.LogError("Target GameObject is not assigned in BaseManager script!");
         }
+
+        shieldButton.onClick.AddListener(() => { SpawnShield(); });
+        fixButton.onClick.AddListener(() => { FixBaseCode(); });
     }
 
     void Update()
@@ -180,7 +186,7 @@ public class BaseManager : MonoBehaviour
         while (counter > 0f)
         {
             counter -= 0.01f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.1f);
             shieldTimer.SetHealth(counter);
         }
         if (counter <= 0f)

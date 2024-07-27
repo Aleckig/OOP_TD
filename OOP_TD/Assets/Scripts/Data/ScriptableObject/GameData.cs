@@ -1,16 +1,14 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
 using Tymski;
+using Unity.VisualScripting;
 
-[Serializable]
-[CreateAssetMenu(fileName = "GameData", menuName = "Game Data Containers/ Game Data", order = 0)]
+[CreateAssetMenu(fileName = "GameData", menuName = "Game Data Containers/Game Data", order = 0)]
 public class GameData : SerializedScriptableObject
 {
   [Title("References")]
-  public PlayerProgressData playerProgressData;
   [Title("Towers Data")]
   public List<TowerCard> towerCardsList;
   public List<Tower> towersList;
@@ -19,6 +17,7 @@ public class GameData : SerializedScriptableObject
   [Title("Levels Data")]
   public int activeLevelId = -1;
   [OnValueChanged("UpdateLevelsId")]
+  // [OdinSerialize]
   public List<LevelSettingsItem> levelsDataList;
 
   private void UpdateLevelsId()
@@ -30,9 +29,15 @@ public class GameData : SerializedScriptableObject
       idCount++;
     }
   }
+
+  [Button("Reset Game Data")]
+  private void ResetData()
+  {
+    towerCardsList.Clear();
+    towersList.Clear();
+  }
 }
 
-[Serializable]
 public class LevelSettingsItem
 {
   public int levelId;

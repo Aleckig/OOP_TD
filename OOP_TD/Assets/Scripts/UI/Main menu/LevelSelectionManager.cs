@@ -2,11 +2,13 @@ using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 using Michsky.UI.Heat;
+using Unity.VisualScripting;
 public class LevelSelectionManager : MonoBehaviour
 {
     [Title("Reference")]
     public GameData gameData;
     public PlayerProgressData playerProgressData;
+    [SerializeField] private LineManager popUpBlock;
     [SerializeField] private TMP_Text levelNameText;
     [SerializeField] private UnityEngine.UI.Image levelimage;
     [SerializeField] private GameObject levelSelectionBlock;
@@ -47,6 +49,7 @@ public class LevelSelectionManager : MonoBehaviour
         gameData.activeLevelId = -1;
     }
 
+
     public void OpenLevelSelection(int levelId)
     {
         LevelSettingsItem levelDataItem = gameData.levelsDataList.Find(item => item.levelId == levelId);
@@ -55,14 +58,26 @@ public class LevelSelectionManager : MonoBehaviour
 
         levelimage.overrideSprite = levelDataItem.levelImage;
 
-        easyButton.onClick.AddListener(() => { levelDataItem.LoadEasyLevel(); });
-        hardButton.onClick.AddListener(() => { levelDataItem.LoadHardLevel(); });
+        easyButton.onClick = new();
+        hardButton.onClick = new();
+
+        if (gameData.towerCardsList.Count == 4)
+        {
+            easyButton.onClick.AddListener(() => { levelDataItem.LoadEasyLevel(); });
+            hardButton.onClick.AddListener(() => { levelDataItem.LoadHardLevel(); });
+        }
+        else
+        {
+            easyButton.onClick.AddListener(() => { popUpBlock.TextSet("Please, check that stats for all towers selected in \"Tower Deck\" tab."); popUpBlock.gameObject.SetActive(true); ReturnBack(); });
+            hardButton.onClick.AddListener(() => { popUpBlock.TextSet("Please, check that stats for all towers selected in \"Tower Deck\" tab."); popUpBlock.gameObject.SetActive(true); ReturnBack(); });
+
+        }
+
 
         levelList.SetActive(false);
         levelSelectionBlock.SetActive(true);
 
         gameData.activeLevelId = levelId;
-
 
         bool[] statusCurrent = playerProgressData.levelDataSaveManager.GetLevelStatus(levelId);
         if (levelId == 1 && statusCurrent[1] == false)
@@ -83,5 +98,8 @@ public class LevelSelectionManager : MonoBehaviour
             hardButtonBlocked.SetActive(!statusCurrent[0]);
             hardButton.enabled = statusCurrent[0];
         }
+
+        easyButton.UpdateUI();
+        hardButton.UpdateUI();
     }
 }

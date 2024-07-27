@@ -1,11 +1,18 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 [Serializable]
 public class LevelDataSaveManager
 {
-  public LevelsDataDict levelsDataDict = new() { };
+  [OdinSerialize]
+  public Dictionary<int, LevelDataSaveSlot> levelsDataDict;
 
+  public LevelDataSaveManager()
+  {
+    levelsDataDict = new() { };
+  }
   public bool SaveData(int levelId, string difficulty, LevelDataSaveItem item)
   {
     if (levelsDataDict != null)
@@ -127,13 +134,18 @@ public class LevelDataSaveManager
 [Serializable]
 public class LevelDataSaveSlot
 {
-  public LevelsDataSaveDict LevelsDataSaveDict = new() { { "Easy", new() }, { "Hard", new() } };
+  [OdinSerialize]
+  public Dictionary<string, List<LevelDataSaveItem>> levelsDataSaveDict;
+  public LevelDataSaveSlot()
+  {
+    levelsDataSaveDict = new() { { "Easy", new() }, { "Hard", new() } };
+  }
 
   public bool Add(string difficulty, LevelDataSaveItem item)
   {
-    if (!LevelsDataSaveDict.ContainsKey(difficulty)) return false;
+    if (!levelsDataSaveDict.ContainsKey(difficulty)) return false;
 
-    LevelsDataSaveDict[difficulty].Add(item);
+    levelsDataSaveDict[difficulty].Add(item);
 
     return true;
   }
@@ -142,19 +154,19 @@ public class LevelDataSaveSlot
   {
     get
     {
-      if (!LevelsDataSaveDict.ContainsKey(difficulty)) return null;
-      return LevelsDataSaveDict[difficulty];
+      if (!levelsDataSaveDict.ContainsKey(difficulty)) return null;
+      return levelsDataSaveDict[difficulty];
     }
   }
 
   public string CountTotalAttempts(string difficulty)
   {
-    if (!LevelsDataSaveDict.ContainsKey(difficulty)) return "Wrong key";
+    if (!levelsDataSaveDict.ContainsKey(difficulty)) return "Wrong key";
 
     int successfulCount = 0;
     int failedCount = 0;
 
-    foreach (var attempt in LevelsDataSaveDict[difficulty])
+    foreach (var attempt in levelsDataSaveDict[difficulty])
     {
       if (attempt.completionStatus) successfulCount++;
       else failedCount++;
@@ -171,14 +183,26 @@ public class LevelDataSaveItem//Saving information about the Level for building 
   public bool mixingTunnelAvailable;
   public int blockablePathsCount;
   public int towerPlacementAmount;
-  public DictionaryStrInt enemiesAmountDict = new() { };
-  public DictionaryStrInt powerupUsedCountDict = new() { };
+  [ShowInInspector]
+  [OdinSerialize]
+  public Dictionary<string, int> enemiesAmountDict;
+  [ShowInInspector]
+  [OdinSerialize]
+  public Dictionary<string, int> powerupUsedCountDict;
   public List<TowerCard> towerCardsList;
   public List<Tower> towersList;
   public float baseDamageReceived;
-  public DictionaryStrFloat enemiesThatDealtDamageDict = new() { };
+  [ShowInInspector]
+  [OdinSerialize]
+  public Dictionary<string, float> enemiesThatDealtDamageDict;
 
-  public LevelDataSaveItem(bool completionStatus, bool mixingTunnelAvailable, int blockablePathsCount, int towerPlacementAmount, DictionaryStrInt enemiesAmountDict, DictionaryStrInt powerupUsedCountDict, List<TowerCard> towerCardsList, List<Tower> towersList, float baseDamageReceived, DictionaryStrFloat enemiesThatDealtDamageDict)
+  public LevelDataSaveItem()
+  {
+    enemiesAmountDict = new() { };
+    powerupUsedCountDict = new() { };
+    enemiesThatDealtDamageDict = new() { };
+  }
+  public LevelDataSaveItem(bool completionStatus, bool mixingTunnelAvailable, int blockablePathsCount, int towerPlacementAmount, Dictionary<string, int> enemiesAmountDict, Dictionary<string, int> powerupUsedCountDict, List<TowerCard> towerCardsList, List<Tower> towersList, float baseDamageReceived, Dictionary<string, float> enemiesThatDealtDamageDict)
   {
     this.completionStatus = completionStatus;
     this.mixingTunnelAvailable = mixingTunnelAvailable;

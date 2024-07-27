@@ -16,27 +16,14 @@ MonoBehaviour:
     SerializedFormat: 1
     SerializedBytes: 
     ReferencedUnityObjects: []
-    SerializedBytesString: 
+    SerializedBytesString: ImxldmVsRGF0YVNhdmVNYW5hZ2VyIjogew0KICAgICIkaWQiOiAwLA0KICAgICIkdHlwZSI6ICIwfExldmVsRGF0YVNhdmVNYW5hZ2VyLCBBc3NlbWJseS1DU2hhcnAiLA0KICAgICJsZXZlbHNEYXRhRGljdCI6IHsNCiAgICAgICAgIiRpZCI6IDEsDQogICAgICAgICIkdHlwZSI6ICIxfFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltbU3lzdGVtLkludDMyLCBtc2NvcmxpYl0sW0xldmVsRGF0YVNhdmVTbG90LCBBc3NlbWJseS1DU2hhcnBdXSwgbXNjb3JsaWIiLA0KICAgICAgICAiY29tcGFyZXIiOiB7DQogICAgICAgICAgICAiJGlkIjogMiwNCiAgICAgICAgICAgICIkdHlwZSI6ICIyfFN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkdlbmVyaWNFcXVhbGl0eUNvbXBhcmVyYDFbW1N5c3RlbS5JbnQzMiwgbXNjb3JsaWJdXSwgbXNjb3JsaWIiDQogICAgICAgIH0sDQogICAgICAgICIkcmxlbmd0aCI6IDAsDQogICAgICAgICIkcmNvbnRlbnQiOiBbDQogICAgICAgIF0NCiAgICB9DQp9
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
   specialMethodsList:
   - unlockedStatus: 0
-    methodNameCode: TargetEnemy
-    methodNameDisplay: Target Enemy
-    paramListDisplay: enemy type
-    methodPointsPrice: 1
-  - unlockedStatus: 0
     methodNameCode: AllPriceReturn
     methodNameDisplay: 100% Price return
     paramListDisplay: 
     methodPointsPrice: 2
-  levelDataSaveManager:
-    levelsDataDict:
-      m_Keys: 01000000
-      m_Values:
-      - LevelsDataSaveDict:
-          m_Keys:
-          - Easy
-          - Hard
